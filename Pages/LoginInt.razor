@@ -1,0 +1,96 @@
+﻿@page "/Login"
+@inject IArticleManager articleManager
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+
+
+<div class="row" style="padding-left:20px">
+    <div class="col-md-4 border" >
+        <div class="text-center"> <h4>Login Institucion</h4></div>
+        <hr />
+        <form>
+            <div class="form-group">
+                <label for="Name" class="control-label"><strong>Nombre de usuario :</strong></label>
+                <input for="Name" class="form-control" @bind-value="@UserID" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-label"><strong>Clave :</strong></label>
+                <input for="Name" class="form-control" @bind-value="@passID" type="password"/>
+            </div>
+            @if (error)
+            {
+                <div class="alert alert-danger text-center"><strong>@msj</strong></div>
+            }
+            <div class="form-group">
+                <button type="button" class="btn btn-success btn-block" @onclick="() => CreateArticle()">Entrar</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@code {
+    String UserID;
+    String passID;
+    String id;
+    String ID_Institucion;
+    String id_inst;
+    String msj;
+    String e;
+
+    bool error = false;
+
+
+
+    protected async Task CreateArticle()
+    {
+
+        // await articleManager.Createlogin(log);
+
+        id = await articleManager.getloginID(UserID, passID);
+        ID_Institucion = await articleManager.getIDCompani(id);
+
+
+
+        if (id != null && id != "")
+        {
+
+            msj = "Logueado con exito";
+            GuardarLogin();
+        }
+        else
+        {
+            error = true;
+            msj = "Usuario o clave incorrecta";
+        }
+
+
+    }
+
+    void cancel()
+    {
+        navigationManager.NavigateTo("/articlelist");
+    }
+
+    //metodo que guarda los datos de login en localStorange
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // String name = await localStorage.GetItemAsync<string>("id_login");
+
+        if (await localStorage.ContainKeyAsync("ID_login"))
+        {
+            navigationManager.NavigateTo("/inicio");
+
+        }
+
+    }
+    async Task GuardarLogin()
+    {
+        await localStorage.SetItemAsync("ID_login", id);
+        await localStorage.SetItemAsync("ID_Institucion", id);
+        OnAfterRenderAsync(true);
+
+    }
+
+}

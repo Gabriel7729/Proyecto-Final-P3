@@ -1,0 +1,19 @@
+﻿<div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+    <a href=""><i style="color:rgb(196, 21, 21);" class="material-icons">home</i><span class="icon-text">Home</span></a><br />
+    <a href="RegistrarVacuna"><i style="color:rgb(196, 21, 21);" class="material-icons">add_circle_outline</i><span class="icon-text">Add. Vehiculos</span></a><br />
+    <a href="ConsultaVacunados"><i style="color:rgb(196, 21, 21);" class="material-icons">person_add</i><span class="icon-text">Add. Clientes</span></a><br />
+    <a href="AnularRegistro"><i style="color:rgb(196, 21, 21);" class="material-icons">ios_share</i><span class="icon-text">Gest. Reserva</span></a><br />
+    <a href="AnularRegistro"><i style="color:rgb(196, 21, 21);" class="material-icons">attach_money</i><span class="icon-text">Gest. Cobro</span></a><br />
+    <a href="AnularRegistro"><i style="color:rgb(196, 21, 21);" class="material-icons">list_alt</i><span class="icon-text">Reportes</span></a>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

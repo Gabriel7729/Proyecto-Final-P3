@@ -1,0 +1,117 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS;
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<div class="page">
+    <NavMenu />
+
+    <div id="main" class="main">
+
+        <div class="conten">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
+                <a class="navbar-brand" href="" style="font-size:2.5rem; color:white;">
+                    <img src="images/Rapid Car Logo.PNG" width="100" height="50" class="d-inline-block align-top" alt="" loading="lazy">
+                    <strong>Rapid <span style="color:  #db1212;">Car</span></strong>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active" style="font-size:1.5rem;">
+
+                        </li>
+                    </ul>
+                </div>
+                <a class="text-white" @onclick="@Cerrar"><strong>Cerrar Seccion</strong></a>
+                
+
+
+            </nav>
+
+            <br />
+
+            @Body
+
+            <br />
+
+            <footer class="footer-distributed rounded">
+
+                <div class="footer-left">
+                    <h3>Rapid <span>Car</span></h3>
+
+                    <p class="footer-links">
+                        <a href="#Home">Home</a>
+                        ·
+                        <a href="#Blog">Blog</a>
+                        ·
+                        <a href="#Contenido">Contenido</a>
+                        ·
+                        <a href="#Sobre">Sobre</a>
+                        ·
+                        <a href="#Contacto">Contacto</a>
+                    </p>
+
+                    <p class="footer-company-name">Rapid_Car © 2021</p>
+
+                    <div class="footer-icons">
+
+                        <a href="https://www.facebook.com/gabrielernesto.delarosapaniagua" Target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="" Target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/gabriel_7729/" Target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/Lusan7729/Proyecto-Final-P3" Target="_blank"><i class="fab fa-github"></i></a>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-center">
+                    <div class="footer-icons">
+                        <a><i class="fas fa-map-marker-alt"></i></a>
+                        <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+                        <br /><br /><br />
+
+                        <a><i class="fas fa-phone"></i></a>
+                        <p>809-894-8877</p>
+                        <br /><br /><br />
+
+                        <a><i class="far fa-envelope"></i></a>
+                        <p><a style="background-color:rgb(39, 38, 38);" href="mailto:equiposuperE@gmail.com">equiposuperE@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    s
+                    <p class="footer-company-about">
+                        <span>Sobre nosotros</span>
+                        Este es un sistema el cuál se basa en el alquiler de carros para cierto clientes. Cada institución/usuario que ingrese al sistema, podrá crear y añadir sus propios clientes y carros, y que de esta manera solo ellos puedan ver sus propios clientes, carros, facturas y alquileres.
+                    </p>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+@code{
+
+    bool Registrado = false;
+    async Task Cerrar()
+    {
+        navigationManager.NavigateTo("/login");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // String name = await localStorage.GetItemAsync<string>("id_login");
+
+        if (await localStorage.ContainKeyAsync("ID_login"))
+        {
+
+            Registrado = true;
+        }
+
+    }
+
+}

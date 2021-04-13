@@ -1,0 +1,130 @@
+﻿@page "/"
+@inject IArticleManager articleManager
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+@if (administrador)
+{
+    <div class="row">
+        <div class="col-md-4 " style="padding-left:20px;">
+            <div style="background-color:black; border-bottom-right-radius:60px;height:50px" >
+            <h4 class="text-white" style="padding-top:10px; padding-left:10px">
+                Agregar Institucion</h4></div>
+            
+            <form>
+                <div class="form-group">
+                    <label for="Name" class="control-label"><strong>Nombre ID Institucion</strong></label>
+                    <input for="Name" class="form-control" @bind-value="@log.UserID" />
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="control-label"><strong>clave</strong></label>
+                    <input for="Name" class="form-control" @bind-value="@log.passID" type="password" />
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="control-label"><strong>Nombre de la compania</strong></label>
+                    <input for="Name" class="form-control" @bind-value="@ints.Nombre" />
+                </div>
+                @if (msj == "Registrado con exito")
+                {
+                    <div class="alert alert-success text-center">@msj</div>
+                }@if (msj == "Este usuario ya existe")
+                {
+                    <div class="alert alert-warning text-center">@msj</div>
+                }
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-block" @onclick="() => CreateArticle()">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+<!--Veficicador del supremo Admin-->
+@if (administrador == false)
+{
+
+    <div class="row" style="padding-left:20px">
+        <div class="col-md-4 border rounded">
+            <div class="text-center"> <h3>Login administrador</h3></div>
+            <hr />
+            <div style="padding-top:20px">
+                <form>
+                    <div class="form-group">
+                        <label for="Name" class="control-label"><strong>Admin User</strong></label>
+                        <input for="Name" class="form-control" @bind-value="@AdminUser" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="control-label"><strong>admin clave</strong></label>
+                        <input for="Name" class="form-control" @bind-value="@AdminClave" type="password" />
+                    </div>
+                    @if (error)
+                    {
+                        <div class="alert alert-danger">Clave o usuario incorrecto</div>
+                    }
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-block" @onclick="() => VerificarAdmin()">Entrar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+}
+
+@code {
+
+    login log = new login();
+    Institucion ints = new Institucion();
+    String id;
+    String msj;
+
+    String AdminUser;
+    String AdminClave;
+    bool administrador = false;
+    bool error = false;
+
+    public void VerificarAdmin()
+    {
+        if (AdminUser == "admin" && AdminClave == "1234")
+        {
+            administrador = true;
+        }
+        else
+        {
+            error = true;
+        }
+    }
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await localStorage.SetItemAsync("name", "John Smith");
+        String name = await localStorage.GetItemAsync<string>("id_login");
+        msj = name;
+
+
+    }
+
+
+    protected async Task CreateArticle()
+    {
+        id = await articleManager.UserExiste(log.UserID);
+
+        if (id == null || id == "")
+        {
+
+            int id_login = await articleManager.Createlogin(log);
+            ints.ID_login = id_login.ToString();
+            await articleManager.CreateInst(ints);
+
+            msj = "Registrado con exito";
+        }
+        else
+        {
+            msj = "Este usuario ya existe";
+        }
+
+    }
+}
