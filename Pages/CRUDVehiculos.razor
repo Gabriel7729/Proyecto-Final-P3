@@ -1,0 +1,112 @@
+﻿@page "/CRUDVehiculos"
+@inject IVehiculosManager VehiculosManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IJSRuntime JSRuntime
+@implements IDisposable
+    <RadzenCard>
+        <header>
+            <h1 class="text-center">Listado de Vehiculos</h1>
+            <hr />
+        </header>
+
+        <div class="row">
+            <div class="col-md-6">
+                <a class="btn btn-success" href='/AddVehiculos'><i class="far fa-plus-square"></i>  Añadir Vehiculo</a>
+            </div>
+            <div class="col-md-6 text-right">
+                <a class="btn btn-warning" href='/ListadoVehiculosDeshabilitados'><i class="fas fa-clipboard-list"></i> Listado de Vehiculos deshabilitados</a>
+            </div>
+        </div>
+        <br />
+
+        <table class="table table-bordered table-hover" id="example">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                    <th>Color</th>
+                    <th>Precio_Dia</th>
+                    <th>Tipo</th>
+                    <th>Cap_Carga</th>
+                    <th>Pasajeros</th>
+                    <th>Matricula</th>
+                    <th>No_Seguro</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (VehiculosModel == null)
+                {
+                    <tr>
+                        <td colspan="12">
+                            No Records to display
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var vehiculo in VehiculosModel)
+                    {
+                        <tr>
+                            <td>@vehiculo.ID</td>
+                            <td>@vehiculo.Marca</td>
+                            <td>@vehiculo.Modelo</td>
+                            <td>@vehiculo.Año</td>
+                            <td>@vehiculo.Color</td>
+                            <td>@vehiculo.Precio_Dia.ToString("C", new CultureInfo("es-DO"))</td>
+                            <td>@vehiculo.Tipo</td>
+                            <td>@vehiculo.Capacidad_Carga Kg</td>
+                            <td>@vehiculo.Pasajeros</td>
+                            <td>@vehiculo.Matricula</td>
+                            <td>@vehiculo.No_Seguro</td>
+                            <td>
+                                <a href='/EditVehiculos/@vehiculo.ID'><i style="color:dodgerblue;" class="far fa-edit"></i></a>
+                                <a href='/DetallesVehiculos/@vehiculo.ID'><i style="color:deepskyblue;" class="fas fa-info-circle"></i></a>
+                                <a href='/DeshabilitarVehiculo/@vehiculo.ID'><i style="color:orange;" class="fas fa-ban"></i></a>
+                                <a href="/CRUDVehiculos" @onclick="() => DeleteVehiculos(vehiculo.ID, vehiculo.ID_Institucion)"><i style="color:red;" class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </RadzenCard>
+
+
+    @code {
+
+        //Instancia una lista de la clase de vehiculos
+        List<Vehiculos> VehiculosModel;
+
+        //Instancia de la clase Vehiculos
+        Vehiculos VehiculosEntity = new Vehiculos();
+
+        //Metodo para borrar un vehiculo con los parametros del ID normal y el ID de institucion
+        protected async Task DeleteVehiculos(int id, string id_institucion)
+        {
+            await VehiculosManager.Delete(id, id_institucion);
+            VehiculosModel = await VehiculosManager.ListAll(id_institucion);
+        }
+
+        //Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
+        protected override async Task OnInitializedAsync()
+        {
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            VehiculosModel = await VehiculosManager.ListAll(name);
+        }
+
+        //Metodos para poder implementar el Datatable
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+        }
+
+        void IDisposable.Dispose()
+        {
+            JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+        }
+
+    }

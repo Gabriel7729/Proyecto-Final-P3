@@ -1,0 +1,65 @@
+﻿@page "/DetallesClientes/{ID}"
+@*Inject para el funcionamiento de los metodos asincronos para manejar la Base de Datos*@
+@inject IClientesManager ClientesManager
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+    <style>
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <RadzenCard>
+        <header>
+            <div class="text-center alert alert-info">
+                <h1>Detalles del cliente @clientes.Nombre</h1>
+            </div>
+        </header>
+
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card" style="width: 20rem; height:30rem;">
+                    <img class="card-img-top" src="@clientes.Foto_Persona" alt="Picture @clientes.Nombre" style="height:24rem;">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title">@clientes.Nombre @clientes.Apellido</h5>
+                            <p class="card-text"><strong>Correo: </strong>@clientes.Correo</p>
+                            <p class="card-text"><strong>Licencia: </strong>@clientes.Licencia</p>
+                            <p class="card-text"><strong>Nacionalidad: </strong>@clientes.Nacionalidad</p>
+                            <p class="card-text"><strong>Tipo de Sangre: </strong>@clientes.Tipo_Sangre</p>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <div>
+            <center>
+                <a class="btn btn-primary" href='/CRUDClientes'><i class="fas fa-backward"></i>  Volver atrás</a>
+            </center>
+        </div>
+    </RadzenCard>
+
+    @code  {
+        //Id que se recibe como parametro
+        [Parameter]
+        public string ID { get; set; }
+
+        //Instancia de la Clase Clientes
+        Clientes clientes = new Clientes();
+
+        //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los impus
+        protected override async Task OnInitializedAsync()
+        {
+            //Se obtiene el ID por medio del LocalStorage
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            clientes.ID_Institucion = name;
+            clientes = await ClientesManager.GetById(Convert.ToInt32(ID), clientes.ID_Institucion);
+        }
+
+    }

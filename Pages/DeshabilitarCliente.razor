@@ -1,0 +1,62 @@
+﻿@page "/DeshabilitarCliente/{ID}"
+@*Inject para el funcionamiento de los metodos asincronos para manejar la Base de Datos*@
+@inject IClientesManager ClientesManager
+@*Inject para el funcionamiento de navegar mediante metodos de comandos por C#*@
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@*Inject para el funcionamiento del localstorage de la variable global de la institucion*@
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+    <RadzenCard>
+        <div class="row">
+            <center>
+                <div class="col-md-10">
+                    <RadzenCard>
+                        <h1 class="text-center">Deshabilitar cliente @cliente.Nombre @cliente.Apellido</h1>
+                        <RadzenTemplateForm TItem="Clientes" Data=@cliente Submit=@DeshabilitarClientes InvalidSubmit=@DeshabilitarClientes>
+
+                            <h3 class="text-center">¿Está seguro de que quiere deshabilitar este cliente?</h3>
+
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-success btn-block" @onclick="() => DeshabilitarClientes()">Deshabilitar</button>
+                                <button type="button" class="btn btn-danger btn-block" @onclick="() => cancel()">Cancelar</button>
+                            </div>
+
+                        </RadzenTemplateForm>
+                    </RadzenCard>
+                </div>
+            </center>
+        </div>
+    </RadzenCard>
+
+    @code  {
+        //Id que se recibe como parametro
+        [Parameter]
+        public string ID { get; set; }
+
+        //Instancia de la Clase 'Clientes'
+        Clientes cliente = new Clientes();
+
+        //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los inputs
+        protected override async Task OnInitializedAsync()
+        {
+            //Se obtiene el ID por medio del LocalStorage
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            cliente.ID_Institucion = name;
+            cliente = await ClientesManager.GetById(Convert.ToInt32(ID), cliente.ID_Institucion);
+        }
+
+        //Metodo para actualizar los clientes
+        protected async Task DeshabilitarClientes()
+        {
+            cliente.Estado = "Deshabilitado";
+            await ClientesManager.DeshabilitarCliente(cliente);
+            navigationManager.NavigateTo("/CRUDClientes");
+        }
+
+        //Metodo para cancelar y volver a la lista de los clientes
+        void cancel()
+        {
+            navigationManager.NavigateTo("/CRUDClientes");
+        }
+
+    }

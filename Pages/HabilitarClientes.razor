@@ -1,0 +1,60 @@
+﻿@page "/HabilitarClientes/{ID}"
+@*Inject para el funcionamiento de los metodos asincronos para manejar la Base de Datos*@
+@inject IClientesManager ClientesManager
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<RadzenCard>
+    <div class="row">
+        <center>
+            <div class="col-md-8">
+                <RadzenCard>
+                    <h1 class="text-center">Habilitar Vehiculo @clientes.Nombre @clientes.Apellido</h1>
+                    <RadzenTemplateForm TItem="Clientes" Data=@clientes Submit=@HabilitarCliente InvalidSubmit=@HabilitarCliente>
+
+                        <h3 class="text-center">¿Está seguro de que quiere Habilitar este Vehiculo?</h3>
+
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-info btn-block" @onclick="() => HabilitarCliente()">Habilitar</button>
+                            <button type="button" class="btn btn-danger btn-block" @onclick="() => cancel()">Cancelar</button>
+                        </div>
+
+                    </RadzenTemplateForm>
+                </RadzenCard>
+            </div>
+        </center>
+    </div>
+</RadzenCard>
+
+@code  {
+    //Id que se recibe como parametro
+    [Parameter]
+    public string ID { get; set; }
+
+    //Instancia de la Clase Clientes
+    Clientes clientes = new Clientes();
+
+    //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los inputs
+    protected override async Task OnInitializedAsync()
+    {
+        //Se obtiene el ID por medio del LocalStorage
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        clientes.ID_Institucion = name;
+        clientes = await ClientesManager.GetById(Convert.ToInt32(ID), clientes.ID_Institucion);
+    }
+
+    //Metodo para actualizar los clientes
+    protected async Task HabilitarCliente()
+    {
+        clientes.Estado = "Habilitado";
+        await ClientesManager.HabilitarCliente(clientes);
+        navigationManager.NavigateTo("/CRUDClientes");
+    }
+
+    //Metodo para cancelar y volver a la lista de los clientes
+    void cancel()
+    {
+        navigationManager.NavigateTo("/CRUDClientes");
+    }
+
+}

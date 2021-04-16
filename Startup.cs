@@ -30,6 +30,11 @@ namespace PtoyectoFinal
             services.AddServerSideBlazor();
             services.AddBlazoredLocalStorage();
 
+            services.AddServerSideBlazor().AddHubOptions(o =>
+            {
+                o.MaximumReceiveMessageSize = 10 * 1024 * 1024;
+            });
+
             services.AddBlazoredLocalStorage(config =>
         config.JsonSerializerOptions.WriteIndented = true);
 
@@ -38,6 +43,13 @@ namespace PtoyectoFinal
                               Configuration.GetConnectionString("DefaultConnection")));
             //Article service  
             services.AddScoped<IArticleManager, ArticleManager>();
+
+            //Vehiculos service  
+            services.AddScoped<IVehiculosManager, VehiculosManager>();
+
+            //Clientes service  
+            services.AddScoped<IClientesManager, ClientesManager>();
+
             //Register dapper in scope  
             services.AddScoped<IDapperManager, DapperManager>();
         }

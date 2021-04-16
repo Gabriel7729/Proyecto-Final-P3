@@ -1,21 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LUIS ANTONIO DE AZA\\source\\repos\\PtoyectoFinal\\PtoyectoFinal\\PtoyectoFinal.csproj": {}
+    "C:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\PtoyectoFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LUIS ANTONIO DE AZA\\source\\repos\\PtoyectoFinal\\PtoyectoFinal\\PtoyectoFinal.csproj": {
+    "C:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\PtoyectoFinal.csproj": {
       "version": "1.0.1",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LUIS ANTONIO DE AZA\\source\\repos\\PtoyectoFinal\\PtoyectoFinal\\PtoyectoFinal.csproj",
+        "projectUniqueName": "C:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\PtoyectoFinal.csproj",
         "projectName": "PtoyectoFinal",
-        "projectPath": "C:\\Users\\LUIS ANTONIO DE AZA\\source\\repos\\PtoyectoFinal\\PtoyectoFinal\\PtoyectoFinal.csproj",
-        "packagesPath": "C:\\Users\\LUIS ANTONIO DE AZA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LUIS ANTONIO DE AZA\\source\\repos\\PtoyectoFinal\\PtoyectoFinal\\obj\\",
+        "projectPath": "C:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\PtoyectoFinal.csproj",
+        "packagesPath": "C:\\Users\\Lusan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\LUIS ANTONIO DE AZA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Lusan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -40,6 +47,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "BlazorInputFile": {
+              "target": "Package",
+              "version": "[0.2.0, )"
+            },
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -70,6 +81,10 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[3.2.3, )"
+            },
             "System.Text.Json": {
               "target": "Package",
               "version": "[5.0.2, )"
@@ -93,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

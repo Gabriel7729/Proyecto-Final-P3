@@ -1,0 +1,139 @@
+﻿@page "/EditClientes/{ID}"
+@*Inject para el funcionamiento de los metodos asincronos para manejar la Base de Datos*@
+@inject IClientesManager ClientesManager
+@*Inject para el funcionamiento de navegar mediante metodos de comandos por C#*@
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@*Inject para el funcionamiento del localstorage de la variable global de la institucion*@
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<RadzenCard>
+    <div class="row">
+        <div class="col-md-6">
+            <RadzenCard>
+                <h1 class="text-center">Editar Clientes</h1>
+                <RadzenTemplateForm TItem="Clientes" Data=@cliente Submit=@UpdateClientes InvalidSubmit=@UpdateClientes>
+                    <div class="form-group">
+
+                        <label for="Cedula" class="control-label">Escriba la cedula del cliente:</label>
+                        <RadzenMask class="form-control" Mask="***-*******-*" Pattern="[^0-9]" id="Cedula" @bind-value="@cliente.Cedula" Placeholder="Cedula" />
+
+                        <label for="Nombre" class="control-label">Escriba el nombre del cliente:</label>
+                        <RadzenTextBox class="form-control" id="Nombre" @bind-value="@cliente.Nombre" Placeholder="Nombre" />
+
+                        <label for="Apellido" class="control-label">Escriba el apellido del cliente:</label>
+                        <RadzenTextBox class="form-control" id="Apellido" @bind-Value="cliente.Apellido" Placeholder="Apellido" />
+
+                        <label for="email" class="control-label">Escriba el correo del cliente:</label>
+                        <input class="form-control" type="email" id="email" @bind="@cliente.Correo" Placeholder="Email" />
+
+                        <label for="Licencia">Tipo de Licencia:</label>
+                        <select class="form-control" id="Licencia" @onchange="TipoDeLicencia">
+                            <option> -- Sin seleccionar -- </option>
+                            <option>Conductor</option>
+                            <option>Conductor de Motociclos</option>
+                            <option>Conductor de vehículos Pesados</option>
+                        </select>
+
+                        <label for="Nacionalidad" class="control-label">Escriba la nacionalidad del cliente:</label>
+                        <RadzenTextBox class="form-control" id="Nacionalidad" @bind-Value="cliente.Nacionalidad" Placeholder="Nacionalidad" />
+
+                        <label for="Tipo_Sangre">Tipo de Sangre:</label>
+                        <select class="form-control" id="Tipo_Sangre" @onchange="TipoDeSangre">
+                            <option> -- Sin seleccionar -- </option>
+                            <option>O Negativo</option>
+                            <option>O Positivo</option>
+                            <option>A negativo</option>
+                            <option>A positivo</option>
+                            <option>B negativo</option>
+                            <option>B positivo</option>
+                            <option>AB negativo</option>
+                            <option>AB positivo</option>
+                        </select>
+
+                        <label for="Foto Persona" class="control-label">Escriba el URL de la foto del cliente:</label>
+                        <RadzenTextBox class="form-control" id="Foto Persona" @bind-Value="cliente.Foto_Persona" Placeholder="Foto Persona" />
+
+                        <label for="Foto Licencia" class="control-label">Escriba el URL de la foto de la licencia del cliente:</label>
+                        <RadzenTextBox class="form-control" id="Foto Licencia" @bind-Value="cliente.Foto_Licencia" Placeholder="Foto Licencia" />
+
+                    </div>
+
+                    @if (ValidarInputs)
+                    {
+                        <div class="alert alert-danger">
+                            @MensajeError
+                        </div>
+                    }
+
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-success btn-block" @onclick="() => UpdateClientes()">Editar</button>
+                        <button type="button" class="btn btn-danger btn-block" @onclick="() => cancel()">Cancelar</button>
+                    </div>
+
+                </RadzenTemplateForm>
+            </RadzenCard>
+        </div>
+    </div>
+</RadzenCard>
+
+@code  {
+    //Id que se recibe como parametro
+    [Parameter]
+    public string ID { get; set; }
+
+    //Variables para validar los campos de los inputs
+    string MensajeError;
+    bool ValidarInputs = false;
+
+    //Strings de los select del tipo de sangre y del tipo de la licencia
+    String TipoSangre = "-- Sin seleccionar --";
+    String TipoLicencia = "-- Sin seleccionar --";
+
+    //Instancia de la Clase Clientes
+    Clientes cliente = new Clientes();
+
+    //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los inputs con el cliente requerido
+    protected override async Task OnInitializedAsync()
+    {
+        //Se obtiene el ID por medio del LocalStorage
+        String id = await localStorage.GetItemAsync<string>("ID_Institucion");
+        cliente.ID_Institucion = id;
+        cliente = await ClientesManager.GetById(Convert.ToInt32(ID), cliente.ID_Institucion);
+    }
+
+    //Metodo para actualizar los clientes
+    protected async Task UpdateClientes()
+    {
+        cliente.Tipo_Sangre = TipoSangre;
+        cliente.Licencia = TipoLicencia;
+
+        //if para validar si cada uno de los inputs o de los campos estan llenos y no se estan pasando nulls
+        if (cliente.Cedula == null || cliente.Nombre == null || cliente.Apellido == null || cliente.Correo == null || cliente.Licencia == "-- Sin seleccionar --" || cliente.Nacionalidad == "" || cliente.Tipo_Sangre == "-- Sin seleccionar --" || cliente.Foto_Persona == null || cliente.Foto_Licencia == null)
+        {
+            MensajeError = "Todos los campos son necesarios...";
+            ValidarInputs = true;
+            return;
+        }
+        await ClientesManager.Update(cliente);
+        navigationManager.NavigateTo("/CRUDClientes");
+    }
+
+    //Metodo para cancelar y volver a la lista de los clientes
+    void cancel()
+    {
+        navigationManager.NavigateTo("/CRUDClientes");
+    }
+
+    //Metodo para manejar el select del tipo de Sangre del cliente
+    public void TipoDeSangre(ChangeEventArgs e)
+    {
+        TipoSangre = e.Value.ToString();
+    }
+
+    //Metodo para manejar el select del tipo de licencia del cliente
+    public void TipoDeLicencia(ChangeEventArgs e)
+    {
+        TipoLicencia = e.Value.ToString();
+    }
+
+}

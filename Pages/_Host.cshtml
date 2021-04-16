@@ -11,18 +11,20 @@
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
-
     <!--Diferentes CDN de la aplicacion y el diseño-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Diferentes CDN para aplicar el DataTables a las tablas-->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Diferentes CDN para los componentes de Radzen-->
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/default.css">
 </head>
 <body>
     <app>
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
-
 
     <!--Script que hace la animación del sidebar Hamburger menu Collapse-->
     <script>
@@ -43,9 +45,30 @@
         }
     </script>
 
+    <!--Script que permite hacer la unión al Datatable-->
+    <script>
+        function TestDataTablesAdd(table) {
+            $(document).ready(function () {
+                $(table).DataTable();
+            });
+        }
+        function TestDataTablesRemove(table) {
+            $(document).ready(function () {
+                $(table).DataTable().destroy();
+                // Removes the datatable wrapper from the dom.
+                var elem = document.querySelector(table + '_wrapper');
+                elem.parentNode.removeChild(elem);
+            });
+        }
+    </script>
+
     <script src="_framework/blazor.server.js"></script>
     <!--Script con el CDN de los iconos de FontAwesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <!--Script para los componentes de Radzen-->
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <!--Script para el funcionamiento de BlazorInputFile-->
+    <script src="_content/BlazorInputFile/inputfile.js"></script>
 
 </body>
 </html>

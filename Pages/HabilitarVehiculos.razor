@@ -1,0 +1,62 @@
+﻿@page "/HabilitarVehiculos/{ID}"
+@inject IVehiculosManager VehiculosManager
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<RadzenCard>
+    <div class="row">
+        <center>
+            <div class="col-md-8">
+                <RadzenCard>
+                    <h1 class="text-center">Habilitar Vehiculo @vehiculo.Marca @vehiculo.Modelo</h1>
+                    <RadzenTemplateForm TItem="Vehiculos" Data=@vehiculo Submit=@HabilitarVehiculo InvalidSubmit=@HabilitarVehiculo>
+
+                        <h3 class="text-center">¿Está seguro de que quiere Habilitar este Vehiculo?</h3>
+
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-info btn-block" @onclick="() => HabilitarVehiculo()">Habilitar</button>
+                            <button type="button" class="btn btn-danger btn-block" @onclick="() => cancel()">Cancelar</button>
+                        </div>
+
+                    </RadzenTemplateForm>
+                </RadzenCard>
+            </div>
+        </center>
+    </div>
+</RadzenCard>
+
+@code  {
+    //Id que se recibe como parametro
+    [Parameter]
+    public string ID { get; set; }
+
+    //String del id de la institucion
+    string id;
+
+    //Instancia de la Clase Vehiculo
+    Vehiculos vehiculo = new Vehiculos();
+
+    //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los impus
+    protected override async Task OnInitializedAsync()
+    {
+        //Se obtiene el ID por medio del LocalStorage
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        vehiculo.ID_Institucion = name;
+        vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), vehiculo.ID_Institucion);
+    }
+
+    //Metodo para actualizar los vehiculos
+    protected async Task HabilitarVehiculo()
+    {
+        vehiculo.Estado = "Habilitado";
+        await VehiculosManager.DeshabilitarVehiculo(vehiculo);
+        navigationManager.NavigateTo("/CRUDVehiculos");
+    }
+
+    //Metodo para cancelar y volver a la lista de los Vehiculos
+    void cancel()
+    {
+        navigationManager.NavigateTo("/CRUDVehiculos");
+    }
+
+}
