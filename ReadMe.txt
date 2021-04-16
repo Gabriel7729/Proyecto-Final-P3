@@ -1,90 +1,84 @@
-DATABASE
-
 USE [master]
 GO
-/****** Object:  Database [Alquiler_Vehiculo]    Script Date: 12/04/2021 3:15:44 ******/
-CREATE DATABASE [Alquiler_Vehiculo]
+/****** Object:  Database [Alquiler_Vehiculos]    Script Date: 16/04/2021 14:46:45 ******/
+CREATE DATABASE [Alquiler_Vehiculos]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'Alquiler_Vehiculo', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Alquiler_Vehiculo.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'Alquiler_Vehiculos', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Alquiler_Vehiculos.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'Alquiler_Vehiculo_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Alquiler_Vehiculo_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'Alquiler_Vehiculos_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Alquiler_Vehiculos_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
  WITH CATALOG_COLLATION = DATABASE_DEFAULT
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET COMPATIBILITY_LEVEL = 150
+ALTER DATABASE [Alquiler_Vehiculos] SET COMPATIBILITY_LEVEL = 150
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
-EXEC [Alquiler_Vehiculo].[dbo].[sp_fulltext_database] @action = 'enable'
+EXEC [Alquiler_Vehiculos].[dbo].[sp_fulltext_database] @action = 'enable'
 end
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ANSI_NULL_DEFAULT OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET ANSI_NULL_DEFAULT OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ANSI_NULLS OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET ANSI_NULLS OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ANSI_PADDING OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET ANSI_PADDING OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ANSI_WARNINGS OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET ANSI_WARNINGS OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ARITHABORT OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET ARITHABORT OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET AUTO_CLOSE OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET AUTO_CLOSE ON 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET AUTO_SHRINK OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET AUTO_SHRINK OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET AUTO_UPDATE_STATISTICS ON 
+ALTER DATABASE [Alquiler_Vehiculos] SET AUTO_UPDATE_STATISTICS ON 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET CURSOR_CLOSE_ON_COMMIT OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET CURSOR_CLOSE_ON_COMMIT OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET CURSOR_DEFAULT  GLOBAL 
+ALTER DATABASE [Alquiler_Vehiculos] SET CURSOR_DEFAULT  GLOBAL 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET CONCAT_NULL_YIELDS_NULL OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET CONCAT_NULL_YIELDS_NULL OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET NUMERIC_ROUNDABORT OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET NUMERIC_ROUNDABORT OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET QUOTED_IDENTIFIER OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET QUOTED_IDENTIFIER OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET RECURSIVE_TRIGGERS OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET RECURSIVE_TRIGGERS OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET  ENABLE_BROKER 
+ALTER DATABASE [Alquiler_Vehiculos] SET  ENABLE_BROKER 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET DATE_CORRELATION_OPTIMIZATION OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET DATE_CORRELATION_OPTIMIZATION OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET TRUSTWORTHY OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET TRUSTWORTHY OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET ALLOW_SNAPSHOT_ISOLATION OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET PARAMETERIZATION SIMPLE 
+ALTER DATABASE [Alquiler_Vehiculos] SET PARAMETERIZATION SIMPLE 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET READ_COMMITTED_SNAPSHOT OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET READ_COMMITTED_SNAPSHOT OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET HONOR_BROKER_PRIORITY OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET HONOR_BROKER_PRIORITY OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET RECOVERY FULL 
+ALTER DATABASE [Alquiler_Vehiculos] SET RECOVERY SIMPLE 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET  MULTI_USER 
+ALTER DATABASE [Alquiler_Vehiculos] SET  MULTI_USER 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET PAGE_VERIFY CHECKSUM  
+ALTER DATABASE [Alquiler_Vehiculos] SET PAGE_VERIFY CHECKSUM  
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET DB_CHAINING OFF 
+ALTER DATABASE [Alquiler_Vehiculos] SET DB_CHAINING OFF 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+ALTER DATABASE [Alquiler_Vehiculos] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+ALTER DATABASE [Alquiler_Vehiculos] SET TARGET_RECOVERY_TIME = 60 SECONDS 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET DELAYED_DURABILITY = DISABLED 
+ALTER DATABASE [Alquiler_Vehiculos] SET DELAYED_DURABILITY = DISABLED 
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+ALTER DATABASE [Alquiler_Vehiculos] SET QUERY_STORE = OFF
 GO
-EXEC sys.sp_db_vardecimal_storage_format N'Alquiler_Vehiculo', N'ON'
+USE [Alquiler_Vehiculos]
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET QUERY_STORE = OFF
-GO
-USE [Alquiler_Vehiculo]
-GO
-/****** Object:  Table [dbo].[Article]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[Article]    Script Date: 16/04/2021 14:46:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,7 +92,7 @@ CREATE TABLE [dbo].[Article](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Clientes]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[Clientes]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +116,7 @@ CREATE TABLE [dbo].[Clientes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Factura]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[Factura]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -149,7 +143,7 @@ CREATE TABLE [dbo].[Factura](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Institucion]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[Institucion]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +158,7 @@ CREATE TABLE [dbo].[Institucion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[login]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[login]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -179,7 +173,7 @@ CREATE TABLE [dbo].[login](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Reserva]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[Reserva]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -197,7 +191,7 @@ CREATE TABLE [dbo].[Reserva](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Vehiculos]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  Table [dbo].[Vehiculos]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -207,7 +201,8 @@ CREATE TABLE [dbo].[Vehiculos](
 	[Marca] [nvarchar](250) NOT NULL,
 	[ID_Institucion] [nvarchar](1) NOT NULL,
 	[Modelo] [nvarchar](250) NOT NULL,
-	[Año] [date] NOT NULL,
+	[Año] [nvarchar](250) NOT NULL,
+	[Color] [nvarchar](250) NOT NULL,
 	[Precio_Dia] [real] NOT NULL,
 	[Tipo] [nvarchar](250) NOT NULL,
 	[Capacidad_Carga] [real] NOT NULL,
@@ -226,15 +221,16 @@ CREATE TABLE [dbo].[Vehiculos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-SET IDENTITY_INSERT [dbo].[Article] ON 
+SET IDENTITY_INSERT [dbo].[Clientes] ON 
 
-INSERT [dbo].[Article] ([ID], [Title]) VALUES (1, N'Antony PAJRAZOZO')
-SET IDENTITY_INSERT [dbo].[Article] OFF
+INSERT [dbo].[Clientes] ([ID], [Cedula], [ID_Institucion], [Nombre], [Apellido], [Correo], [Licencia], [Nacionalidad], [Tipo_Sangre], [Foto_Persona], [Foto_Licencia], [Estado]) VALUES (3, N'402-2936377-1', N'1', N'Gabriel', N'De La Rosa', N'gabrieldelarosa2928@gmail.com', N'Conductor', N'Republica Dominicana', N'O Negativo', N'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBISEhISEhIYEhIYEhUfEhgYEhoSEhwVJRonJyUhJCQpLjwzKSw4JR0kKzo0ODE1Nzc3KDE8QDs0Pzw1NjUBDAwMEA8QHxISHz0rJSs3NTQ0NDQ6MTQ0NDQ0NDQ0NDQ2NDQ0NDE0MTQxNDQ0NDQ0NDQ/NEA0NDQ0PzQ3NDQ0NP/AABEIAMgAxwMBIgACEQE', N'safa', N'Habilitado')
+INSERT [dbo].[Clientes] ([ID], [Cedula], [ID_Institucion], [Nombre], [Apellido], [Correo], [Licencia], [Nacionalidad], [Tipo_Sangre], [Foto_Persona], [Foto_Licencia], [Estado]) VALUES (4, N'402-6541278-7', N'1', N'Noe', N'Medina', N'ellusan7729@gmail.com', N'Conductor de Motociclos', N'Republica Dominicana', N'A positivo', N'dfghdhf', N'dhdfh', N'Habilitado')
+SET IDENTITY_INSERT [dbo].[Clientes] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Institucion] ON 
 
-INSERT [dbo].[Institucion] ([ID_Institucion], [Nombre], [ID_login]) VALUES (1, N'Honda.inc', N'1')
-INSERT [dbo].[Institucion] ([ID_Institucion], [Nombre], [ID_login]) VALUES (2, N'Toyota.inc', N'2')
+INSERT [dbo].[Institucion] ([ID_Institucion], [Nombre], [ID_login]) VALUES (1, N'Honda_Inc', N'1')
+INSERT [dbo].[Institucion] ([ID_Institucion], [Nombre], [ID_login]) VALUES (2, N'Toyota_Inc', N'2')
 SET IDENTITY_INSERT [dbo].[Institucion] OFF
 GO
 SET IDENTITY_INSERT [dbo].[login] ON 
@@ -243,7 +239,14 @@ INSERT [dbo].[login] ([ID_login], [UserID], [passID]) VALUES (1, N'Honda', N'123
 INSERT [dbo].[login] ([ID_login], [UserID], [passID]) VALUES (2, N'Toyota', N'123')
 SET IDENTITY_INSERT [dbo].[login] OFF
 GO
-/****** Object:  StoredProcedure [dbo].[Add_Factura]    Script Date: 12/04/2021 3:15:45 ******/
+SET IDENTITY_INSERT [dbo].[Vehiculos] ON 
+
+INSERT [dbo].[Vehiculos] ([ID], [Marca], [ID_Institucion], [Modelo], [Año], [Color], [Precio_Dia], [Tipo], [Capacidad_Carga], [Pasajeros], [Matricula], [NO_Seguro], [Foto], [Generado], [Veces_Reservados], [Latitud], [Longitud], [Estado]) VALUES (1, N'Toyota', N'2', N'Suprer', N'2025', N'Azul', 1200, N'Yipeta', 80, 4, N'A1-65478', N'6985411245', N'https://cdn2.laclave.com.do/images/cut-anuncios/Honda+CRV+2016+Diesel-157001129666999021-515x370.jpg', 0, 0, 17.7364063, -71.46554, N'Habilitado')
+INSERT [dbo].[Vehiculos] ([ID], [Marca], [ID_Institucion], [Modelo], [Año], [Color], [Precio_Dia], [Tipo], [Capacidad_Carga], [Pasajeros], [Matricula], [NO_Seguro], [Foto], [Generado], [Veces_Reservados], [Latitud], [Longitud], [Estado]) VALUES (2, N'Honda', N'1', N'Civic', N'2024', N'Blanco', 5200, N'Yipeta', 150, 6, N'62-65457', N'9854627843', N'https://cdn2.laclave.com.do/images/cut-anuncios/Honda+CR-V+EX-L+2018-sc1519884985423649-515x370.jpg', 0, 0, 18.38968, -68.60909, N'Habilitado')
+INSERT [dbo].[Vehiculos] ([ID], [Marca], [ID_Institucion], [Modelo], [Año], [Color], [Precio_Dia], [Tipo], [Capacidad_Carga], [Pasajeros], [Matricula], [NO_Seguro], [Foto], [Generado], [Veces_Reservados], [Latitud], [Longitud], [Estado]) VALUES (5, N'Honda', N'1', N'Accord', N'2020', N'Azul', 3200, N'Carro', 100, 4, N'13-65212', N'4587123674', N'https://img.autocosmos.com/noticias/fotosprinc/NAZ_c55090fb714d48969bef652dd5b6c435.jpg', 0, 0, 19.6567822, -70.7843857, N'Habilitado')
+SET IDENTITY_INSERT [dbo].[Vehiculos] OFF
+GO
+/****** Object:  StoredProcedure [dbo].[Add_Factura]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,14 +275,15 @@ AS
         VALUES  ( @ID_Factura,@ID_Institucion,@ID_Cliente,@ID_vehiculo,@Nombre_Cliente,@Apellido_Cliente,@Cedula_Cliente,@Fecha_inc,@Fecha_Fin,@Marca,@Monto_pagar,@Color,@Tipo,@Matricula,@Pago);   
 		SET @Id = SCOPE_IDENTITY();   
         SELECT  @Id AS ReservaID;    
-    END;  
+    END;   
+
+		/*Update pago Factura*/
 GO
-/****** Object:  StoredProcedure [dbo].[Add_Institucion]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Add_Institucion]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-/*AGREGA LOS DATOS A LA INSTITUCION*/
 CREATE PROCEDURE [dbo].[Add_Institucion]
     @Nombre NVARCHAR(25),
 	@ID_login int
@@ -290,14 +294,13 @@ AS
         VALUES  (@Nombre,@ID_login);   
 		SET @Id = SCOPE_IDENTITY();   
         SELECT  @Id AS ArticleID;    
-    END; 
+    END;   
 GO
-/****** Object:  StoredProcedure [dbo].[Add_login]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Add_login]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-/*AGREGA LOS DATOS A LA TABLA LOGIN*/
 CREATE PROCEDURE [dbo].[Add_login]
     @UserID NVARCHAR(25),
 	 @passID NVARCHAR(25)
@@ -310,7 +313,7 @@ AS
         SELECT  @Id AS ArticleID;    
     END;   
 GO
-/****** Object:  StoredProcedure [dbo].[Add_Reserva]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Add_Reserva]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -330,7 +333,7 @@ AS
         SELECT  @Id AS ReservaID;    
     END; 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Add_Article]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Add_Article]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -349,7 +352,7 @@ AS
         SELECT  @Id AS ArticleID;    
     END;  
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Add_Clientes]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Add_Clientes]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,8 +374,8 @@ AS
  DECLARE @Id as BIGINT  
         INSERT  INTO [Clientes]    
                 (Cedula,
-				Nombre,
 				ID_Institucion,
+				Nombre,
 				Apellido,
 				Correo,
 				Licencia,
@@ -398,8 +401,11 @@ AS
 		SET @Id = SCOPE_IDENTITY();   
         SELECT  @Id AS ClienteID;    
     END;   
+
+
+/*Procedimiento Almacenado para actualizar los datos de la tabla de Clientes*/
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Add_Vehiculos]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Add_Vehiculos]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -408,7 +414,8 @@ CREATE PROCEDURE [dbo].[SP_Add_Vehiculos]
     @Marca NVARCHAR(250),
 	@ID_Institucion NVARCHAR(250),
 	@Modelo NVARCHAR(250),
-	@Año DATE,
+	@Año NVARCHAR(250),
+	@Color NVARCHAR(250),
 	@Precio_Dia REAL,
 	@Tipo NVARCHAR(250),
 	@Capacidad_Carga REAL,
@@ -429,6 +436,7 @@ AS
 				ID_Institucion,
 				Modelo,
 				Año,
+				Color,
 				Precio_Dia,
 				Tipo,
 				Capacidad_Carga,
@@ -446,6 +454,7 @@ AS
 				@ID_Institucion,
 				@Modelo,
 				@Año,
+				@Color,
 				@Precio_Dia,
 				@Tipo,
 				@Capacidad_Carga,
@@ -461,9 +470,11 @@ AS
              );   
 		SET @Id = SCOPE_IDENTITY();   
         SELECT  @Id AS VehiculoID;    
-    END;  
+    END;   
+
+/*Procedimiento Almacenado para actualizar los datos de la tabla de Vehiculos*/
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Article]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Article]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -478,7 +489,7 @@ GO
 	           
 		END;    
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -503,7 +514,7 @@ CREATE PROCEDURE [dbo].[SP_Update_Clientes]
 		
 		/*Altualizar estado Cliente*/
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes_Estado]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes_Estado]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -518,7 +529,7 @@ CREATE PROCEDURE [dbo].[SP_Update_Clientes_Estado]
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Vehiculos]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Vehiculos]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -527,7 +538,8 @@ CREATE PROCEDURE [dbo].[SP_Update_Vehiculos]
 		@Id INT,   
 		@Marca NVARCHAR(250),
 		@Modelo NVARCHAR(250),
-		@Año DATE,
+		@Año NVARCHAR(250),
+		@Color NVARCHAR(250),
 		@Precio_Dia REAL,
 		@Tipo NVARCHAR(250),
 		@Capacidad_Carga REAL,
@@ -540,13 +552,13 @@ CREATE PROCEDURE [dbo].[SP_Update_Vehiculos]
 	AS  
 		BEGIN    
 
-		UPDATE [Vehiculos] SET Marca = @Marca, Modelo = @Modelo, Año = @Año, Precio_Dia = @Precio_Dia, Tipo = @Tipo, Capacidad_Carga = @Capacidad_Carga, Pasajeros = @Pasajeros, Matricula = @Matricula, NO_Seguro = @NO_Seguro, Foto = @Foto, Latitud = @Latitud, Longitud = @Longitud WHERE ID = @Id 
+		UPDATE [Vehiculos] SET Marca = @Marca, Modelo = @Modelo, Año = @Año, Color = @Color, Precio_Dia = @Precio_Dia, Tipo = @Tipo, Capacidad_Carga = @Capacidad_Carga, Pasajeros = @Pasajeros, Matricula = @Matricula, NO_Seguro = @NO_Seguro, Foto = @Foto, Latitud = @Latitud, Longitud = @Longitud WHERE ID = @Id 
 	           
 		END;
 
 		/*Update reservado*/
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Pago_Factura]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Pago_Factura]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -561,14 +573,14 @@ GO
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Estado]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Estado]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 		CREATE PROCEDURE [dbo].[Update_Vehiculo_Estado]
 		@id int,
-		@Estado INT
+		@Estado NVARCHAR(250)
 	AS    
 		BEGIN    
 
@@ -576,7 +588,7 @@ GO
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Generado]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Generado]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +605,7 @@ GO
 
 		/*Update reservado*/
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Reservado]    Script Date: 12/04/2021 3:15:45 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Reservado]    Script Date: 16/04/2021 14:46:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -606,9 +618,11 @@ GO
 
 		UPDATE [Vehiculos] SET Veces_Reservados = @Veces_Reservados WHERE ID = @id 
 	           
-		END; 
+		END;
+
+			/*Update Estado*/
 GO
 USE [master]
 GO
-ALTER DATABASE [Alquiler_Vehiculo] SET  READ_WRITE 
+ALTER DATABASE [Alquiler_Vehiculos] SET  READ_WRITE 
 GO
