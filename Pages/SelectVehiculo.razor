@@ -1,0 +1,112 @@
+﻿@page "/SelecVehiculo"
+@inject IVehiculosManager VehiculosManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject IJSRuntime JSRuntime
+@implements IDisposable
+<RadzenCard>
+    <header>
+        <h1 class="text-center">Seleccione el vehiculo a rentar</h1>
+        <hr />
+    </header>
+    <table class="table table-bordered table-hover table-striped" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Color</th>
+                <th>Precio_Dia</th>
+                <th>Tipo</th>
+                <th>Cap_Carga</th>
+                <th>Pasajeros</th>
+                <th>Matricula</th>
+                <th>No_Seguro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (VehiculosModel == null)
+            {
+                <tr>
+                    <td colspan="12">
+                        No Records to display
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var vehiculo in VehiculosModel)
+                {
+                    <tr>
+                        <td>@vehiculo.ID</td>
+                        <td>@vehiculo.Marca</td>
+                        <td>@vehiculo.Modelo</td>
+                        <td>@vehiculo.Año</td>
+                        <td>@vehiculo.Color</td>
+                        <td>@vehiculo.Precio_Dia.ToString("C", new CultureInfo("es-DO"))</td>
+                        <td>@vehiculo.Tipo</td>
+                        <td>@vehiculo.Capacidad_Carga Kg</td>
+                        <td>@vehiculo.Pasajeros</td>
+                        <td>@vehiculo.Matricula</td>
+                        <td>@vehiculo.No_Seguro</td>
+                        <td>
+                           
+                            <button href="/CRUDVehiculos" @onclick="() => SaveData(vehiculo.ID, vehiculo.Marca,vehiculo.Modelo,vehiculo.Año,vehiculo.Color,vehiculo.Precio_Dia,vehiculo.Tipo,vehiculo.Capacidad_Carga,vehiculo.Pasajeros,vehiculo.Matricula,vehiculo.No_Seguro,vehiculo.Generado,vehiculo.Veces_Reservados)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-star"></span> Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</RadzenCard>
+
+
+@code {
+
+        List<Vehiculos> VehiculosModel;
+
+        //Instancia de la clase Vehiculos
+        Vehiculos VehiculosEntity = new Vehiculos();
+
+          //Metodo que guarda los datos del cliente selecionado en locaStorange
+        protected async Task SaveData(int id, string Marca, string Modelo, string Año, string Color, double Precio, string Tipo, double Carga, int Pasajero, string Matricula, string Seguro,double generado,int reservado)
+    {
+        await localStorage.SetItemAsync("VID", id);
+        await localStorage.SetItemAsync("VMarca", Marca);
+        await localStorage.SetItemAsync("VMODELO", Modelo);
+        await localStorage.SetItemAsync("VAño", Año);
+        await localStorage.SetItemAsync("VCOLOR", Color);
+        await localStorage.SetItemAsync("VPRECIO", Precio);
+        await localStorage.SetItemAsync("VTIPO", Tipo);
+        await localStorage.SetItemAsync("VCARGA", Carga);
+        await localStorage.SetItemAsync("VPASAJERO", Pasajero);
+        await localStorage.SetItemAsync("VMATRICULA", Matricula);
+        await localStorage.SetItemAsync("VSEGURO", Seguro);
+        await localStorage.SetItemAsync("VGENERADO", generado);
+        await localStorage.SetItemAsync("VVRESERVADO", reservado);
+        navigationManager.NavigateTo("/addReserva");
+    }
+
+    //Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos
+    protected override async Task OnInitializedAsync()
+    {
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        VehiculosModel = await VehiculosManager.ListAll(name);
+    }
+
+
+    //Metodos para poder implementar el Datatable
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+    }
+
+    void IDisposable.Dispose()
+    {
+        JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+    }
+
+}

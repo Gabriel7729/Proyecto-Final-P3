@@ -1,0 +1,309 @@
+﻿@page "/addReserva"
+@inject IReservaManager ReservaManager
+@inject IVehiculosManager VehiculosManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@using Microsoft.OData.Edm;
+<h1>H: @msj</h1>
+<div class="container shadow" style="background-color:white;">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1><strong>Administrador de Reservas</strong></h1>
+            <hr />
+            @if (ExistSelect)
+            {
+                <button class="btn btn-primary" @onclick="@SelectVehiculo">Selecionar Vehiculo</button>
+            }
+            @if (ExistSelectC)
+            {
+                <button class="btn btn-primary" @onclick="@SelectCliente">Selecionar Cliente</button>
+            }
+            <br />
+            <center
+            <div class="row shadow" style="background-color:white">
+
+
+                <div class="col-md-4 rounded" style="padding-left:15px;height:24rem;padding-top:20px">
+                    @if (ExistSelect == false)
+                    {
+                        <div class="border shadow rounded" style="width: 18rem;">
+                           
+                            <div class="card-body">
+                                <h5 class="card-title">@Marca @Modelo - @Year</h5>
+                                <br />
+                                <span><strong>Color:</strong> @Color</span>
+                                <span><strong>Tipo:</strong>@Tipo</span> <br />
+                                <span>Carga: @Carga</span> <br />
+                                <span>Npasajeros: @Pasagero</span> <br />
+                                <span>Matricula: @Matricula</span> <br />
+                                <span>Nseguro: @Nseguro</span> <br />
+                                <div class="text-center alert alert-warning">RD$: @Precio</div> <br />
+                                <button class="btn btn-info btn-block" @onclick="@SelectVehiculo">Cambiar Vehiculo</button>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                <div class="col-md-4" style="padding-left:15px;height:24rem;padding-top:20px">
+                    <div class="border shadow rounded" style="padding-top:20px; height:24rem">
+                        <br />
+                        <div class="container">
+                            <form>
+                                <label>Fecha de inicio</label>
+                                <input class="form-control" type="date" @bind-value="INC" />
+
+                                <label>Fecha de Fin</label>
+                                <input class="form-control" type="date" @bind-value="FIN" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            <div class="col-md-4 rounded" style="padding-top:20px;padding-bottom:20px;width:18rem">
+                @if (ExistSelectC == false)
+                {
+                    <div class="border shadow rounded" style="width: 18rem;height:24rem">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@Nombre @Apellido</h5>
+                            <br />
+                            <span>Licencia: @Licencia</span>
+                            <br />
+                            <span>Sangre: @Sangre</span> <br />
+                            <span>Nacionalidad: @Carga</span> <br />
+                            <span>Npasajeros: @Pasagero</span> <br />
+                            <span>Correo: @Correo</span> <br />
+                            <button class="btn btn-info btn-block" @onclick="@SelectCliente">Cambiar Vehiculo</button>
+                        </div>
+                    </div>
+                }
+                </div>
+
+
+            </div>
+            </center>
+        </div>
+    </div>
+    <br />
+    @if (ExistSelect == false && ExistSelectC == false)
+    {
+<div class="container" style="padding-bottom:20px">
+    @if (errorFecha)
+    {
+        <div class="alert alert-warning text-center">La fecha seleccionada para este auto no esta disponible</div>
+    }
+    <button class="btn btn-primary btn-block" @onclick="@Guardar">Confirmar Alquiler</button>
+    <br />
+    <div class="text-center">
+        <h4 class="alert alert-info">Detalles de Facturacion</h4>
+    </div>
+    <div style="background-color:white;padding-top:10px;padding-left:10px;padding-bottom:10px;padding-right:20px" class="rounded shadow">
+        <strong>Factura a Nombre de : @Nombre @Apellido</strong>
+        <p>
+            @Nombre @Apellido de nacionalidad @Nacionalidad Alquilara un vehiculo Marca @Marca y modelo @Modelo Desde el dia <strong style="color:red">@INC</strong> hasta <strong style="color:red">@FIN</strong> <br />
+
+            por un costo de @MontoP, Que tiene una capacidad de carga de @Carga KG y espacio para @Pasagero pasajeros.
+        </p>
+        <br />
+        <strong>Datos del cliente:</strong>
+        <p>Correo:@Correo</p>
+        <p>Tipo de sangre:@Tipo</p>
+        <p>Cedula:@cedula</p>
+        <p>Licencia:@cedula</p>
+    </div>
+</div>
+    }
+</div>
+
+
+@code{
+
+    Reservas reserva = new Reservas();
+    Factura factura = new Factura();
+    String msj;
+    Date INC;
+    Date FIN;
+    bool errorFecha = false;
+
+
+
+
+    //Datos del Vehiculo
+    String vehiculo;
+    String Marca;
+    String Modelo;
+    String Year;
+    String Color;
+    String Tipo;
+    String Carga;
+    String Pasagero;
+    String Matricula;
+    String Nseguro;
+    String Precio;
+    bool ExistSelect = true;
+
+    //Datos del cliente
+    String cedula;
+    String Nombre;
+    String Apellido;
+    String Correo;
+    String Licencia;
+    String Nacionalidad;
+    String Sangre;
+    bool ExistSelectC = true;
+    int MontoP;
+
+    public void AP()
+    {
+        MontoP = (FIN.Day + 1 - INC.Day) * Convert.ToInt32(Precio);
+    }
+
+    //metodo que guarda los datos de login en localStorange
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+
+    }
+
+    public void SelectVehiculo()
+    {
+        navigationManager.NavigateTo("/SelecVehiculo");
+
+    }
+    public void SelectCliente()
+    {
+        navigationManager.NavigateTo("/SelectCliente");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // String name = await localStorage.GetItemAsync<string>("id_login");
+
+        if (await localStorage.ContainKeyAsync("CID"))
+        {
+            ExistSelectC = false;
+            cedula = await localStorage.GetItemAsStringAsync("CCEDULA");
+            Nombre = await localStorage.GetItemAsStringAsync("CNOMBRE");
+            Apellido = await localStorage.GetItemAsStringAsync("CAPELLIDO");
+            Correo = await localStorage.GetItemAsStringAsync("CCORREO");
+            Licencia = await localStorage.GetItemAsStringAsync("CLICENCIA");
+            Nacionalidad = await localStorage.GetItemAsStringAsync("CNACIONALIDAD");
+            Sangre = await localStorage.GetItemAsStringAsync("CSANGRE");
+
+
+        }
+
+        if (await localStorage.ContainKeyAsync("VID"))
+        {
+            ExistSelect = false;
+
+            Marca = await localStorage.GetItemAsStringAsync("VMarca");
+            Modelo = await localStorage.GetItemAsStringAsync("VMODELO");
+            Year = await localStorage.GetItemAsStringAsync("VAño");
+            Color = await localStorage.GetItemAsStringAsync("VCOLOR");
+            Precio = await localStorage.GetItemAsStringAsync("VPRECIO");
+            Tipo = await localStorage.GetItemAsStringAsync("VTIPO");
+            Carga = await localStorage.GetItemAsStringAsync("VCARGA");
+            Pasagero = await localStorage.GetItemAsStringAsync("VPASAJERO");
+            Matricula = await localStorage.GetItemAsStringAsync("VMATRICULA");
+            Matricula = await localStorage.GetItemAsStringAsync("VMATRICULA");
+            Nseguro = await localStorage.GetItemAsStringAsync("VSEGURO");
+
+        }
+
+    }
+
+    protected async Task Guardar()
+    {
+
+
+        string ID_V = await localStorage.GetItemAsync<string>("VID");
+        string ID_C = await localStorage.GetItemAsync<string>("CID");
+        string ID_Institucion = await localStorage.GetItemAsync<string>("ID_Institucion");
+
+        reserva.ID_Vehiculo = ID_V;
+        reserva.ID_Cliente = ID_C;
+        reserva.ID_Institucion = ID_Institucion;
+        reserva.Fecha_Inc = INC.ToString();
+        reserva.Fecha_Fin = FIN.ToString();
+
+        int MontoPagar = (FIN.Day + 1 - INC.Day) * Convert.ToInt32(Precio);
+        MontoP = MontoPagar;
+
+
+        //await ReservaManager.Agregar(reserva);
+
+
+        factura.ID_Institucion = ID_Institucion;
+        factura.ID_Cliente = ID_C;
+        factura.ID_Vehiculo = ID_V;
+        factura.Nombre_Cliente = Nombre;
+        factura.Apellido_Cliente = Apellido;
+        factura.Cedula_Cliente = cedula;
+        factura.Fecha_Inc = INC.ToString();
+        factura.Fecha_Fin = FIN.ToString();
+        factura.Monto_pagar = MontoPagar;
+        factura.Marca = Marca;
+        factura.Color = Color;
+        factura.Tipo = Tipo;
+        factura.Matricula = Matricula;
+        factura.pago = 1;
+
+        int ValidadoFehca = await ReservaManager.ValidadFecha(INC.ToString(), FIN.ToString(), ID_Institucion,ID_V);
+        if (ValidadoFehca != 0)
+        {
+            errorFecha = true;
+            return;
+        }
+        //Obtines lo que tiene el vehiculo generado y suma lo actual
+        int IDV = await localStorage.GetItemAsync<int>("VID");
+        int GENERADO = await localStorage.GetItemAsync<int>("VGENERADO");
+        int TotalGenerado = (GENERADO + MontoP);
+        await VehiculosManager.Generado(IDV,TotalGenerado);
+
+        //Obtiene las veces generado y le suma una vez mas
+        int Reservado = await localStorage.GetItemAsync<int>("VVRESERVADO");
+        int TotalReservado = Reservado + 1;
+        await VehiculosManager.Reservado(IDV, TotalReservado);
+
+       await ReservaManager.Agregar(reserva);
+       await ReservaManager.AgregarFactura(factura);
+        msj = "agregado" + ValidadoFehca;
+        LimpiarDatos();
+
+    }
+
+    protected async Task LimpiarDatos()
+    {
+        await localStorage.RemoveItemAsync("VID");
+        await localStorage.RemoveItemAsync("VMarca");
+        await localStorage.RemoveItemAsync("VMODELO");
+        await localStorage.RemoveItemAsync("VAño");
+        await localStorage.RemoveItemAsync("VCOLOR");
+        await localStorage.RemoveItemAsync("VPRECIO");
+        await localStorage.RemoveItemAsync("VTIPO");
+        await localStorage.RemoveItemAsync("VCARGA");
+        await localStorage.RemoveItemAsync("VPASAJERO");
+        await localStorage.RemoveItemAsync("VMATRICULA");
+        await localStorage.RemoveItemAsync("VMATRICULA");
+        await localStorage.RemoveItemAsync("VSEGURO");
+        await localStorage.RemoveItemAsync("VGENERADO");
+
+        await localStorage.GetItemAsStringAsync("CCEDULA");
+        await localStorage.GetItemAsStringAsync("CNOMBRE");
+        await localStorage.GetItemAsStringAsync("CAPELLIDO");
+        await localStorage.GetItemAsStringAsync("CCORREO");
+        await localStorage.GetItemAsStringAsync("CLICENCIA");
+        await localStorage.GetItemAsStringAsync("CNACIONALIDAD");
+        await localStorage.GetItemAsStringAsync("CSANGRE");
+        await localStorage.RemoveItemAsync("CID");
+
+        msj = "Agregado haha";
+    }
+
+
+
+
+}

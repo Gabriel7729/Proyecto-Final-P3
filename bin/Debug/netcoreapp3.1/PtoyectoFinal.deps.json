@@ -8,14 +8,7 @@
       "TRACE",
       "DEBUG",
       "NETCOREAPP",
-      "NETCOREAPP3_1",
-      "NETCOREAPP1_0_OR_GREATER",
-      "NETCOREAPP1_1_OR_GREATER",
-      "NETCOREAPP2_0_OR_GREATER",
-      "NETCOREAPP2_1_OR_GREATER",
-      "NETCOREAPP2_2_OR_GREATER",
-      "NETCOREAPP3_0_OR_GREATER",
-      "NETCOREAPP3_1_OR_GREATER"
+      "NETCOREAPP3_1"
     ],
     "languageVersion": "8.0",
     "platform": "",
@@ -38,6 +31,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
+          "Microsoft.OData.Edm": "7.8.3",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
           "Radzen.Blazor": "3.2.3",
           "System.Text.Json": "5.0.2",
@@ -989,6 +983,20 @@
       },
       "Microsoft.NETCore.Platforms/2.1.2": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.OData.Edm/7.8.3": {
+        "dependencies": {
+          "System.Text.Json": "5.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.OData.Edm.dll": {
+            "assemblyVersion": "7.8.3.0",
+            "fileVersion": "7.8.3.20303"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.OData.Edm.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.CodeGeneration/3.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "3.1.6",
@@ -4192,6 +4200,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.OData.Edm/7.8.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/FvQD76LzScuc350wyiESY9UE3aSgBLXT16AKutwvHPO9c4bIaTPPf3JU/cqtXTDz2632nyIUzzSaccBadduEA==",
+      "path": "microsoft.odata.edm/7.8.3",
+      "hashPath": "microsoft.odata.edm.7.8.3.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/3.0.0": {
       "type": "package",

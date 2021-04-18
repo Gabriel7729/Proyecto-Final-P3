@@ -1,0 +1,112 @@
+﻿@page "/SelectCliente"
+@*Inject para el funcionamiento de los metodos asincronos para manejar la Base de Datos*@
+@inject IClientesManager ClientesManager
+@*Inject para el funcionamiento del localstorage de la variable global de la institucion*@
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@*Injects para el funcionamiento del Datatable*@
+@inject IJSRuntime JSRuntime
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@implements IDisposable
+
+<RadzenCard>
+    <h1>@MSJ</h1>
+    <header>
+        <h1 class="text-center">Seleccione el cliente</h1>
+        <hr />
+    </header>
+
+  
+
+    <table class="table table-bordered table-hover" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Licencia</th>
+                <th>Nacionalidad</th>
+                <th>Tipo_Sangre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ClientesModel == null)
+            {
+                <tr>
+                    <td colspan="12">
+                        No Records to display
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var cliente in ClientesModel)
+                {
+                    <tr>
+                        <td>@cliente.ID</td>
+                        <td>@cliente.Cedula</td>
+                        <td>@cliente.Nombre</td>
+                        <td>@cliente.Apellido</td>
+                        <td>@cliente.Correo</td>
+                        <td>@cliente.Licencia</td>
+                        <td>@cliente.Nacionalidad</td>
+                        <td>@cliente.Tipo_Sangre</td>
+                        <td>
+
+                            <button class="btn btn-success btn-block shadow" href="/CRUDClientes" @onclick="() => DeleteClientes(cliente.ID, cliente.Cedula,cliente.Nombre,cliente.Apellido,cliente.Correo,cliente.Licencia,cliente.Nacionalidad,cliente.Tipo_Sangre)">Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</RadzenCard>
+
+
+@code {
+    String MSJ;
+
+    //Instancia una lista de la clase de Clientes
+    List<Clientes> ClientesModel;
+
+    //Instancia de la clase Clientes
+    Clientes ClientesEntity = new Clientes();
+
+    //Metodo para borrar un Cliente con los parametros del ID normal y el ID de institucion
+    protected async Task DeleteClientes(int id, string cedula, string nombre, string apellido, string correo, string licencia, string nacionaliada, string sangre)
+    {
+        // await ClientesManager.Delete(id, id_institucion);
+        //ClientesModel = await ClientesManager.ListarClientes(id_institucion);
+        await localStorage.SetItemAsync("CID", id);
+        await localStorage.SetItemAsync("CCEDULA", cedula);
+        await localStorage.SetItemAsync("CNOMBRE", nombre);
+        await localStorage.SetItemAsync("CAPELLIDO", apellido);
+        await localStorage.SetItemAsync("CCORREO", correo);
+        await localStorage.SetItemAsync("CLICENCIA", licencia);
+        await localStorage.SetItemAsync("CNACIONALIDAD", nacionaliada);
+        await localStorage.SetItemAsync("CSANGRE", sangre);
+        navigationManager.NavigateTo("/addReserva");
+    }
+
+    //Metodo que se ejecuta de inicio y que muestra la lista de los Clientes, filtrandola por el id de institucion
+    protected override async Task OnInitializedAsync()
+    {
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        ClientesModel = await ClientesManager.ListarClientes(name);
+    }
+
+    //Metodos para poder implementar el Datatable
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+    }
+
+    void IDisposable.Dispose()
+    {
+        JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+    }
+
+}

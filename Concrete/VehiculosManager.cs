@@ -105,6 +105,28 @@ namespace PtoyectoFinal.Concrete
                             commandType: CommandType.StoredProcedure));
             return updateVehiculosEstado;
         }
+        public Task<int> Generado(int id, double generado)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", id);
+            dbPara.Add("Generado",generado, DbType.Double);
+
+            var updateVehiculosEstado = Task.FromResult(_dapperManager.Update<int>("[dbo].[Update_Vehiculo_Generado]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure));
+            return updateVehiculosEstado;
+        }  
+        public Task<int> Reservado(int id, int reservado)
+        {
+            var dbPara = new DynamicParameters();
+            dbPara.Add("ID", id);
+            dbPara.Add("Veces_Reservados",reservado, DbType.Int32);
+
+            var updateVehiculosEstado = Task.FromResult(_dapperManager.Update<int>("[dbo].[Update_Vehiculo_Reservado]",
+                            dbPara,
+                            commandType: CommandType.StoredProcedure));
+            return updateVehiculosEstado;
+        }
 
     }
 }

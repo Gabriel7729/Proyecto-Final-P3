@@ -49,9 +49,15 @@ namespace PtoyectoFinal
 
             //Clientes service  
             services.AddScoped<IClientesManager, ClientesManager>();
+            //Reserva service  
+            services.AddScoped<IReservaManager, ReservaManager>();
 
             //Register dapper in scope  
             services.AddScoped<IDapperManager, DapperManager>();
+        
+           
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
