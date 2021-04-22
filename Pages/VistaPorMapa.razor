@@ -1,0 +1,71 @@
+@page "/BeneficiosMapa"
+@inject IVehiculosManager VehiculosManager
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+
+
+
+        <header>
+            <h1 class="text-center">Listado de  Mapa</h1>
+            <hr />
+        </header>
+
+        <h3 class="text-center">Seleccione su latitud y longitud</h3>
+
+        <RadzenGoogleMap style="height: 400px;" Zoom=@zoom Center=@(new GoogleMapPosition() { Lat = 18.94983041735482, Lng = -70.74993105485618 }) MapClick=@OnMapClick>
+            <Markers> 
+                @* @foreach (var vehiculo in VehiculosModel)
+                {
+                    <RadzenGoogleMapMarker Title="@vehiculo.Marca" Label="@vehiculo.Marca" Position=@(new GoogleMapPosition() { Lat = vehiculo.Latitud, Lng = vehiculo.Longitud }) />
+                } *@
+            </Markers>
+        </RadzenGoogleMap>
+
+
+
+    @code{
+
+        string foto;
+        string marca;
+        string modelo;
+        string color;
+        string año;
+
+        int zoom = 6;
+
+         //Instancia una lista de la clase de vehiculos
+        List<Vehiculos> VehiculosModel;
+
+        //Instancia de la clase Vehiculos
+        Vehiculos VehiculosEntity = new Vehiculos();
+
+         //Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
+        protected override async Task OnInitializedAsync()
+        {
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            VehiculosModel = await VehiculosManager.ListAll(name);
+        }
+
+            //Metodo para manejar el click del mapa
+        void OnMapClick(GoogleMapClickEventArgs args)
+        {
+  
+        }
+
+        void OnMarkerClick(RadzenGoogleMapMarker marker)
+        {
+            foreach (var vehiculo in VehiculosModel)
+            {
+                if( vehiculo.Marca == marker.Title)
+                {
+                        foto = vehiculo.Foto;
+                        marca = vehiculo.Marca;
+                        modelo = vehiculo.Modelo;
+                        año = vehiculo.Año;
+                        color = vehiculo.Color;
+                }
+            }
+        }
+
+    }
