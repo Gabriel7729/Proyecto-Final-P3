@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a\\OneDrive\\Escritorio\\PF\\Proyecto-Final-P3\\PtoyectoFinal.csproj": {}
+    "C:\\Users\\LUIS ANTONIO DE AZA\\Desktop\\pf\\Proyecto-Final-P3\\PtoyectoFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a\\OneDrive\\Escritorio\\PF\\Proyecto-Final-P3\\PtoyectoFinal.csproj": {
+    "C:\\Users\\LUIS ANTONIO DE AZA\\Desktop\\pf\\Proyecto-Final-P3\\PtoyectoFinal.csproj": {
       "version": "1.0.1",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a\\OneDrive\\Escritorio\\PF\\Proyecto-Final-P3\\PtoyectoFinal.csproj",
+        "projectUniqueName": "C:\\Users\\LUIS ANTONIO DE AZA\\Desktop\\pf\\Proyecto-Final-P3\\PtoyectoFinal.csproj",
         "projectName": "PtoyectoFinal",
-        "projectPath": "C:\\Users\\a\\OneDrive\\Escritorio\\PF\\Proyecto-Final-P3\\PtoyectoFinal.csproj",
-        "packagesPath": "C:\\Users\\a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a\\OneDrive\\Escritorio\\PF\\Proyecto-Final-P3\\obj\\",
+        "projectPath": "C:\\Users\\LUIS ANTONIO DE AZA\\Desktop\\pf\\Proyecto-Final-P3\\PtoyectoFinal.csproj",
+        "packagesPath": "C:\\Users\\LUIS ANTONIO DE AZA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LUIS ANTONIO DE AZA\\Desktop\\pf\\Proyecto-Final-P3\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\LUIS ANTONIO DE AZA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

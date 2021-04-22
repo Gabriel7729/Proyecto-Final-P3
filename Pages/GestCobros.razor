@@ -4,76 +4,77 @@
 @inject IReservaManager ReservaManager
 @*Inject para el funcionamiento del localstorage de la variable global de la institucion*@
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 @*Injects para el funcionamiento del Datatable*@
 @inject IJSRuntime JSRuntime
 @implements IDisposable
 
 <RadzenCard>
-  
-        <header>
-            <h1 class="text-center">Listado de los Clientes</h1>
-            <hr />
-        </header>
-        <br />
-        <table class="table table-bordered table-hover table-striped" id="example">
-            <thead class="thead-dark">
+
+    <header>
+        <h1 class="text-center">Listado de los Clientes</h1>
+        <hr />
+    </header>
+    <br />
+    <table class="table table-bordered table-hover table-striped" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Monto Pendiente</th>
+                <th>Info Vehiculo</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (FacturaModels == null)
+            {
                 <tr>
-                    <th>ID</th>
-                    <th>Cedula</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Monto Pendiente</th>
-                    <th>Info Vehiculo</th>
-                    <th>Accion</th>
+                    <td colspan="12">
+                        No Records to display
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @if (FacturaModels == null)
+            }
+            else
+            {
+                foreach (var cliente in FacturaModels)
                 {
                     <tr>
-                        <td colspan="12">
-                            No Records to display
+                        <td>@cliente.ID_Factura</td>
+                        <td>@cliente.Cedula_Cliente</td>
+                        <td>@cliente.Nombre_Cliente</td>
+                        <td>@cliente.Apellido_Cliente</td>
+                        <td>@cliente.Fecha_Inc</td>
+                        <td>@cliente.Fecha_Fin</td>
+                        <td>@cliente.Monto_pagar.ToString("C", new CultureInfo("es-DO"))</td>
+                        <td>
+                            @cliente.Tipo
+                            @cliente.Marca <br />
+                            @cliente.Matricula <br />
+
+                        </td>
+                        <td>
+                            @if (cliente.Monto_pagar <= 0)
+                            {
+                                <div class="alert alert-success text-center">Pagada</div>
+
+                            }
+                            else
+                            {
+                                <button class="btn btn-warning btn-block" @onclick="() => ModuloPago(cliente.ID_Factura, cliente.Monto_pagar,cliente.Nombre_Cliente,cliente.Apellido_Cliente)">Pagar</button>
+
+                            }
                         </td>
                     </tr>
                 }
-                else
-                {
-                    foreach (var cliente in FacturaModels)
-                    {
-                        <tr>
-                            <td>@cliente.ID_Factura</td>
-                            <td>@cliente.Cedula_Cliente</td>
-                            <td>@cliente.Nombre_Cliente</td>
-                            <td>@cliente.Apellido_Cliente</td>
-                            <td>@cliente.Fecha_Inc</td>
-                            <td>@cliente.Fecha_Fin</td>
-                            <td>@cliente.Monto_pagar.ToString("C",new CultureInfo("es-DO"))</td>
-                            <td>
-                                @cliente.Tipo
-                                @cliente.Marca <br />
-                                @cliente.Matricula <br />
+            }
 
-                                                    </td>
-                            <td>
-                                @if (cliente.Monto_pagar <= 0)
-                                {
-                                    <div class="alert alert-success text-center">Pagada</div>
-
-                                }
-                                else
-                                {
-                                    <button class="btn btn-warning btn-block" @onclick="() => ModuloPago(cliente.ID_Factura, cliente.Monto_pagar,cliente.Nombre_Cliente,cliente.Apellido_Cliente)">Pagar</button>
-
-                                }
-                            </td>
-                        </tr>
-                    }
-                }
-
-            </tbody>
-        </table>
+        </tbody>
+    </table>
     <br />
     <br />
     <br />
@@ -122,13 +123,23 @@
     //Metodo que se ejecuta de inicio y que muestra la lista de los Clientes, filtrandola por el id de institucion
     protected override async Task OnInitializedAsync()
     {
-        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-        FacturaModels = await ReservaManager.ListAll(name);
+
     }
 
     //Metodos para poder implementar el Datatable
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        if (firstRender)
+        {
+            if (!await localStorage.ContainKeyAsync("ID_login"))
+            {
+                navigationManager.NavigateTo("/Main");
+            }
+
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            FacturaModels = await ReservaManager.ListAll(name);
+            StateHasChanged();
+        }
         await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
     }
 
@@ -137,7 +148,7 @@
         JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
     }
 
-    protected  async Task ModuloPago(string id,double pago,string nombre, string apellido)
+    protected async Task ModuloPago(string id, double pago, string nombre, string apellido)
     {
         ID = id;
         valor = pago;
@@ -147,11 +158,11 @@
         //await ReservaManager.AltualizarPago(id,pago);
 
     }
-    protected  async Task EnviarRestante()
+    protected async Task EnviarRestante()
     {
         double Restante = valor - Convert.ToDouble(ValoPagado);
 
-        await ReservaManager.AltualizarPago(ID,Restante);
+        await ReservaManager.AltualizarPago(ID, Restante);
 
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
         FacturaModels = await ReservaManager.ListAll(name);

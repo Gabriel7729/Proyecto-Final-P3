@@ -13,133 +13,133 @@ namespace PtoyectoFinal.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 1 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 2 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 3 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 4 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 5 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 6 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 7 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 9 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 10 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Concrete;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 11 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Contracts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 12 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 13 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 14 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.DataAccess;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 15 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 16 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 17 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 18 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using BlazorInputFile;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\_Imports.razor"
+#line 19 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\_Imports.razor"
 using System.IO;
 
 #line default
@@ -154,46 +154,52 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "C:\Users\a\OneDrive\Escritorio\PF\Proyecto-Final-P3\Pages\CRUDVehiculos.razor"
-           
+#line 80 "C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\Pages\CRUDVehiculos.razor"
+       
 
-        //Instancia una lista de la clase de vehiculos
-        List<Vehiculos> VehiculosModel;
+    //Instancia una lista de la clase de vehiculos
+    List<Vehiculos> VehiculosModel;
 
-        //Instancia de la clase Vehiculos
-        Vehiculos VehiculosEntity = new Vehiculos();
+    //Instancia de la clase Vehiculos
+    Vehiculos VehiculosEntity = new Vehiculos();
 
-        //Metodo para borrar un vehiculo con los parametros del ID normal y el ID de institucion
-        protected async Task DeleteVehiculos(int id, string id_institucion)
+    //Metodo para borrar un vehiculo con los parametros del ID normal y el ID de institucion
+    protected async Task DeleteVehiculos(int id, string id_institucion)
+    {
+        await VehiculosManager.Delete(id, id_institucion);
+        VehiculosModel = await VehiculosManager.ListAll(id_institucion);
+    }
+
+
+    //Metodos para poder implementar el Datatable
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
         {
-            await VehiculosManager.Delete(id, id_institucion);
-            VehiculosModel = await VehiculosManager.ListAll(id_institucion);
-        }
+            if (!await localStorage.ContainKeyAsync("ID_login"))
+            {
+                navigationManager.NavigateTo("/Main");
 
-        //Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
-        protected override async Task OnInitializedAsync()
-        {
+            }
             String name = await localStorage.GetItemAsync<string>("ID_Institucion");
             VehiculosModel = await VehiculosManager.ListAll(name);
-        }
 
-        //Metodos para poder implementar el Datatable
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+            StateHasChanged();
         }
+        await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+    }
 
-        void IDisposable.Dispose()
-        {
-            JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
-        }
+    void IDisposable.Dispose()
+    {
+        JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+    }
 
-    
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.AspNetCore.Components.NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IVehiculosManager VehiculosManager { get; set; }
     }

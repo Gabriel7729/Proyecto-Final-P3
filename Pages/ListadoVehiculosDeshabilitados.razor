@@ -85,16 +85,15 @@
             VehiculosModel = await VehiculosManager.ListarVehiculosDeshabilitados(id_institucion);
         }
 
-        //Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
-        protected override async Task OnInitializedAsync()
-        {
-            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-            VehiculosModel = await VehiculosManager.ListarVehiculosDeshabilitados(name);
-        }
-
         //Metodos para poder implementar el Datatable
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            if (firstRender)
+            {
+                String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+                VehiculosModel = await VehiculosManager.ListarVehiculosDeshabilitados(name);
+                StateHasChanged();
+            }
             await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
         }
 

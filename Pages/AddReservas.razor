@@ -4,11 +4,13 @@
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 @using Microsoft.OData.Edm;
-<h1> @msj</h1>
+
+
 <div class="container shadow" style="background-color:white;">
     <div class="row">
         <div class="col-md-12 text-center">
             <h1><strong>Administrador de Reservas</strong></h1>
+
             <hr />
             @if (ExistSelect)
             {
@@ -27,7 +29,7 @@
                     @if (ExistSelect == false)
                     {
                         <div class="border shadow rounded" style="width: 18rem;">
-                           
+
                             <div class="card-body">
                                 <h5 class="card-title">@Marca @Modelo - @Year</h5>
                                 <br />
@@ -55,6 +57,7 @@
                                 <input class="form-control" type="date" @bind-value="FIN" />
                             </form>
                         </div>
+                       
                     </div>
                 </div>
 
@@ -88,8 +91,9 @@
     </div>
     <br />
     @if (ExistSelect == false && ExistSelectC == false)
+
     {
-<div class="container" style="padding-bottom:20px">
+<div class="container" >
     @if (errorFecha)
     {
         <div class="alert alert-warning text-center">La fecha seleccionada para este auto no esta disponible</div>
@@ -160,12 +164,6 @@
         MontoP = (FIN.Day + 1 - INC.Day) * Convert.ToInt32(Precio);
     }
 
-    //metodo que guarda los datos de login en localStorange
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-
-
-    }
 
     public void SelectVehiculo()
     {
@@ -177,47 +175,59 @@
         navigationManager.NavigateTo("/SelectCliente");
     }
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        // String name = await localStorage.GetItemAsync<string>("id_login");
-
-        if (await localStorage.ContainKeyAsync("CID"))
+        if (firstRender)
         {
-            ExistSelectC = false;
-            cedula = await localStorage.GetItemAsStringAsync("CCEDULA");
-            Nombre = await localStorage.GetItemAsStringAsync("CNOMBRE");
-            Apellido = await localStorage.GetItemAsStringAsync("CAPELLIDO");
-            Correo = await localStorage.GetItemAsStringAsync("CCORREO");
-            Licencia = await localStorage.GetItemAsStringAsync("CLICENCIA");
-            Nacionalidad = await localStorage.GetItemAsStringAsync("CNACIONALIDAD");
-            Sangre = await localStorage.GetItemAsStringAsync("CSANGRE");
+
+            if (!await localStorage.ContainKeyAsync("ID_login"))
+            {
+                navigationManager.NavigateTo("/Main");
+
+            }
+            // String name = await localStorage.GetItemAsync<string>("id_login");
+
+            if (await localStorage.ContainKeyAsync("CID"))
+            {
+                ExistSelectC = false;
+                cedula = await localStorage.GetItemAsStringAsync("CCEDULA");
+                Nombre = await localStorage.GetItemAsStringAsync("CNOMBRE");
+                Apellido = await localStorage.GetItemAsStringAsync("CAPELLIDO");
+                Correo = await localStorage.GetItemAsStringAsync("CCORREO");
+                Licencia = await localStorage.GetItemAsStringAsync("CLICENCIA");
+                Nacionalidad = await localStorage.GetItemAsStringAsync("CNACIONALIDAD");
+                Sangre = await localStorage.GetItemAsStringAsync("CSANGRE");
 
 
-        }
+            }
 
-        if (await localStorage.ContainKeyAsync("VID"))
-        {
-            ExistSelect = false;
+            if (await localStorage.ContainKeyAsync("VID"))
+            {
+                ExistSelect = false;
 
-            Marca = await localStorage.GetItemAsStringAsync("VMarca");
-            Modelo = await localStorage.GetItemAsStringAsync("VMODELO");
-            Year = await localStorage.GetItemAsStringAsync("VAño");
-            Color = await localStorage.GetItemAsStringAsync("VCOLOR");
-            Precio = await localStorage.GetItemAsStringAsync("VPRECIO");
-            Tipo = await localStorage.GetItemAsStringAsync("VTIPO");
-            Carga = await localStorage.GetItemAsStringAsync("VCARGA");
-            Pasagero = await localStorage.GetItemAsStringAsync("VPASAJERO");
-            Matricula = await localStorage.GetItemAsStringAsync("VMATRICULA");
-            Matricula = await localStorage.GetItemAsStringAsync("VMATRICULA");
-            Nseguro = await localStorage.GetItemAsStringAsync("VSEGURO");
+                Marca = await localStorage.GetItemAsStringAsync("VMarca");
+                Modelo = await localStorage.GetItemAsStringAsync("VMODELO");
+                Year = await localStorage.GetItemAsStringAsync("VAño");
+                Color = await localStorage.GetItemAsStringAsync("VCOLOR");
+                Precio = await localStorage.GetItemAsStringAsync("VPRECIO");
+                Tipo = await localStorage.GetItemAsStringAsync("VTIPO");
+                Carga = await localStorage.GetItemAsStringAsync("VCARGA");
+                Pasagero = await localStorage.GetItemAsStringAsync("VPASAJERO");
+                Matricula = await localStorage.GetItemAsStringAsync("VMATRICULA");
+                Matricula = await localStorage.GetItemAsStringAsync("VMATRICULA");
+                Nseguro = await localStorage.GetItemAsStringAsync("VSEGURO");
 
+                StateHasChanged();
+
+            }
         }
 
     }
 
     protected async Task Guardar()
     {
-
+        ExistSelect = true;
+        ExistSelect = true;
 
         string ID_V = await localStorage.GetItemAsync<string>("VID");
         string ID_C = await localStorage.GetItemAsync<string>("CID");
@@ -268,8 +278,8 @@
         int TotalReservado = Reservado + 1;
         await VehiculosManager.Reservado(IDV, TotalReservado);
 
-       await ReservaManager.Agregar(reserva);
-       await ReservaManager.AgregarFactura(factura);
+        await ReservaManager.Agregar(reserva);
+        await ReservaManager.AgregarFactura(factura);
         msj = "agregado" + ValidadoFehca;
         LimpiarDatos();
 

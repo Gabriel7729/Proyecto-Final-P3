@@ -1,116 +1,286 @@
-﻿@inherits LayoutComponentBase
+﻿@page "/Main"
+@inherits LayoutComponentBase
 @inject IJSRuntime JS;
+@inject IArticleManager articleManager
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
-<div class="page">
-    <NavMenu />
+@if (Registrado)
+{
+    <div class="page">
+        <NavMenu />
 
-    <div id="main" class="main">
+        <div id="main" class="main">
 
-        <div class="conten">
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
-                <a class="navbar-brand" href="" style="font-size:2.5rem; color:white;">
-                    <img src="images/Rapid Car Logo.PNG" width="100" height="50" class="d-inline-block align-top" alt="" loading="lazy">
-                    <strong>Rapid <span style="color:  #db1212;">Car</span></strong>
-                </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active" style="font-size:1.5rem;">
+            <div class="conten">
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
+                    <a class="navbar-brand" href="" style="font-size:2.5rem; color:white;">
+                        <img src="images/Rapid Car Logo.PNG" width="100" height="50" class="d-inline-block align-top" alt="" loading="lazy">
+                        <strong>Rapid <span style="color:  #db1212;">Car</span></strong>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active" style="font-size:1.5rem;">
 
-                        </li>
-                    </ul>
-                </div>
-                <a href="/login" class="text-white" @onclick="@Cerrar"><strong>Cerrar Seccion</strong></a>
-                
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="/login" class="text-white" @onclick="@Cerrar"><strong>Cerrar Seccion</strong></a>
 
 
-            </nav>
 
-            <br />
+                </nav>
 
-            @Body
+                <br />
 
-            <br />
+                @Body
 
-            <footer class="footer-distributed rounded">
+                <br />
 
-                <div class="footer-left">
-                    <h3>Rapid <span>Car</span></h3>
+                <footer class="footer-distributed rounded">
 
-                    <p class="footer-links">
-                        <a href="#Home">Home</a>
-                        ·
-                        <a href="#Blog">Blog</a>
-                        ·
-                        <a href="#Contenido">Contenido</a>
-                        ·
-                        <a href="#Sobre">Sobre</a>
-                        ·
-                        <a href="#Contacto">Contacto</a>
-                    </p>
+                    <div class="footer-left">
+                        <h3>Rapid <span>Car</span></h3>
 
-                    <p class="footer-company-name">Rapid_Car © 2021</p>
+                        <p class="footer-links">
+                            <a href="#Home">Home</a>
+                            ·
+                            <a href="#Blog">Blog</a>
+                            ·
+                            <a href="#Contenido">Contenido</a>
+                            ·
+                            <a href="#Sobre">Sobre</a>
+                            ·
+                            <a href="#Contacto">Contacto</a>
+                        </p>
 
-                    <div class="footer-icons">
+                        <p class="footer-company-name">Rapid_Car © 2021</p>
 
-                        <a href="https://www.facebook.com/gabrielernesto.delarosapaniagua" Target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="" Target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/gabriel_7729/" Target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://github.com/Lusan7729/Proyecto-Final-P3" Target="_blank"><i class="fab fa-github"></i></a>
+                        <div class="footer-icons">
+
+                            <a href="https://www.facebook.com/gabrielernesto.delarosapaniagua" Target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="" Target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/gabriel_7729/" Target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/Lusan7729/Proyecto-Final-P3" Target="_blank"><i class="fab fa-github"></i></a>
+
+                        </div>
 
                     </div>
 
-                </div>
+                    <div class="footer-center">
+                        <div class="footer-icons">
+                            <a><i class="fas fa-map-marker-alt"></i></a>
+                            <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+                            <br /><br /><br />
 
-                <div class="footer-center">
-                    <div class="footer-icons">
-                        <a><i class="fas fa-map-marker-alt"></i></a>
-                        <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
-                        <br /><br /><br />
+                            <a><i class="fas fa-phone"></i></a>
+                            <p>809-894-8877</p>
+                            <br /><br /><br />
 
-                        <a><i class="fas fa-phone"></i></a>
-                        <p>809-894-8877</p>
-                        <br /><br /><br />
-
-                        <a><i class="far fa-envelope"></i></a>
-                        <p><a style="background-color:rgb(39, 38, 38);" href="mailto:equiposuperE@gmail.com">equiposuperE@gmail.com</a></p>
+                            <a><i class="far fa-envelope"></i></a>
+                            <p><a style="background-color:rgb(39, 38, 38);" href="mailto:equiposuperE@gmail.com">equiposuperE@gmail.com</a></p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="footer-right">
-                    s
-                    <p class="footer-company-about">
-                        <span>Sobre nosotros</span>
-                        Este es un sistema el cuál se basa en el alquiler de carros para cierto clientes. Cada institución/usuario que ingrese al sistema, podrá crear y añadir sus propios clientes y carros, y que de esta manera solo ellos puedan ver sus propios clientes, carros, facturas y alquileres.
-                    </p>
-                </div>
-            </footer>
+                    <div class="footer-right">
+                        s
+                        <p class="footer-company-about">
+                            <span>Sobre nosotros</span>
+                            Este es un sistema el cuál se basa en el alquiler de carros para cierto clientes. Cada institución/usuario que ingrese al sistema, podrá crear y añadir sus propios clientes y carros, y que de esta manera solo ellos puedan ver sus propios clientes, carros, facturas y alquileres.
+                        </p>
+                    </div>
+                </footer>
+
+            </div>
 
         </div>
 
+
+    </div>
+}
+else
+{
+
+       
+
+
+    <div class="overlay">
+        <!-- LOGN IN FORM by Omar Dsoky -->
+        <form @onsubmit="() => melo()" id="fm">
+            <!--   con = Container  for items in the form-->
+            <div class="con">
+                <!--     Start  header Content  -->
+                <header class="head-form">
+                    <h2><strong>Inicia sesión</strong></h2>
+                    <!--     A welcome message or an explanation of the login form -->
+                    <p>Ingresa tus datos de usuario para iniciar sesión</p>
+
+
+
+                </header>
+                <!--     End  header Content  -->
+                <br>
+                <div class="field-set">
+
+                    <!--   user name -->
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <!--   user name Input-->
+                    <input class="form-input" id="txt-input" type="text" placeholder="Nombre de usuario" required @bind-value="@UserID">
+                    <br>
+
+                    <!--   Password -->
+                    <!--   Password Input-->
+                    <div class="form-input">
+                        <span class="input-item">
+                            <i class="fa fa-key"></i>
+                        </span>
+                        <input class="form-input" type="password" placeholder="contraseña" id="txt-inpu" name="contraseña" required @bind-value="@passID">
+
+                    </div>
+                    <!--      Show/hide password  -->
+
+
+
+                    <br>
+                    <!--        buttons -->
+                    <!--      button LogIn -->
+                    <div class="text-center">
+                        @if (UserError)
+                        {
+                            <div class="alert alert-danger mb-2">@msj</div>
+                        }
+                        @if (Cargando)
+                        {
+                        <div class="loader"><h1>Loading...</h1></div>
+                        }
+                        else
+                        {
+                        <button class="log-in btn btn-success pt-2 btn-block mb-3"> Entrar </button>
+                        }
+
+                    </div>
+                    <div class="text-center">
+                        <p href=""><strong>Olvidaste tu contrasena?</strong></p>
+                    </div>
+
+                </div>
+
+                <!--   other buttons -->
+                <div class="other">
+                    <!--      Forgot Password button-->
+                    <!--     Sign Up button -->
+                    @*  *@
+                    <!--      End Other the Division -->
+                </div>
+
+                <!--   End Conrainer  -->
+            </div>
+
+            <!-- End Form -->
+        </form>
+
     </div>
 
-
-</div>
+}
 
 @code{
 
     bool Registrado = false;
+    bool UserError = false;
+    bool Cargando = true;
     async Task Cerrar()
     {
-        navigationManager.NavigateTo("/login");
+        await localStorage.RemoveItemAsync("ID_login");
+        navigationManager.NavigateTo("/Main");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         // String name = await localStorage.GetItemAsync<string>("id_login");
 
-        if (await localStorage.ContainKeyAsync("ID_login"))
+        if (firstRender)
         {
+            if (await localStorage.ContainKeyAsync("ID_login"))
+            {
+                navigationManager.NavigateTo("/CRUDVehiculos");
+                Registrado = true;
+                StateHasChanged();
+                return;
 
-            Registrado = true;
+            }
+            Cargando = false;
+            StateHasChanged();
         }
+
+    }
+
+
+    /// <summary>
+    ///
+    /// </summary>
+    ///
+    String UserID;
+    String passID;
+    String id;
+    String ID_Institucion;
+    String id_inst;
+    String msj;
+    String e;
+
+    bool error = false;
+
+
+    public void melo()
+    {
+        Cargando = true;
+        CreateArticle();
+    }
+
+    protected async Task CreateArticle()
+    {
+
+
+        // await articleManager.Createlogin(log);
+
+        id = await articleManager.getloginID(UserID, passID);
+        ID_Institucion = await articleManager.getIDCompani(id);
+
+
+
+        if (id != null && id != "")
+        {
+            UserError = true;
+            GuardarLogin();
+            OnAfterRender(true);
+            Registrado = true;
+            navigationManager.NavigateTo("/CRUDVehiculos");
+
+        }
+        else
+        {
+            Cargando = false;
+            error = true;
+            UserError = true;
+            msj = "Usuario o clave incorrecta";
+        }
+
+
+    }
+
+    void cancel()
+    {
+        navigationManager.NavigateTo("/articlelist");
+    }
+
+
+    async Task GuardarLogin()
+    {
+        await localStorage.SetItemAsync("ID_login", id);
+        await localStorage.SetItemAsync("ID_Institucion", id);
+        OnAfterRender(true);
+
 
     }
 

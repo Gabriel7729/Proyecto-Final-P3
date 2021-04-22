@@ -67,7 +67,7 @@ namespace PtoyectoFinal.Concrete
 
         public Task<int> ValidadFecha(string fechaI, string FechaF, string idI, string VID)
         {
-            var article = Task.FromResult(_dapperManager.Get<int>($"select COUNT (*) from Reserva where Fecha_Inc >= '{fechaI}' AND Fecha_Fin <= '{FechaF}' OR Fecha_Inc = '{fechaI}' AND ID_Institucion = '{idI}' AND ID_Vehiculo = '{VID}'", null,
+            var article = Task.FromResult(_dapperManager.Get<int>($"SELECT COUNT (*) FROM Reserva WHERE Fecha_inc BETWEEN '{fechaI}' AND '{FechaF}' AND ID_Institucion = '{idI}' AND ID_Vehiculo = '{VID}' OR  Fecha_Fin BETWEEN '{fechaI}' AND '{FechaF}' AND ID_Vehiculo = '{VID}' AND ID_Institucion = '{idI}' ", null,
                     commandType: CommandType.Text));
             return article;
         }

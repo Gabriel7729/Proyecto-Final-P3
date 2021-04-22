@@ -11,6 +11,10 @@
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Diferentes CDN de la aplicacion y el diseño-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,8 +24,9 @@
     <!--Diferentes CDN para los componentes de Radzen-->
     <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
     <link rel="stylesheet" href="_content/Radzen.Blazor/css/default.css">
+
 </head>
-<body>
+<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
     <app>
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
@@ -69,6 +74,36 @@
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
     <!--Script para el funcionamiento de BlazorInputFile-->
     <script src="_content/BlazorInputFile/inputfile.js"></script>
+    <script>
+        // Show/hide password onClick of button using Javascript only
+
+        // https://stackoverflow.com/questions/31224651/show-hide-password-onclick-of-button-using-javascript-only
+
+        function show() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'text');
+        }
+
+        function hide() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'password');
+        }
+
+        var pwShown = 0;
+
+        document.getElementById("eye").addEventListener("click", function () {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show();
+            } else {
+                pwShown = 0;
+                hide();
+            }
+        }, false);
+
+
+    </script>
+
 
 </body>
 </html>
