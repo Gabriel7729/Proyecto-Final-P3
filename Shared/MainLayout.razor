@@ -172,6 +172,9 @@ else
 
             <!-- End Form -->
         </form>
+        <div class="float-right" style="padding-top:50px; position:fixed; bottom:0; z-index:999999">
+            <button class="float-right text-left" style="background-color:transparent; padding-left:5px;"><strong>Admin</strong></button>
+        </div>
 
     </div>
 
@@ -196,7 +199,7 @@ else
         {
             if (await localStorage.ContainKeyAsync("ID_login"))
             {
-                navigationManager.NavigateTo("/CRUDVehiculos");
+                //navigationManager.NavigateTo("/CRUDVehiculos");
                 Registrado = true;
                 StateHasChanged();
                 return;

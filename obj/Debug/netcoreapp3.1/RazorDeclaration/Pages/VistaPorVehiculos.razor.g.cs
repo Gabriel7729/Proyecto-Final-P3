@@ -13,146 +13,207 @@ namespace PtoyectoFinal.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 1 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 2 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 3 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 4 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 5 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 6 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 7 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 9 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 10 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Concrete;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 11 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Contracts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 12 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 13 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 14 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.DataAccess;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 15 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 16 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 17 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 18 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using BlazorInputFile;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\_Imports.razor"
+#line 19 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/BeneficiosVehis")]
-    public partial class VistaPorVehiculos : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\Pages\VistaPorVehiculos.razor"
+using Microsoft.OData.Edm;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/CRUDVehiculsos")]
+    public partial class VistaPorVehiculos : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 87 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\Pages\VistaPorVehiculos.razor"
+       
+    Date INC;
+    Date FIN;
+
+    //Instancia una lista de la clase de vehiculos
+    List<Vehiculos> VehiculosModel;
+    List<Factura> FacturaModels;
+
+    //Instancia de la clase Vehiculos
+    Vehiculos VehiculosEntity = new Vehiculos();
+    Factura FacturaEntity = new Factura();
+
+
+
+    //Metodo para borrar un vehiculo con los parametros del ID normal y el ID de institucion
+    protected async Task DeleteVehiculos(int id, string id_institucion)
+    {
+        await VehiculosManager.Delete(id, id_institucion);
+        VehiculosModel = await VehiculosManager.ListAll(id_institucion);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (!await localStorage.ContainKeyAsync("ID_login"))
+            {
+                navigationManager.NavigateTo("/Main");
+
+            }
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            VehiculosModel = await VehiculosManager.ListAll(name);
+
+            StateHasChanged();
+        }
+        await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+    }
+
+    void IDisposable.Dispose()
+    {
+        JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.AspNetCore.Components.NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IReservaManager ReservaManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IVehiculosManager VehiculosManager { get; set; }
     }
 }
 #pragma warning restore 1591

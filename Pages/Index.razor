@@ -5,13 +5,13 @@
 
 @if (administrador)
 {
-    <div class="row">
+    <div class="row overlay">
         <div class="col-md-4 " style="padding-left:20px;">
             <div style="background-color:black; border-bottom-right-radius:60px;height:50px" >
             <h4 class="text-white" style="padding-top:10px; padding-left:10px">
                 Agregar Institucion</h4></div>
             
-            <form>
+            <form id="fm">
                 <div class="form-group">
                     <label for="Name" class="control-label"><strong>Nombre ID Institucion</strong></label>
                     <input for="Name" class="form-control" @bind-value="@log.UserID" />
@@ -48,7 +48,7 @@
             <div class="text-center"> <h3>Login administrador</h3></div>
             <hr />
             <div style="padding-top:20px">
-                <form>
+                <form id="fm">
                     <div class="form-group">
                         <label for="Name" class="control-label"><strong>Admin User</strong></label>
                         <input for="Name" class="form-control" @bind-value="@AdminUser" />
