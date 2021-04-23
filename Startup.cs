@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PtoyectoFinal.Concrete;
 using PtoyectoFinal.Contracts;
+using Radzen;
+using Radzen.Blazor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,8 +56,11 @@ namespace PtoyectoFinal
 
             //Register dapper in scope  
             services.AddScoped<IDapperManager, DapperManager>();
-        
-           
+
+            services.AddScoped<DialogService>();
+            services.AddScoped<NotificationService>();
+            services.AddScoped<TooltipService>();
+            services.AddScoped<ContextMenuService>();
 
 
         }

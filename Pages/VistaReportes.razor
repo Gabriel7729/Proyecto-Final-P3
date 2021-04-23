@@ -1,55 +1,60 @@
 @page "/Beneficios"
 
-<style>
-        .row a:hover, .col-md-3:hover {
-                background-color: #eee;
-                color: black;
-        }
-</style>
+<RadzenCard>
+    <div class="container">
 
+        <h1 class="text-center">Reportes</h1>
 
-<div style="padding: 4%; margin: 20px; border: solid; border-radius: 5px;">
         <center>
-                <h1>Reportes</h1>
+            <div class="row">
+
+
+                <div class="col-md-3">
+                    <RadzenCard>
+                        <h3><strong>Listado de Beneficiados</strong></h3>
+                        <img src="images/Logo Reporte.png" />
+                        <p>Aqui se muestran los <strong> ingresos </strong> de los <strong> vehiculos</strong></p>
+                        <br />
+                        <a class="btn btn-success" href='/BeneficiosAuto'>Ver Reporte</a>
+                    </RadzenCard>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <RadzenCard>
+                        <h3><strong>Listado de Vehiculos</strong></h3>
+                        <img src="images/Logo Reporte.png" />
+                        <p>Aqui se muestran los <strong> vehiculos disponibles</strong></p>
+                        <br />
+                        <a class="btn btn-success" href='/BeneficiosVehis'>Ver Reporte</a>
+                    </RadzenCard>
+                </div>
+
+
+                <div class="col-md-3">
+                    <RadzenCard>
+                        <h3><strong>Listado de Deudores</strong></h3>
+                        <img src="images/Logo Reporte.png" />
+                        <p>Aqui se muestran los clientes <strong> con deudas </strong></p>
+                        <br />
+                        <a class="btn btn-success" href='/BeneficioDeuda'>Ver Reporte</a>
+                    </RadzenCard>
+                </div>
+
+
+                <div class="col-md-3">
+                    <RadzenCard>
+                        <h3><strong>Listado en Mapa</strong></h3>
+                        <img src="images/Logo Reporte.png" />
+                        <p>Aqui se muestran los vehiculos en el <strong> mapa </strong></p>
+                        <br />
+                        <a class="btn btn-success" href='/VistaPorMapa'>Ver Reporte</a>
+                    </RadzenCard>
+                </div>
+
+            </div>
         </center>
 
-<center>
-        <div class="row" >   
-        
-                        <div class="col-md-5" style="padding: 4%; margin: 20px; border: solid; border-radius: 5px">
-                                <center>
-                                        <h3><strong>Listado de Beneficiados</strong></h3>
-                                        <p>Aqui se muestran los <strong> ingresos </strong> de los <strong> vehiculos</strong></p>  
-                                        <a class="btn btn-success" href='/BeneficiosAuto'>Ver Reporte</a>
-                                </center>
-                        </div>
-
-
-                        <div class="col-md-5" style="padding: 4%; margin: 20px; border: solid; border-radius: 5px">
-                                <center>
-                                        <h3><strong>Listado de Vehiculos</strong></h3>
-                                        <p>Aqui se muestran los <strong> vehiculos disponibles</strong></p>  
-                                        <a class="btn btn-success" href='/BeneficiosVehis'>Ver Reporte</a>
-                                </center>
-                        </div>
-
-                        <div class="col-md-5" style="padding: 4%; margin: 20px; border: solid; border-radius: 5px">
-                                <center>
-                                        <h3><strong>Listado de Deudores</strong></h3>
-                                        <p>Aqui se muestran los clientes <strong> con deudas </strong></p>  
-                                        <a class="btn btn-success" href='/BeneficioDeuda'>Ver Reporte</a>
-                                </center>
-                        </div>
-
-                        <div class="col-md-5" style="padding: 4%; margin: 20px; border: solid; border-radius: 5px">
-                                <center>
-                                        <h3><strong>Listado en Mapa</strong></h3>
-                                        <p>Aqui se muestran los vehiculos en el <strong> mapa </strong></p>  
-                                        <a class="btn btn-success" href='/BeneficiosMapa'>Ver Reporte</a>
-                                </center>
-                        </div>
-               
-        </div>
-</center>
-
-</div>
+    </div>
+</RadzenCard>

@@ -11,22 +11,32 @@
                     <RadzenTemplateForm TItem="Vehiculos" Data=@vehiculo Submit=@CreateVehiculos InvalidSubmit=@CreateVehiculos>
                         <div class="form-group">
 
-                            <label for="Marca" class="control-label">Escriba la marca del vehiculo:</label>
+                            <label for="Marca" class="control-label"><strong>Escriba la marca del vehiculo:</strong></label>
                             <RadzenTextBox class="form-control" Name="Marca" @bind-value="@vehiculo.Marca" Placeholder="Marca" />
 
-                            <label for="Modelo" class="control-label">Escriba el modelo del vehiculo:</label>
+                            <br />
+
+                            <label for="Modelo" class="control-label"><strong>Escriba el modelo del vehiculo:</strong></label>
                             <RadzenTextBox class="form-control" id="Modelo" @bind-value="@vehiculo.Modelo" Placeholder="Modelo" />
 
-                            <label for="Año" class="control-label">Escriba el Año del vehiculo:</label>
+                            <br />
+
+                            <label for="Año" class="control-label"><strong>Escriba el Año del vehiculo:</strong></label>
                             <RadzenTextBox class="form-control" id="Año" @bind-Value="vehiculo.Año" Placeholder="Año" />
 
-                            <label for="Color" class="control-label">Escriba el color del vehiculo:</label>
+                            <br />
+
+                            <label for="Color" class="control-label"><strong>Escriba el color del vehiculo:</strong></label>
                             <RadzenTextBox class="form-control" id="Color" @bind-value="@vehiculo.Color" Placeholder="Color" />
 
-                            <label for="Precio_Dia" class="control-label">Escriba el Precio por día del vehiculo:</label>
+                            <br />
+
+                            <label for="Precio_Dia" class="control-label"><strong>Escriba el Precio por día del vehiculo:</strong></label>
                             <RadzenNumeric class="form-control" id="Precio_Dia" TValue="Double" @bind-value=@vehiculo.Precio_Dia ShowUpDown="false" Placeholder="Precio por día" />
 
-                            <label for="Tipo" class="control-label">Seleccione el tipo del vehiculo:</label>
+                            <br /><br />
+
+                            <label for="Tipo" class="control-label"><strong>Seleccione el tipo del vehiculo:</strong></label>
                             <select class="form-control" id="Tipo" @onchange="TipoVehiculo">
                                 <option> -- Sin seleccionar -- </option>
                                 <option>Carro</option>
@@ -39,27 +49,42 @@
                                 <option>Nave Espacial (space X)</option>
                             </select>
 
-                            <label for="Capacidad_Carga" class="control-label">Escriba la capacidad de carga del vehiculo:</label>
+                            <br />
+
+                            <label for="Capacidad_Carga" class="control-label"><strong>Escriba la capacidad de carga del vehiculo:</strong></label>
                             <RadzenNumeric class="form-control" id="Capacidad_Carga" TValue="Double" @bind-value=@vehiculo.Capacidad_Carga ShowUpDown="false" Placeholder="Capacidad_Carga" />
 
-                            <label for="Pasajeros" class="control-label">Escriba la cantidad de pasajeros:</label>
+                            <br /><br />
+
+                            <label for="Pasajeros" class="control-label"><strong>Escriba la cantidad de pasajeros:</strong></label>
                             <RadzenNumeric class="form-control" id="Pasajeros" TValue="Int32" @bind-value=@vehiculo.Pasajeros ShowUpDown="false" Placeholder="Pasajeros" />
 
-                            <label for="Matricula" class="control-label">Escriba la matricula del vehiculo:</label>
+                            <br /><br />
+
+                            <label for="Matricula" class="control-label"><strong>Escriba la matricula del vehiculo:</strong></label>
                             <RadzenMask class="form-control" Mask="**-*****" Pattern="[^0-9]" id="Matricula" @bind-value="@vehiculo.Matricula" Placeholder="Matricula" />
 
-                            <label for="No_Seguro" class="control-label">Escriba el número de seguro del vehiculo:</label>
+                            <br />
+
+                            <label for="No_Seguro" class="control-label"><strong>Escriba el número de seguro del vehiculo:</strong></label>
                             <RadzenTextBox class="form-control" id="No_Seguro" @bind-value="@vehiculo.No_Seguro" Placeholder="No_Seguro" />
 
-                            <label for="Foto" class="control-label">Inserte la foto del vehiculo:</label>
+                            <br />
+
+                            <label for="Foto" class="control-label"><strong>Inserte la foto del vehiculo:</strong></label>
                             <RadzenTextBox class="form-control" id="Foto" @bind-value="@vehiculo.Foto" Placeholder="Foto" />
 
-                            <label for="Latitud" class="control-label">Escriba la Latitud del vehiculo:</label>
+                            <br />
+
+                            <label for="Latitud" class="control-label"><strong>Escriba la Latitud del vehiculo:</strong></label>
                             <RadzenNumeric class="form-control" id="Latitud" TValue="Double" @bind-value=@vehiculo.Latitud ShowUpDown="false" Placeholder="Latitud" />
 
-                            <label for="Longitud" class="control-label">Escriba la Longitud del vehiculo:</label>
+                            <br /><br />
+
+                            <label for="Longitud" class="control-label"><strong>Escriba la Longitud del vehiculo:</strong></label>
                             <RadzenNumeric class="form-control" id="Longitud" TValue="Double" @bind-value=@vehiculo.Longitud ShowUpDown="false" Placeholder="Longitud" />
 
+                            <br /><br />
                         </div>
 
                         @if (ValidarInputs)
@@ -78,7 +103,7 @@
                 </RadzenCard>
             </div>
             <div class="col-md-6">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <RadzenCard>
                     <h3 class="text-center">Seleccione su latitud y longitud</h3>
                     <RadzenGoogleMap style="height: 400px" Zoom=@zoom Center=@(new GoogleMapPosition() { Lat = 18.94983041735482, Lng = -70.74993105485618 }) MapClick=@OnMapClick>

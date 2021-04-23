@@ -145,8 +145,8 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/VistaPorMapa")]
-    public partial class VistaPorMapa : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/DatosMapa/{ID}")]
+    public partial class DatosMapa : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -154,121 +154,33 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 191 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\Pages\VistaPorMapa.razor"
+#line 40 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\Pages\DatosMapa.razor"
        
+    [Parameter]
+    public string ID { get; set; }
 
-    async Task ShowInlineDialog() => await DialogService.OpenAsync("Simple Dialog", ds =>
-    
+    string MensajeNull;
 
-#line default
-#line hidden
-#nullable disable
-        (__builder2) => {
-            __builder2.AddMarkupContent(0, @"<div>
-        <p Style=""margin-bottom: 1rem"">Confirm?</p>
-        <div class=""row"">
-            <div class=""col-md-12"">
-                <RadzenButton Text=""Ok"" Click=""() => ds.Close(true)"" Style=""margin-bottom: 10px; width: 150px""></RadzenButton>
-                <RadzenButton Text=""Cancel"" Click=""() => ds.Close(false)"" ButtonStyle=""ButtonStyle.Secondary"" Style=""margin-bottom: 10px; width: 150px""></RadzenButton>
-            </div>
-        </div>
-    </div>");
-        }
-#nullable restore
-#line 202 "C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\Pages\VistaPorMapa.razor"
-          );
+    //Instancia una lista de la clase de vehiculos
+    List<Factura> ReservaModel;
 
-//Variable de tipo int que maneja cuanto Zoom tendrá el Mapa
-int zoom = 6;
+    //Instancia de la Clase Vehiculo
+    Vehiculos vehiculo = new Vehiculos();
 
-//Variables de tipo string que toman los valores del foreach de la tabla de Vehiculos
-string marca, modelo, color, año, foto, estilo, id;
+    //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los impus
+    protected override async Task OnInitializedAsync()
+    {
+        //Se obtiene el ID por medio del LocalStorage
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
 
-//Variable booleana, para validar sí se ha seleccionado un carro o no del marcador del mapa.
-bool validar = false;
-
-//Mensaje que maneja la expcecion de los VehiculosModel2, para que sí da null, se muestre esa variable
-string MensajeNull;
-
-//Instancia una lista de la clase de vehiculos
-List<Vehiculos> VehiculosModel2;
-
-//Instancia una lista de la clase de vehiculos
-List<Factura> ReservaModel;
-
-//Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
-protected override async Task OnInitializedAsync()
-{
-  //Id de la institucion, que se obtiene por medio del localstorage, dependiendo de cual usuario o institucion esté regustrado
-  String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-
-  //Se cargan cada uno de los datos de la Tabla "Vehiculos" a la instancia de lista de la clase "Vehiculos" llamada "VehiculosModel2"
-  VehiculosModel2 = await VehiculosManager.ListAll(name);
-
-  DialogService.OnOpen += Open;
-  DialogService.OnClose += Close;
-
-  //ReservaModel = await VehiculosManager.ListarReservasVehiculo(name);
-}
-
-void Open(string title, Type type, Dictionary<string, object> parameters, DialogOptions options)
-{
-}
-
-void Close(dynamic result)
-{
-}
-
-public void Cerrar_Modal()
-{
-  validar = false;
-}
-
-//Metodo que maneja el click del Mapa como evento
-void OnMapClick(GoogleMapClickEventArgs args)
-{
-
-}
-
-//Metodo que maneja el click del marcador como evento
-void OnMarkerClick(RadzenGoogleMapMarker marker)
-{
-  //If, que sirva para validar si la instancia de esa lista se está pasando null o no.
-  //De esa manera se evita, que se pase null a la instancia "VehiculosModel2"
-  if (VehiculosModel2 == null)
-  {
-      //Variable para que se muestre si se pasaron valores nullos a la instancia.
-      MensajeNull = "No se ha seleccionado ningún vehículo...";
-  }
-  else
-  {
-      MensajeNull = "";
-
-      //Foreach para cargar los datos de la tabla de Vehiculos
-      foreach (var vehiculo2 in VehiculosModel2)
-      {
-          //If, para que solamente se traiga el vehiculo del marcador que se está seleccionando
-          if ((vehiculo2.Marca + " " + vehiculo2.Modelo) == marker.Title)
-          {
-              //Se igualan cada una de las variables a las que se está trayendo de la tabla, para poder mostrarlas.
-              validar = true;
-              estilo = "position:fixed;left:33%;padding-top:0%";
-              id = vehiculo2.ID.ToString();
-              marca = vehiculo2.Marca;
-              modelo = vehiculo2.Modelo;
-              color = vehiculo2.Color;
-              año = vehiculo2.Año;
-              foto = vehiculo2.Foto;
-          }
-      }
-  }
-}
+        vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), name);
+    }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private DialogService DialogService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Radzen.DialogService dialogService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IVehiculosManager VehiculosManager { get; set; }
     }

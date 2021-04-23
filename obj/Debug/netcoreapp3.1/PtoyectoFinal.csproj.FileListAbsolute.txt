@@ -796,3 +796,26 @@ C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\obj\Debug\netcoreapp3.
 C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\PtoyectoFinal.pdb
 C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\PtoyectoFinal.genruntimeconfig.cache
 C:\Users\LUIS ANTONIO DE AZA\Desktop\pf\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\PtoyectoFinal.csprojAssemblyReference.cache
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\bin\Debug\netcoreapp3.1\Microsoft.OData.Edm.dll
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AddReservas.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\GestCobros.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Gracias.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\SelectCliente.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\SelectVehiculo.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\VistaPorBeneficios.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\VistaPorClientes.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\VistaPorMapa.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\VistaPorVehiculos.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\VistaReportes.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\AddReservas.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\GestCobros.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\Gracias.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\SelectCliente.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\SelectVehiculo.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\VistaPorBeneficios.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\VistaPorClientes.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\VistaPorMapa.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\VistaPorVehiculos.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\VistaReportes.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\DatosMapa.razor.g.cs
+C:\Users\Lusan\Desktop\ITLA QUINTO CUATRIMESTRE\Programación 3 - Amadis Suarez\Proyecto Final\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\DatosMapa.razor.g.cs

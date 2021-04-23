@@ -14,19 +14,27 @@
                 <RadzenTemplateForm TItem="Clientes" Data=@cliente Submit=@UpdateClientes InvalidSubmit=@UpdateClientes>
                     <div class="form-group">
 
-                        <label for="Cedula" class="control-label">Escriba la cedula del cliente:</label>
+                        <label for="Cedula" class="control-label"><strong>Escriba la cedula del cliente:</strong></label>
                         <RadzenMask class="form-control" Mask="***-*******-*" Pattern="[^0-9]" id="Cedula" @bind-value="@cliente.Cedula" Placeholder="Cedula" />
 
-                        <label for="Nombre" class="control-label">Escriba el nombre del cliente:</label>
+                        <br />
+
+                        <label for="Nombre" class="control-label"><strong>Escriba el nombre del cliente:</strong></label>
                         <RadzenTextBox class="form-control" id="Nombre" @bind-value="@cliente.Nombre" Placeholder="Nombre" />
 
-                        <label for="Apellido" class="control-label">Escriba el apellido del cliente:</label>
+                        <br />
+
+                        <label for="Apellido" class="control-label"><strong>Escriba el apellido del cliente:</strong></label>
                         <RadzenTextBox class="form-control" id="Apellido" @bind-Value="cliente.Apellido" Placeholder="Apellido" />
 
-                        <label for="email" class="control-label">Escriba el correo del cliente:</label>
+                        <br />
+
+                        <label for="email" class="control-label"><strong>Escriba el correo del cliente:</strong></label>
                         <input class="form-control" type="email" id="email" @bind="@cliente.Correo" Placeholder="Email" />
 
-                        <label for="Licencia">Tipo de Licencia:</label>
+                        <br />
+
+                        <label for="Licencia"><strong>Tipo de Licencia:</strong></label>
                         <select class="form-control" id="Licencia" @onchange="TipoDeLicencia">
                             <option> -- Sin seleccionar -- </option>
                             <option>Conductor</option>
@@ -34,10 +42,14 @@
                             <option>Conductor de vehículos Pesados</option>
                         </select>
 
-                        <label for="Nacionalidad" class="control-label">Escriba la nacionalidad del cliente:</label>
+                        <br />
+
+                        <label for="Nacionalidad" class="control-label"><strong>Escriba la nacionalidad del cliente:</strong></label>
                         <RadzenTextBox class="form-control" id="Nacionalidad" @bind-Value="cliente.Nacionalidad" Placeholder="Nacionalidad" />
 
-                        <label for="Tipo_Sangre">Tipo de Sangre:</label>
+                        <br />
+
+                        <label for="Tipo_Sangre"><strong>Tipo de Sangre:</strong></label>
                         <select class="form-control" id="Tipo_Sangre" @onchange="TipoDeSangre">
                             <option> -- Sin seleccionar -- </option>
                             <option>O Negativo</option>
@@ -50,11 +62,17 @@
                             <option>AB positivo</option>
                         </select>
 
-                        <label for="Foto Persona" class="control-label">Escriba el URL de la foto del cliente:</label>
+                        <br />
+
+                        <label for="Foto Persona" class="control-label"><strong>Escriba el URL de la foto del cliente:</strong></label>
                         <RadzenTextBox class="form-control" id="Foto Persona" @bind-Value="cliente.Foto_Persona" Placeholder="Foto Persona" />
 
-                        <label for="Foto Licencia" class="control-label">Escriba el URL de la foto de la licencia del cliente:</label>
+                        <br />
+
+                        <label for="Foto Licencia" class="control-label"><strong>Escriba el URL de la foto de la licencia del cliente:</strong></label>
                         <RadzenTextBox class="form-control" id="Foto Licencia" @bind-Value="cliente.Foto_Licencia" Placeholder="Foto Licencia" />
+
+                        <br />
 
                     </div>
 

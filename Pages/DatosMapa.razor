@@ -1,0 +1,61 @@
+﻿@page "/DatosMapa/{ID}"
+@inject IVehiculosManager VehiculosManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Radzen.DialogService dialogService
+
+<h1>Dialog with parameters</h1>
+
+<p>This page demonstrates <b>Dialog</b> component with parameters.</p>
+<h3>OrderID: @vehiculo.ID</h3>
+<RadzenCard Style="margin-bottom: 20px;">
+    <div class="row">
+        <div class="col-md-6">
+            <div>Company:</div>
+            <b>@vehiculo.Marca @vehiculo.Modelo</b>
+            <div style="margin-top:20px">Employee:</div>
+            <b>@(vehiculo.Marca + " " + vehiculo.Modelo)</b>
+            <br />
+            <RadzenImage Path="@vehiculo.Foto" Style="width:100px;" />
+        </div>
+        <div class="col-md-6">
+            <div>Freight:</div>
+            <b>@vehiculo.Año</b>
+            <div style="margin-top:20px">Ship country:</div>
+            <b>@(vehiculo.Capacidad_Carga)</b>
+            <div style="margin-top:20px">Ship city:</div>
+            <b>@(vehiculo.Color)</b>
+            <div style="margin-top:20px">Ship name:</div>
+            <b>@(vehiculo.Precio_Dia)</b>
+        </div>
+    </div>
+</RadzenCard>
+<div class="row">
+    <div class="col-md-12">
+        <RadzenButton Click="@((args) => dialogService.Close(true))" Text="OK" Style="margin-bottom: 10px; width: 150px" />
+        <RadzenButton Click="@((args) => dialogService.Close(false))" ButtonStyle="ButtonStyle.Secondary" Text="Cancel" Style="margin-bottom: 10px; width: 150px" />
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string ID { get; set; }
+
+    string MensajeNull;
+
+    //Instancia una lista de la clase de vehiculos
+    List<Factura> ReservaModel;
+
+    //Instancia de la Clase Vehiculo
+    Vehiculos vehiculo = new Vehiculos();
+
+    //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los impus
+    protected override async Task OnInitializedAsync()
+    {
+        //Se obtiene el ID por medio del LocalStorage
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+
+        vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), name);
+    }
+
+}

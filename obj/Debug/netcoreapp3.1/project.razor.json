@@ -12,35 +12,35 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -2063621696,
+        "HashCode": 1530164468,
         "Kind": "Components.Component",
-        "Name": "PtoyectoFinal.App",
+        "Name": "PtoyectoFinal.Pages.AddClientes",
         "AssemblyName": "PtoyectoFinal",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "AddClientes"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "PtoyectoFinal.App"
+          "Common.TypeName": "PtoyectoFinal.Pages.AddClientes"
         }
       },
       {
-        "HashCode": 2093296972,
+        "HashCode": 2123872789,
         "Kind": "Components.Component",
-        "Name": "PtoyectoFinal.App",
+        "Name": "PtoyectoFinal.Pages.AddClientes",
         "AssemblyName": "PtoyectoFinal",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "PtoyectoFinal.App"
+            "TagName": "PtoyectoFinal.Pages.AddClientes"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "PtoyectoFinal.App",
+          "Common.TypeName": "PtoyectoFinal.Pages.AddClientes",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -78,35 +78,35 @@
         }
       },
       {
-        "HashCode": 1530164468,
+        "HashCode": -1029454883,
         "Kind": "Components.Component",
-        "Name": "PtoyectoFinal.Pages.AddClientes",
+        "Name": "PtoyectoFinal.Pages.AddReservas",
         "AssemblyName": "PtoyectoFinal",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "AddClientes"
+            "TagName": "AddReservas"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "PtoyectoFinal.Pages.AddClientes"
+          "Common.TypeName": "PtoyectoFinal.Pages.AddReservas"
         }
       },
       {
-        "HashCode": 2123872789,
+        "HashCode": -1505320452,
         "Kind": "Components.Component",
-        "Name": "PtoyectoFinal.Pages.AddClientes",
+        "Name": "PtoyectoFinal.Pages.AddReservas",
         "AssemblyName": "PtoyectoFinal",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "PtoyectoFinal.Pages.AddClientes"
+            "TagName": "PtoyectoFinal.Pages.AddReservas"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "PtoyectoFinal.Pages.AddClientes",
+          "Common.TypeName": "PtoyectoFinal.Pages.AddReservas",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -206,6 +206,59 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "PtoyectoFinal.Pages.CRUDVehiculos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1116262935,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.DatosMapa",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "DatosMapa"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "ID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.DatosMapa"
+        }
+      },
+      {
+        "HashCode": -1181183976,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.DatosMapa",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.DatosMapa"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "ID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.DatosMapa",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -647,6 +700,72 @@
         }
       },
       {
+        "HashCode": -1346969119,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.GestCobros",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GestCobros"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.GestCobros"
+        }
+      },
+      {
+        "HashCode": 711158691,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.GestCobros",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.GestCobros"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.GestCobros",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2025503656,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.Gracias",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Gracias"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.Gracias"
+        }
+      },
+      {
+        "HashCode": -1389318362,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.Gracias",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.Gracias"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.Gracias",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -554510854,
         "Kind": "Components.Component",
         "Name": "PtoyectoFinal.Pages.HabilitarClientes",
@@ -914,6 +1033,270 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "PtoyectoFinal.Pages.LoginInt",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 118326469,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.SelectCliente",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SelectCliente"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.SelectCliente"
+        }
+      },
+      {
+        "HashCode": 1188385121,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.SelectCliente",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.SelectCliente"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.SelectCliente",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 59814566,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.SelectVehiculo",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SelectVehiculo"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.SelectVehiculo"
+        }
+      },
+      {
+        "HashCode": -352309115,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.SelectVehiculo",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.SelectVehiculo"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.SelectVehiculo",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 762777082,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorBeneficios",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VistaPorBeneficios"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorBeneficios"
+        }
+      },
+      {
+        "HashCode": -1657130177,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorBeneficios",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.VistaPorBeneficios"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorBeneficios",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1684414224,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorClientes",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VistaPorClientes"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorClientes"
+        }
+      },
+      {
+        "HashCode": 1116959065,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorClientes",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.VistaPorClientes"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorClientes",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1547989339,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorMapa",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VistaPorMapa"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorMapa"
+        }
+      },
+      {
+        "HashCode": 1332909074,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorMapa",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.VistaPorMapa"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorMapa",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2095884327,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorVehiculos",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VistaPorVehiculos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorVehiculos"
+        }
+      },
+      {
+        "HashCode": 1415488761,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaPorVehiculos",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.VistaPorVehiculos"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaPorVehiculos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 497911147,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaReportes",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VistaReportes"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaReportes"
+        }
+      },
+      {
+        "HashCode": -784654135,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.Pages.VistaReportes",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.Pages.VistaReportes"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.Pages.VistaReportes",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2063621696,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.App",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.App"
+        }
+      },
+      {
+        "HashCode": 2093296972,
+        "Kind": "Components.Component",
+        "Name": "PtoyectoFinal.App",
+        "AssemblyName": "PtoyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PtoyectoFinal.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PtoyectoFinal.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -59457,6 +59840,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\SelectCliente.razor",
+      "TargetPath": "Pages\\SelectCliente.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\Error.razor",
       "TargetPath": "Pages\\Error.razor",
       "FileKind": "component"
@@ -59464,6 +59852,11 @@
     {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Shared\\NavMenu.razor",
       "TargetPath": "Shared\\NavMenu.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\VistaPorBeneficios.razor",
+      "TargetPath": "Pages\\VistaPorBeneficios.razor",
       "FileKind": "component"
     },
     {
@@ -59492,6 +59885,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\GestCobros.razor",
+      "TargetPath": "Pages\\GestCobros.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\DetallesVehiculos.razor",
       "TargetPath": "Pages\\DetallesVehiculos.razor",
       "FileKind": "component"
@@ -59499,6 +59897,11 @@
     {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\DeshabilitarVehiculo.razor",
       "TargetPath": "Pages\\DeshabilitarVehiculo.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\VistaPorVehiculos.razor",
+      "TargetPath": "Pages\\VistaPorVehiculos.razor",
       "FileKind": "component"
     },
     {
@@ -59527,8 +59930,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\DatosMapa.razor",
+      "TargetPath": "Pages\\DatosMapa.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\LoginInt.razor",
       "TargetPath": "Pages\\LoginInt.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\Gracias.razor",
+      "TargetPath": "Pages\\Gracias.razor",
       "FileKind": "component"
     },
     {
@@ -59547,8 +59960,18 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\VistaPorMapa.razor",
+      "TargetPath": "Pages\\VistaPorMapa.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\AddVehiculos.razor",
       "TargetPath": "Pages\\AddVehiculos.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\VistaPorClientes.razor",
+      "TargetPath": "Pages\\VistaPorClientes.razor",
       "FileKind": "component"
     },
     {
@@ -59567,6 +59990,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\SelectVehiculo.razor",
+      "TargetPath": "Pages\\SelectVehiculo.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\EditArticle.razor",
       "TargetPath": "Pages\\EditArticle.razor",
       "FileKind": "component"
@@ -59574,6 +60002,16 @@
     {
       "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\CRUDVehiculos.razor",
       "TargetPath": "Pages\\CRUDVehiculos.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\AddReservas.razor",
+      "TargetPath": "Pages\\AddReservas.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Lusan\\Desktop\\ITLA QUINTO CUATRIMESTRE\\Programación 3 - Amadis Suarez\\Proyecto Final\\Proyecto-Final-P3\\Pages\\VistaReportes.razor",
+      "TargetPath": "Pages\\VistaReportes.razor",
       "FileKind": "component"
     },
     {
