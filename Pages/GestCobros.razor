@@ -43,33 +43,40 @@
             {
                 foreach (var cliente in FacturaModels)
                 {
-                    <tr>
-                        <td>@cliente.ID_Factura</td>
-                        <td>@cliente.Cedula_Cliente</td>
-                        <td>@cliente.Nombre_Cliente</td>
-                        <td>@cliente.Apellido_Cliente</td>
-                        <td>@cliente.Fecha_Inc</td>
-                        <td>@cliente.Fecha_Fin</td>
-                        <td>@cliente.Monto_pagar.ToString("C", new CultureInfo("es-DO"))</td>
-                        <td>
-                            @cliente.Tipo
-                            @cliente.Marca <br />
-                            @cliente.Matricula <br />
+        <tr>
+            <td>@cliente.ID_Factura</td>
+            <td>@cliente.Cedula_Cliente</td>
+            <td>@cliente.Nombre_Cliente</td>
+            <td>@cliente.Apellido_Cliente</td>
+            <td>@cliente.Fecha_Inc</td>
+            <td>@cliente.Fecha_Fin</td>
+            @if (cliente.Monto_pagar < 0)
+            {
+               <td>$0.00</td>
+            }
+            else
+            {
+                <td>@cliente.Monto_pagar.ToString("C", new CultureInfo("es-DO"))</td>
+            }
+            <td>
+                @cliente.Tipo
+                @cliente.Marca <br />
+                @cliente.Matricula <br />
 
-                        </td>
-                        <td>
-                            @if (cliente.Monto_pagar <= 0)
-                            {
-                                <div class="alert alert-success text-center">Pagada</div>
+            </td>
+            <td>
+                @if (cliente.Monto_pagar <= 0)
+                {
+                    <div class="alert alert-success text-center">Pagada</div>
 
-                            }
-                            else
-                            {
-                                <button class="btn btn-warning btn-block" @onclick="() => ModuloPago(cliente.ID_Factura, cliente.Monto_pagar,cliente.Nombre_Cliente,cliente.Apellido_Cliente)">Pagar</button>
+                }
+                else
+                {
+                    <button class="btn btn-warning btn-block" @onclick="() => ModuloPago(cliente.ID_Factura, cliente.Monto_pagar,cliente.Nombre_Cliente,cliente.Apellido_Cliente)">Pagar</button>
 
-                            }
-                        </td>
-                    </tr>
+                }
+            </td>
+        </tr>
                 }
             }
 
@@ -80,18 +87,31 @@
     <br />
     @if (SeleccionFactura)
     {
-        <div class="container" style="position:fixed;left:40%;padding-top:10%">
-            <div class="row">
-                <div class="col-md-4 shadow border rounded" style="background-color:aquamarine; padding-top:10px">
-                    <h5 class="text-center">@Nombre @Apellido debe un total de @valor</h5>
-                    <label>Monto a pagar</label>
-                    <input @bind-value="@ValoPagado" class="form-check form-control" />
-                    <br />
-                    <button @onclick="()=> EnviarRestante()" class="btn btn-success btn-block">Pagar</button>
-                    <br />
-                </div>
-            </div>
+<div class="container" style="position:fixed;left:40%;padding-top:10%">
+    <div class="row">
+
+        <div class="col-md-4 shadow border rounded" style="background-color:aquamarine; padding-top:10px">
+            <h5 class="text-center">@Nombre @Apellido debe un total de @valor</h5>
+            <label>Monto a pagar</label>
+            <input @bind-value="@ValoPagado" class="form-check form-control" />
+            <br />
+            @if (ValoPagado <= valor)
+            {
+                <button @onclick="()=> EnviarRestante()" class="btn btn-success btn-block">Pagar</button>
+            }
+            else
+            {
+                <div class="alert alert-danger">El valor supera la deudad</div>
+                <button class="btn btn-info btn-block" style="padding-bottom:8px">Aceptar</button>
+            }
+
+            <br />
+
         </div>
+        <div @onclick="()=> Cerrar()" style="background-color:red;height:25px;width:25px" class="rounded-circle text-center text-white"><strong>X</strong></div>
+    </div>
+   
+</div>
     }
 </RadzenCard>
 
@@ -172,5 +192,9 @@
 
     }
 
+    public void Cerrar()
+    {
+        SeleccionFactura = false;
+    }
 
 }

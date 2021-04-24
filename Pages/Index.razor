@@ -6,10 +6,10 @@
 @if (administrador)
 {
     <div class="overlay">
-        <form id="fm">
+        <form id="fm" @onsubmit="() => CreateArticle()">
             <div class="con">
                 <header class="head-form">
-                    <h2><strong>Registrar Usuario</strong></h2>
+                    <h2><strong>Registrar Institucion</strong></h2>
                     <p>Ingrese los datos del usuario que desea crear</p>
                 </header>
                 <br>

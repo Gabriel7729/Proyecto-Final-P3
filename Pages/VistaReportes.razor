@@ -1,5 +1,6 @@
 @page "/Beneficios"
-
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 <RadzenCard>
     <div class="container">
 
@@ -25,9 +26,9 @@
                     <RadzenCard>
                         <h3><strong>Listado de Vehiculos</strong></h3>
                         <img src="images/Logo Reporte.png" />
-                        <p>Aqui se muestran los <strong> vehiculos disponibles</strong></p>
+                        <p>Aqui se muestran los <strong> vehiculos disponibles por fechas</strong></p>
                         <br />
-                        <a class="btn btn-success" href='/BeneficiosVehis'>Ver Reporte</a>
+                        <a class="btn btn-success" href='/PorFecha'>Ver Reporte</a>
                     </RadzenCard>
                 </div>
 
@@ -58,3 +59,18 @@
 
     </div>
 </RadzenCard>
+
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+
+            if (!await localStorage.ContainKeyAsync("ID_login"))
+            {
+                navigationManager.NavigateTo("/Main");
+
+            }
+        }
+    }
+}

@@ -126,9 +126,19 @@
         cliente.Licencia = TipoLicencia;
 
         //if para validar si cada uno de los inputs o de los campos estan llenos y no se estan pasando nulls
-        if (cliente.Cedula == null || cliente.Nombre == null || cliente.Apellido == null || cliente.Correo == null || cliente.Licencia == "-- Sin seleccionar --" || cliente.Nacionalidad == "" || cliente.Tipo_Sangre == "-- Sin seleccionar --" || cliente.Foto_Persona == null || cliente.Foto_Licencia == null)
+        if (cliente.Cedula == null || cliente.Cedula == "" ||
+            cliente.Nombre == null || cliente.Nombre == "" ||
+            cliente.Apellido == null || cliente.Apellido == "" ||
+            cliente.Correo == null || cliente.Correo == "" ||
+            cliente.Licencia == "-- Sin seleccionar --" ||
+            cliente.Nacionalidad == "" || cliente.Nacionalidad == "" ||
+            cliente.Tipo_Sangre == "-- Sin seleccionar --" ||
+            cliente.Foto_Persona == null || cliente.Foto_Persona == "" ||
+            cliente.Foto_Licencia == null || cliente.Foto_Licencia == ""
+            )
         {
-            MensajeError = "Todos los campos son necesarios...";
+           
+
             ValidarInputs = true;
             return;
         }

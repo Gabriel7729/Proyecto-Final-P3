@@ -21,8 +21,8 @@
 
                         <br />
 
-                        <label for="Año" class="control-label"><strong>Escriba el Año del vehiculo:</strong></label>
-                        <RadzenTextBox class="form-control" id="Año" @bind-Value="vehiculo.Año" Placeholder="Año" />
+                        <label for="Año" class="control-label" typeof="number"><strong>Escriba el Año del vehiculo:</strong></label>
+                        <RadzenMask class="form-control" id="Año" Mask="****" Pattern="[^0-9]"  @bind-Value="vehiculo.Año" Placeholder="Año" />
 
                         <br />
 
@@ -31,7 +31,7 @@
 
                         <br />
 
-                        <label for="Precio_Dia" class="control-label"><strong>Escriba el Precio por día del vehiculo:</strong></label>
+                        <label for="Precio_Dia" class="control-label" typeof="number" ><strong>Escriba el Precio por día del vehiculo:</strong></label>
                         <RadzenNumeric class="form-control" id="Precio_Dia" TValue="Double" @bind-value=@vehiculo.Precio_Dia ShowUpDown="false" Placeholder="Precio por día" />
 
                         <br /><br />

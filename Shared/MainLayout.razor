@@ -173,7 +173,7 @@ else
             <!-- End Form -->
         </form>
         <div class="float-right" style="padding-top:50px; position:fixed; bottom:0; z-index:999999">
-            <button class="float-right text-left" style="background-color:transparent; padding-left:5px;"><strong>Admin</strong></button>
+            <button @onclick="()=>admin()" class="float-right text-left" style="background-color:transparent; padding-left:5px;"><strong>Admin</strong></button>
         </div>
 
     </div>
@@ -191,6 +191,11 @@ else
         navigationManager.NavigateTo("/Main");
     }
 
+    public void admin()
+    {
+        navigationManager.NavigateTo("/");
+        Registrado = true;
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         // String name = await localStorage.GetItemAsync<string>("id_login");

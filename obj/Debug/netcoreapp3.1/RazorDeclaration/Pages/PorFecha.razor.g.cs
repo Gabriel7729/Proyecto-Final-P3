@@ -145,8 +145,15 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/EditVehiculos/{ID}")]
-    public partial class EditVehiculos : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\PorFecha.razor"
+using Microsoft.OData.Edm;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/PorFecha")]
+    public partial class PorFecha : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -154,91 +161,70 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 116 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\EditVehiculos.razor"
-        
-    //Id que se recibe como parametro
-    [Parameter]
-    public string ID { get; set; }
+#line 75 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\PorFecha.razor"
+           
 
-    //Variables para validar los campos de los inputs
-    string MensajeError;
-    bool ValidarInputs = false;
+        //Instancia una lista de la clase de vehiculos
+        List<Vehiculos> VehiculosModel;
 
-    //String del Select
-    String TipoDelVehiculo = "-- Sin seleccionar --";
+        String IN;
+        String FN = "2021/01/01";
 
-    //String del id de la institucion
-    string id;
-
-    //Instancia de la Clase Vehiculo
-    Vehiculos vehiculo = new Vehiculos();
-
-    //Variable de tipo int, para manejar el zoom del mapa
-    int zoom = 6;
-
-    //Metodo que cuando se carga la vista, el mismo carga por medio del ID cada uno de los impus
-    protected override async Task OnInitializedAsync()
-    {
-        //Se obtiene el ID por medio del LocalStorage
-        TipoDelVehiculo = vehiculo.Tipo;
-        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-        vehiculo.ID_Institucion = name;
-        vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), vehiculo.ID_Institucion);
-    }
-
-    //Metodo para actualizar los vehiculos
-    protected async Task UpdateVehiculos()
-    {
-        
-
-        //If, para validar los campos de los inputs
-        if (vehiculo.Marca == null || vehiculo.Marca == "" ||
-            vehiculo.Modelo == null || vehiculo.Marca == "" || 
-            vehiculo.Año == null ||vehiculo.Año == "" ||
-            vehiculo.Color == null || vehiculo.Color == "" ||
-            vehiculo.Precio_Dia == 0 ||
-            vehiculo.Tipo == "-- Sin seleccionar --" || 
-            vehiculo.Capacidad_Carga == 0 || 
-            vehiculo.Matricula == null || vehiculo.Matricula == "" ||
-            vehiculo.No_Seguro == null ||  vehiculo.No_Seguro == "" ||
-            vehiculo.Foto == null || vehiculo.Foto == "" ||
-            vehiculo.Latitud == 0 || 
-            vehiculo.Longitud == 0)
+        //Instancia de la clase Vehiculos
+        Vehiculos VehiculosEntity = new Vehiculos();
+        int Disponibilidad;
+        async Task PruebaDisponibilidad(string Fecha_inc, string Fecha_fin, int VID, string IID)
         {
-            MensajeError = "Todos los campos son necesarios...";
-            ValidarInputs = true;
-            return;
+
+            Disponibilidad = await ReservaManager.ValidadFecha(IN, FN, IID, VID.ToString());
         }
-        await VehiculosManager.Update(vehiculo);
-        navigationManager.NavigateTo("/CRUDVehiculos");
-    }
 
-    //Metodo para cancelar y volver a la lista de los Vehiculos
-    void cancel()
-    {
-        navigationManager.NavigateTo("/CRUDVehiculos");
-    }
+        async Task ltualizar()
+        {
 
-    //Metodo para manejar el select de los tipos de Vehiculos
-    public void TipoVehiculo(ChangeEventArgs e)
-    {
-        TipoDelVehiculo = e.Value.ToString();
-    }
+            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+            VehiculosModel = await VehiculosManager.ListAll(name);
+        }
 
-    //Metodo para manejar el click del mapa
-    void OnMapClick(GoogleMapClickEventArgs args)
-    {
-        //Variables que cambian de valor cuando al mapa se le da un click en la Latitud y Longitud Deseada
-        vehiculo.Latitud = args.Position.Lat;
-        vehiculo.Longitud = args.Position.Lng;
-    }
 
+        //Metodo para borrar un vehiculo con los parametros del ID normal y el ID de institucion
+        protected async Task DeleteVehiculos(int id, string id_institucion)
+        {
+            await VehiculosManager.Delete(id, id_institucion);
+            VehiculosModel = await VehiculosManager.ListAll(id_institucion);
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                if (!await localStorage.ContainKeyAsync("ID_login"))
+                {
+                    navigationManager.NavigateTo("/Main");
+
+                }
+                String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+                VehiculosModel = await VehiculosManager.ListAll(name);
+
+                StateHasChanged();
+            }
+            await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+        }
+
+        void IDisposable.Dispose()
+        {
+            JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+        }
+
+    
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.AspNetCore.Components.NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IReservaManager ReservaManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IVehiculosManager VehiculosManager { get; set; }
     }
 }

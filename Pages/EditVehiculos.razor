@@ -22,7 +22,7 @@
                         <br />
 
                         <label for="Año" class="control-label"><strong>Escriba el Año del vehiculo:</strong></label>
-                        <RadzenTextBox class="form-control" id="Año" @bind-Value="vehiculo.Año" Placeholder="Año" />
+                        <RadzenMask class="form-control" id="Año" Mask="****" Pattern="[^0-9]" @bind-Value="vehiculo.Año" Placeholder="Año" />
 
                         <br />
 
@@ -147,10 +147,21 @@
     //Metodo para actualizar los vehiculos
     protected async Task UpdateVehiculos()
     {
-        vehiculo.Tipo = TipoDelVehiculo;
+        
 
         //If, para validar los campos de los inputs
-        if (vehiculo.Marca == null || vehiculo.Modelo == null || vehiculo.Año == null || vehiculo.Color == null || vehiculo.Precio_Dia == 0 || vehiculo.Tipo == "-- Sin seleccionar --" || vehiculo.Capacidad_Carga == 0 || vehiculo.Matricula == null || vehiculo.No_Seguro == null || vehiculo.Foto == null || vehiculo.Latitud == 0 || vehiculo.Longitud == 0)
+        if (vehiculo.Marca == null || vehiculo.Marca == "" ||
+            vehiculo.Modelo == null || vehiculo.Marca == "" || 
+            vehiculo.Año == null ||vehiculo.Año == "" ||
+            vehiculo.Color == null || vehiculo.Color == "" ||
+            vehiculo.Precio_Dia == 0 ||
+            vehiculo.Tipo == "-- Sin seleccionar --" || 
+            vehiculo.Capacidad_Carga == 0 || 
+            vehiculo.Matricula == null || vehiculo.Matricula == "" ||
+            vehiculo.No_Seguro == null ||  vehiculo.No_Seguro == "" ||
+            vehiculo.Foto == null || vehiculo.Foto == "" ||
+            vehiculo.Latitud == 0 || 
+            vehiculo.Longitud == 0)
         {
             MensajeError = "Todos los campos son necesarios...";
             ValidarInputs = true;
