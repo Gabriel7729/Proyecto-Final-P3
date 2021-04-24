@@ -59,7 +59,7 @@ namespace PtoyectoFinal.Concrete
         public Task<List<Factura>> ListarReservasVehiculo(string id_institucion, string id_vehiculo)
         {
             var reservavehiculo = Task.FromResult(_dapperManager.GetAll<Factura>
-                ($"SELECT TOP 3 * FROM [Factura] WHERE ID_Institucion = '{id_institucion}' AND ID_Vehiculo = '{id_vehiculo}' ORDER BY ID_Factura DESC", null, commandType: CommandType.Text));
+                ($"SELECT TOP 3 * FROM [Factura] WHERE ID_Institucion = '{id_institucion}' AND ID_Vehiculo = '{id_vehiculo}' ORDER BY ID_Factura", null, commandType: CommandType.Text));
             return reservavehiculo;
         }
 

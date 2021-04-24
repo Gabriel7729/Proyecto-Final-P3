@@ -3,43 +3,162 @@
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject Radzen.DialogService dialogService
 
-<h1>Dialog with parameters</h1>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
 
-<p>This page demonstrates <b>Dialog</b> component with parameters.</p>
-<h3>OrderID: @vehiculo.ID</h3>
-<RadzenCard Style="margin-bottom: 20px;">
+    /* Category Ads */
+
+    #ads {
+        margin: 30px 0 30px 0;
+    }
+
+        #ads .card-notify-badge {
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            background: #f2d900;
+            text-align: center;
+            border-radius: 30px 30px 30px 30px;
+            color: #000;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        #ads .card-notify-year {
+            position: absolute;
+            right: -10px;
+            top: -20px;
+            background: #ff4444;
+            border-radius: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            width: 50px;
+            height: 50px;
+            padding: 15px 0 0 0;
+        }
+
+
+        #ads .card-detail-badge {
+            background: #f2d900;
+            text-align: center;
+            border-radius: 30px 30px 30px 30px;
+            color: #000;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+
+
+        #ads .card:hover {
+            background: #fff;
+            box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        #ads .card-image-overlay {
+            font-size: 20px;
+        }
+
+
+            #ads .card-image-overlay span {
+                display: inline-block;
+            }
+
+
+        #ads .ad-btn {
+            text-transform: uppercase;
+            width: 150px;
+            height: 40px;
+            border-radius: 80px;
+            font-size: 16px;
+            line-height: 35px;
+            text-align: center;
+            border: 3px solid #e6de08;
+            display: block;
+            text-decoration: none;
+            margin: 20px auto 1px auto;
+            color: #000;
+            overflow: hidden;
+            position: relative;
+            background-color: #e6de08;
+        }
+
+            #ads .ad-btn:hover {
+                background-color: #e6de08;
+                color: #1e1717;
+                border: 2px solid #e6de08;
+                background: transparent;
+                transition: all 0.3s ease;
+                box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+            }
+
+        #ads .ad-title h5 {
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+</style>
+
+<RadzenCard>
     <div class="row">
-        <div class="col-md-6">
-            <div>Company:</div>
-            <b>@vehiculo.Marca @vehiculo.Modelo</b>
-            <div style="margin-top:20px">Employee:</div>
-            <b>@(vehiculo.Marca + " " + vehiculo.Modelo)</b>
-            <br />
-            <RadzenImage Path="@vehiculo.Foto" Style="width:100px;" />
-        </div>
-        <div class="col-md-6">
-            <div>Freight:</div>
-            <b>@vehiculo.Año</b>
-            <div style="margin-top:20px">Ship country:</div>
-            <b>@(vehiculo.Capacidad_Carga)</b>
-            <div style="margin-top:20px">Ship city:</div>
-            <b>@(vehiculo.Color)</b>
-            <div style="margin-top:20px">Ship name:</div>
-            <b>@(vehiculo.Precio_Dia)</b>
+        <a class="btn btn-primary" href='/VistaPorMapa'><i class="fas fa-backward"></i>  Volver atrás</a>
+    </div>
+    <br />
+    <div class="container">
+        <h3 class="text-center">Datos del @vehiculo.Marca @vehiculo.Modelo</h3>
+        <div class="container" style="width:30rem;">
+            <div class="row" id="ads">
+                <center>
+                    <div class="card rounded">
+                        <div class="card-image">
+                            <span class="card-notify-badge">@vehiculo.Marca @vehiculo.Modelo</span>
+                            <span class="card-notify-year">@vehiculo.Año</span>
+                            <img class="img-fluid" style="width:60rem; height:18.5rem;" src="@vehiculo.Foto" alt="Alternate Text" />
+                        </div>
+                        <br />
+                        <div class="card-image-overlay m-auto">
+                            <span class="card-detail-badge">@vehiculo.Color</span>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+                    <h3 class="text-center"><strong>Próximas tres citas</strong></h3>
+                    @if (ReservaModel == null)
+                    {
+                        //Variable para que se muestre si se pasaron valores nullos a la instancia.
+                        MensajeNull = "Error";
+                    }
+                    else
+                    {
+                        foreach (var factura in ReservaModel)
+                        {
+                            if (factura.Fecha_Inc == "" && factura.Fecha_Fin == "")
+                            {
+                                <p><strong>No tiene citas...</strong></p>
+                            }
+                            else
+                            {
+                                count += 1;
+                                <p><strong>Cita @count: </strong>@factura.Fecha_Inc - @factura.Fecha_Fin</p>
+                            }
+
+                        }
+                    }
+                </center>
+            </div>
         </div>
     </div>
 </RadzenCard>
-<div class="row">
-    <div class="col-md-12">
-        <RadzenButton Click="@((args) => dialogService.Close(true))" Text="OK" Style="margin-bottom: 10px; width: 150px" />
-        <RadzenButton Click="@((args) => dialogService.Close(false))" ButtonStyle="ButtonStyle.Secondary" Text="Cancel" Style="margin-bottom: 10px; width: 150px" />
-    </div>
-</div>
 
 
 @code {
     [Parameter]
     public string ID { get; set; }
+
+    int count;
 
     string MensajeNull;
 
@@ -56,6 +175,8 @@
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
 
         vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), name);
+        ReservaModel = await VehiculosManager.ListarReservasVehiculo(name, ID);
+
     }
 
 }

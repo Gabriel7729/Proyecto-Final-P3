@@ -5,71 +5,90 @@
 
 @if (administrador)
 {
-    <div class="row overlay">
-        <div class="col-md-4 " style="padding-left:20px;">
-            <div style="background-color:black; border-bottom-right-radius:60px;height:50px" >
-            <h4 class="text-white" style="padding-top:10px; padding-left:10px">
-                Agregar Institucion</h4></div>
-            
-            <form id="fm">
-                <div class="form-group">
-                    <label for="Name" class="control-label"><strong>Nombre ID Institucion</strong></label>
-                    <input for="Name" class="form-control" @bind-value="@log.UserID" />
-                </div>
-                <div class="form-group">
-                    <label for="Name" class="control-label"><strong>clave</strong></label>
-                    <input for="Name" class="form-control" @bind-value="@log.passID" type="password" />
-                </div>
-                <div class="form-group">
-                    <label for="Name" class="control-label"><strong>Nombre de la compania</strong></label>
-                    <input for="Name" class="form-control" @bind-value="@ints.Nombre" />
-                </div>
-                @if (msj == "Registrado con exito")
-                {
-                    <div class="alert alert-success text-center">@msj</div>
-                }@if (msj == "Este usuario ya existe")
-                {
-                    <div class="alert alert-warning text-center">@msj</div>
-                }
+    <div class="overlay">
+        <form id="fm">
+            <div class="con">
+                <header class="head-form">
+                    <h2><strong>Registrar Usuario</strong></h2>
+                    <p>Ingrese los datos del usuario que desea crear</p>
+                </header>
+                <br>
+                <div class="field-set">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="text" placeholder="Nombre ID de institución" required @bind-value="@log.UserID">
+                    <br>
+                    <div class="form-input">
+                        <span class="input-item">
+                            <i class="fa fa-key"></i>
+                        </span>
+                        <input class="form-input" type="password" placeholder="contraseña" id="txt-inpu" name="Contraseña" required @bind-value="@log.passID">
+                    </div>
+                    <div class="form-input">
+                        <span class="input-item">
+                            <i class="far fa-building"></i>
+                        </span>
+                        <input class="form-input" type="text" placeholder="Nombre de la compañía" id="txt-inpu" required @bind-value="@ints.Nombre">
+                    </div>
 
-                <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-block" @onclick="() => CreateArticle()">Registrar</button>
+                    <br>
+
+                    <div class="text-center">
+                        @if (msj == "Registrado con exito")
+                        {
+                            <div class="alert alert-success text-center">@msj</div>
+                        }@if (msj == "Este usuario ya existe")
+                        {
+                            <div class="alert alert-warning text-center">@msj</div>
+                        }
+                        <button class="log-in btn btn-success pt-2 btn-block mb-3"> Crear </button>
+
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 }
 <!--Veficicador del supremo Admin-->
 @if (administrador == false)
 {
 
-    <div class="row" style="padding-left:20px">
-        <div class="col-md-4 border rounded">
-            <div class="text-center"> <h3>Login administrador</h3></div>
-            <hr />
-            <div style="padding-top:20px">
-                <form id="fm">
-                    <div class="form-group">
-                        <label for="Name" class="control-label"><strong>Admin User</strong></label>
-                        <input for="Name" class="form-control" @bind-value="@AdminUser" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Name" class="control-label"><strong>admin clave</strong></label>
-                        <input for="Name" class="form-control" @bind-value="@AdminClave" type="password" />
-                    </div>
-                    @if (error)
-                    {
-                        <div class="alert alert-danger">Clave o usuario incorrecto</div>
-                    }
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-block" @onclick="() => VerificarAdmin()">Entrar</button>
+    <div class="overlay">
+        <form id="fm">
+            <div class="con">
+                <header class="head-form">
+                    <h2><strong>Administrador de usuarios</strong></h2>
+                    <p>Ingresa tus datos de administrador para iniciar sesión</p>
+                </header>
+                <br>
+                <div class="field-set">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="text" placeholder="Usuario de Administrador" required @bind-value="@AdminUser">
+                    <br>
+                    <div class="form-input">
+                        <span class="input-item">
+                            <i class="fa fa-key"></i>
+                        </span>
+                        <input class="form-input" type="password" placeholder="Contraseña de administrador" id="txt-inpu" name="Contraseña" required @bind-value="@AdminClave">
                     </div>
 
-                </form>
+                    <br>
+
+                    <div class="text-center">
+                        @if (error)
+                        {
+                            <div class="alert alert-danger">Clave o usuario incorrecto</div>
+                        }
+                        <button type="button" class="log-in btn btn-success pt-2 btn-block mb-3" @onclick="() => VerificarAdmin()"> Entrar </button>
+
+                    </div>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
-
 }
 
 @code {
@@ -96,8 +115,6 @@
         }
     }
 
-
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await localStorage.SetItemAsync("name", "John Smith");
@@ -106,7 +123,6 @@
 
 
     }
-
 
     protected async Task CreateArticle()
     {

@@ -3,169 +3,170 @@
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
-    <RadzenCard>
-        <div class="row">
-            <div class="col-md-6">
-                <RadzenCard>
-                    <h1 class="text-center">Añadir Vehiculo</h1>
-                    <RadzenTemplateForm TItem="Vehiculos" Data=@vehiculo Submit=@CreateVehiculos InvalidSubmit=@CreateVehiculos>
-                        <div class="form-group">
+<RadzenCard>
+    <div class="row">
+        <div class="col-md-6">
+            <RadzenCard>
+                <h1 class="text-center">Añadir Vehiculo</h1>
+                <RadzenTemplateForm TItem="Vehiculos" Data=@vehiculo Submit=@CreateVehiculos InvalidSubmit=@CreateVehiculos>
+                    <div class="form-group">
 
-                            <label for="Marca" class="control-label"><strong>Escriba la marca del vehiculo:</strong></label>
-                            <RadzenTextBox class="form-control" Name="Marca" @bind-value="@vehiculo.Marca" Placeholder="Marca" />
+                        <label for="Marca" class="control-label"><strong>Escriba la marca del vehiculo:</strong></label>
+                        <RadzenTextBox class="form-control" Name="Marca" @bind-value="@vehiculo.Marca" Placeholder="Marca" />
 
-                            <br />
+                        <br />
 
-                            <label for="Modelo" class="control-label"><strong>Escriba el modelo del vehiculo:</strong></label>
-                            <RadzenTextBox class="form-control" id="Modelo" @bind-value="@vehiculo.Modelo" Placeholder="Modelo" />
+                        <label for="Modelo" class="control-label"><strong>Escriba el modelo del vehiculo:</strong></label>
+                        <RadzenTextBox class="form-control" id="Modelo" @bind-value="@vehiculo.Modelo" Placeholder="Modelo" />
 
-                            <br />
+                        <br />
 
-                            <label for="Año" class="control-label"><strong>Escriba el Año del vehiculo:</strong></label>
-                            <RadzenTextBox class="form-control" id="Año" @bind-Value="vehiculo.Año" Placeholder="Año" />
+                        <label for="Año" class="control-label"><strong>Escriba el Año del vehiculo:</strong></label>
+                        <RadzenTextBox class="form-control" id="Año" @bind-Value="vehiculo.Año" Placeholder="Año" />
 
-                            <br />
+                        <br />
 
-                            <label for="Color" class="control-label"><strong>Escriba el color del vehiculo:</strong></label>
-                            <RadzenTextBox class="form-control" id="Color" @bind-value="@vehiculo.Color" Placeholder="Color" />
+                        <label for="Color" class="control-label"><strong>Escriba el color del vehiculo:</strong></label>
+                        <RadzenTextBox class="form-control" id="Color" @bind-value="@vehiculo.Color" Placeholder="Color" />
 
-                            <br />
+                        <br />
 
-                            <label for="Precio_Dia" class="control-label"><strong>Escriba el Precio por día del vehiculo:</strong></label>
-                            <RadzenNumeric class="form-control" id="Precio_Dia" TValue="Double" @bind-value=@vehiculo.Precio_Dia ShowUpDown="false" Placeholder="Precio por día" />
+                        <label for="Precio_Dia" class="control-label"><strong>Escriba el Precio por día del vehiculo:</strong></label>
+                        <RadzenNumeric class="form-control" id="Precio_Dia" TValue="Double" @bind-value=@vehiculo.Precio_Dia ShowUpDown="false" Placeholder="Precio por día" />
 
-                            <br /><br />
+                        <br /><br />
 
-                            <label for="Tipo" class="control-label"><strong>Seleccione el tipo del vehiculo:</strong></label>
-                            <select class="form-control" id="Tipo" @onchange="TipoVehiculo">
-                                <option> -- Sin seleccionar -- </option>
-                                <option>Carro</option>
-                                <option>Yipeta</option>
-                                <option>Camioneta</option>
-                                <option>Camión</option>
-                                <option>Motocicleta</option>
-                                <option>Barco</option>
-                                <option>Avión</option>
-                                <option>Nave Espacial (space X)</option>
-                            </select>
+                        <label for="Tipo" class="control-label"><strong>Seleccione el tipo del vehiculo:</strong></label>
+                        <select class="form-control" id="Tipo" @onchange="TipoVehiculo">
+                            <option> -- Sin seleccionar -- </option>
+                            <option>Carro</option>
+                            <option>Yipeta</option>
+                            <option>Camioneta</option>
+                            <option>Camión</option>
+                            <option>Motocicleta</option>
+                            <option>Barco</option>
+                            <option>Avión</option>
+                            <option>Nave Espacial (space X)</option>
+                        </select>
 
-                            <br />
+                        <br />
 
-                            <label for="Capacidad_Carga" class="control-label"><strong>Escriba la capacidad de carga del vehiculo:</strong></label>
-                            <RadzenNumeric class="form-control" id="Capacidad_Carga" TValue="Double" @bind-value=@vehiculo.Capacidad_Carga ShowUpDown="false" Placeholder="Capacidad_Carga" />
+                        <label for="Capacidad_Carga" class="control-label"><strong>Escriba la capacidad de carga del vehiculo:</strong></label>
+                        <RadzenNumeric class="form-control" id="Capacidad_Carga" TValue="Double" @bind-value=@vehiculo.Capacidad_Carga ShowUpDown="false" Placeholder="Capacidad_Carga" />
 
-                            <br /><br />
+                        <br /><br />
 
-                            <label for="Pasajeros" class="control-label"><strong>Escriba la cantidad de pasajeros:</strong></label>
-                            <RadzenNumeric class="form-control" id="Pasajeros" TValue="Int32" @bind-value=@vehiculo.Pasajeros ShowUpDown="false" Placeholder="Pasajeros" />
+                        <label for="Pasajeros" class="control-label"><strong>Escriba la cantidad de pasajeros:</strong></label>
+                        <RadzenNumeric class="form-control" id="Pasajeros" TValue="Int32" @bind-value=@vehiculo.Pasajeros ShowUpDown="false" Placeholder="Pasajeros" />
 
-                            <br /><br />
+                        <br /><br />
 
-                            <label for="Matricula" class="control-label"><strong>Escriba la matricula del vehiculo:</strong></label>
-                            <RadzenMask class="form-control" Mask="**-*****" Pattern="[^0-9]" id="Matricula" @bind-value="@vehiculo.Matricula" Placeholder="Matricula" />
+                        <label for="Matricula" class="control-label"><strong>Escriba la matricula del vehiculo:</strong></label>
+                        <RadzenMask class="form-control" Mask="**-*****" Pattern="[^0-9]" id="Matricula" @bind-value="@vehiculo.Matricula" Placeholder="Matricula" />
 
-                            <br />
+                        <br />
 
-                            <label for="No_Seguro" class="control-label"><strong>Escriba el número de seguro del vehiculo:</strong></label>
-                            <RadzenTextBox class="form-control" id="No_Seguro" @bind-value="@vehiculo.No_Seguro" Placeholder="No_Seguro" />
+                        <label for="No_Seguro" class="control-label"><strong>Escriba el número de seguro del vehiculo:</strong></label>
+                        <RadzenTextBox class="form-control" id="No_Seguro" @bind-value="@vehiculo.No_Seguro" Placeholder="No_Seguro" />
 
-                            <br />
+                        <br />
 
-                            <label for="Foto" class="control-label"><strong>Inserte la foto del vehiculo:</strong></label>
-                            <RadzenTextBox class="form-control" id="Foto" @bind-value="@vehiculo.Foto" Placeholder="Foto" />
+                        <label for="Foto" class="control-label"><strong>Inserte la foto del vehiculo:</strong></label>
+                        <RadzenTextBox class="form-control" id="Foto" @bind-value="@vehiculo.Foto" Placeholder="Foto" />
 
-                            <br />
+                        <br />
 
-                            <label for="Latitud" class="control-label"><strong>Escriba la Latitud del vehiculo:</strong></label>
-                            <RadzenNumeric class="form-control" id="Latitud" TValue="Double" @bind-value=@vehiculo.Latitud ShowUpDown="false" Placeholder="Latitud" />
+                        <label for="Latitud" class="control-label"><strong>Escriba la Latitud del vehiculo:</strong></label>
+                        <RadzenNumeric class="form-control" id="Latitud" TValue="Double" @bind-value=@vehiculo.Latitud ShowUpDown="false" Placeholder="Latitud" />
 
-                            <br /><br />
+                        <br /><br />
 
-                            <label for="Longitud" class="control-label"><strong>Escriba la Longitud del vehiculo:</strong></label>
-                            <RadzenNumeric class="form-control" id="Longitud" TValue="Double" @bind-value=@vehiculo.Longitud ShowUpDown="false" Placeholder="Longitud" />
+                        <label for="Longitud" class="control-label"><strong>Escriba la Longitud del vehiculo:</strong></label>
+                        <RadzenNumeric class="form-control" id="Longitud" TValue="Double" @bind-value=@vehiculo.Longitud ShowUpDown="false" Placeholder="Longitud" />
 
-                            <br /><br />
+                        <br /><br />
+                    </div>
+
+                    @if (ValidarInputs)
+                    {
+                        <div class="alert alert-danger">
+                            @MensajeError
                         </div>
+                    }
 
-                        @if (ValidarInputs)
-                        {
-                            <div class="alert alert-danger">
-                                @MensajeError
-                            </div>
-                        }
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-success btn-block" @onclick="() => CreateVehiculos()">Crear</button>
+                        <button type="button" class="btn btn-danger btn-block" @onclick="() => cancel()">Cancelar</button>
+                    </div>
 
-                        <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-success btn-block" @onclick="() => CreateVehiculos()">Crear</button>
-                            <button type="button" class="btn btn-danger btn-block" @onclick="() => cancel()">Cancelar</button>
-                        </div>
-
-                    </RadzenTemplateForm>
-                </RadzenCard>
-            </div>
-            <div class="col-md-6">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <RadzenCard>
-                    <h3 class="text-center">Seleccione su latitud y longitud</h3>
-                    <RadzenGoogleMap style="height: 400px" Zoom=@zoom Center=@(new GoogleMapPosition() { Lat = 18.94983041735482, Lng = -70.74993105485618 }) MapClick=@OnMapClick>
-                    </RadzenGoogleMap>
-                </RadzenCard>
-            </div>
+                </RadzenTemplateForm>
+            </RadzenCard>
         </div>
-    </RadzenCard>
+        <div class="col-md-6">
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <RadzenCard>
+                <h3 class="text-center">Seleccione su latitud y longitud</h3>
+                <RadzenGoogleMap style="height: 400px" Zoom=@zoom Center=@(new GoogleMapPosition() { Lat = 18.94983041735482, Lng = -70.74993105485618 }) MapClick=@OnMapClick>
+                </RadzenGoogleMap>
+            </RadzenCard>
+        </div>
+    </div>
+</RadzenCard>
 
-    @code {
-        //String del Select
-        String TipoDelVehiculo = "-- Sin seleccionar --";
+@code {
 
-        string MensajeError;
-        bool ValidarInputs = false;
+    //String del Select
+    String TipoDelVehiculo = "-- Sin seleccionar --";
 
-        //String del id de la institucion
-        string id;
+    string MensajeError;
+    bool ValidarInputs = false;
 
-        //Instancia de la Clase Vehiculo
-        Vehiculos vehiculo = new Vehiculos();
+    //String del id de la institucion
+    string id;
 
-        //Variable de tipo int, para manejar el zoom del mapa
-        int zoom = 6;
+    //Instancia de la Clase Vehiculo
+    Vehiculos vehiculo = new Vehiculos();
 
-        //Metodo para manejar el click del mapa
-        void OnMapClick(GoogleMapClickEventArgs args)
-        {
-            //Variables que cambian de valor cuando al mapa se le da un click en la Latitud y Longitud Deseada
-            vehiculo.Latitud = args.Position.Lat;
-            vehiculo.Longitud = args.Position.Lng;
-        }
+    //Variable de tipo int, para manejar el zoom del mapa
+    int zoom = 6;
 
-        //Metodo que permite agregar los datos de los inputs a la tabla de vehiculos y después vuelve a la lista de Vehiculos
-        protected async Task CreateVehiculos()
-        {
-            if (vehiculo.Marca == null || vehiculo.Modelo == null || vehiculo.Año == null || vehiculo.Color == null || vehiculo.Precio_Dia == 0 || vehiculo.Tipo == "-- Sin seleccionar --" || vehiculo.Capacidad_Carga == 0 || vehiculo.Matricula == null || vehiculo.No_Seguro == null || vehiculo.Foto == null || vehiculo.Latitud == 0 || vehiculo.Longitud == 0)
-            {
-                MensajeError = "Todos los campos son necesarios...";
-                ValidarInputs = true;
-                return;
-            }
-            String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-            vehiculo.ID_Institucion = name;
-            vehiculo.Tipo = TipoDelVehiculo;
-            vehiculo.Generado = 0;
-            vehiculo.Veces_Reservados = 0;
-            vehiculo.Estado = "Habilitado";
-            await VehiculosManager.Create(vehiculo);
-            navigationManager.NavigateTo("/CRUDVehiculos");
-        }
-
-        //Metodo para cancelar la creaicon del vehiculo y volver a la lista de los Vehiculos
-        void cancel()
-        {
-            navigationManager.NavigateTo("/CRUDVehiculos");
-        }
-
-        //Metodo para manejar el select de los tipos de Vehiculos
-        public void TipoVehiculo(ChangeEventArgs e)
-        {
-            TipoDelVehiculo = e.Value.ToString();
-        }
-
+    //Metodo para manejar el click del mapa
+    void OnMapClick(GoogleMapClickEventArgs args)
+    {
+        //Variables que cambian de valor cuando al mapa se le da un click en la Latitud y Longitud Deseada
+        vehiculo.Latitud = args.Position.Lat;
+        vehiculo.Longitud = args.Position.Lng;
     }
+
+    //Metodo que permite agregar los datos de los inputs a la tabla de vehiculos y después vuelve a la lista de Vehiculos
+    protected async Task CreateVehiculos()
+    {
+        if (vehiculo.Marca == null || vehiculo.Modelo == null || vehiculo.Año == null || vehiculo.Color == null || vehiculo.Precio_Dia == 0 || vehiculo.Tipo == "-- Sin seleccionar --" || vehiculo.Capacidad_Carga == 0 || vehiculo.Matricula == null || vehiculo.No_Seguro == null || vehiculo.Foto == null || vehiculo.Latitud == 0 || vehiculo.Longitud == 0)
+        {
+            MensajeError = "Todos los campos son necesarios...";
+            ValidarInputs = true;
+            return;
+        }
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        vehiculo.ID_Institucion = name;
+        vehiculo.Tipo = TipoDelVehiculo;
+        vehiculo.Generado = 0;
+        vehiculo.Veces_Reservados = 0;
+        vehiculo.Estado = "Habilitado";
+        await VehiculosManager.Create(vehiculo);
+        navigationManager.NavigateTo("/CRUDVehiculos");
+    }
+
+    //Metodo para cancelar la creaicon del vehiculo y volver a la lista de los Vehiculos
+    void cancel()
+    {
+        navigationManager.NavigateTo("/CRUDVehiculos");
+    }
+
+    //Metodo para manejar el select de los tipos de Vehiculos
+    public void TipoVehiculo(ChangeEventArgs e)
+    {
+        TipoDelVehiculo = e.Value.ToString();
+    }
+
+}

@@ -4,10 +4,10 @@
 @inject IJSRuntime JSRuntime
 @implements IDisposable
     <RadzenCard>
-        <header>
+        <div>
             <h1 class="text-center">Listado de  Beneficios</h1>
             <hr />
-        </header>
+        </div>
 
         <div class="row">
             <div class="col-md-6">
@@ -44,7 +44,7 @@
                             <td>@vehiculo.Marca</td>
                             <td>@vehiculo.Modelo</td>
                             <td>@vehiculo.Veces_Reservados</td>
-                            <td>@vehiculo.Generado</td>
+                            <td>@vehiculo.Generado.ToString("C", new CultureInfo("es-DO"))</td>
                         </tr>
                         
                     }

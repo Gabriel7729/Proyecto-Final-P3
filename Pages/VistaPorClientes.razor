@@ -5,66 +5,66 @@
 @inject IJSRuntime JSRuntime
 @implements IDisposable
 <RadzenCard>
-  
-        <header>
-            <h1 class="text-center">Listado de los Clientes</h1>
-            <hr />
-        </header>
 
-          <div class="row">
-            <div class="col-md-6">
-                <a class="btn btn-primary" href='/Beneficios'><i class="fas fa-backward"></i>  Volver atrás</a>
-            </div>
+    <div>
+        <h1 class="text-center">Listado de deudores</h1>
+        <hr />
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-primary" href='/Beneficios'><i class="fas fa-backward"></i>  Volver atrás</a>
         </div>
+    </div>
 
-        <br />
-        <table class="table table-bordered table-hover table-striped" id="example">
-            <thead class="thead-dark">
+    <br />
+    <table class="table table-bordered table-hover table-striped" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Codigo Factura</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Monto Pendiente</th>
+                <th>Vehiculo</th>
+                <th>Tipo</th>
+                <th>Matricula</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (FacturaModels == null)
+            {
                 <tr>
-                    <th>ID</th>
-                    <th>Cedula</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Codigo Factura</th>
-                    <th>Monto Pendiente</th>
-                    <th>Vehiculo</th>
-                    <th>Tipo</th>
-                    <th>Matricula</th>
+                    <td colspan="12">
+                        No Records to display
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @if (FacturaModels == null)
+            }
+            else
+            {
+                foreach (var cliente in FacturaModels)
                 {
-                    <tr>
-                        <td colspan="12">
-                            No Records to display
-                        </td>
-                    </tr>
-                }
-                else
-                {
-                    foreach (var cliente in FacturaModels)
+                    if (cliente.Monto_pagar >= 1)
                     {
-                        if(cliente.Monto_pagar >= 1)
-                        {
                         <tr>
                             <td>@cliente.ID_Cliente</td>
+                            <td>@cliente.ID_Factura</td>
                             <td>@cliente.Cedula_Cliente</td>
                             <td>@cliente.Nombre_Cliente</td>
                             <td>@cliente.Apellido_Cliente</td>
-                            <td>@cliente.ID_Factura</td>
-                            <td>@cliente.Monto_pagar.ToString("C",new CultureInfo("es-DO"))</td>
+                            <td>@cliente.Monto_pagar.ToString("C", new CultureInfo("es-DO"))</td>
                             <td>@cliente.Marca</td>
                             <td>@cliente.Tipo</td>
                             <td>@cliente.Matricula</td>
                         </tr>
-                        }
-                        
                     }
-                }
 
-            </tbody>
-        </table>
+                }
+            }
+
+        </tbody>
+    </table>
 </RadzenCard>
 
 
@@ -110,7 +110,7 @@
         JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
     }
 
-    protected  async Task ModuloPago(string id,double pago,string nombre, string apellido)
+    protected async Task ModuloPago(string id, double pago, string nombre, string apellido)
     {
         ID = id;
         valor = pago;
@@ -120,11 +120,11 @@
         //await ReservaManager.AltualizarPago(id,pago);
 
     }
-    protected  async Task EnviarRestante()
+    protected async Task EnviarRestante()
     {
         double Restante = valor - Convert.ToDouble(ValoPagado);
 
-        await ReservaManager.AltualizarPago(ID,Restante);
+        await ReservaManager.AltualizarPago(ID, Restante);
 
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
         FacturaModels = await ReservaManager.ListAll(name);

@@ -16,15 +16,6 @@ namespace PtoyectoFinal.Concrete
             this._dapperManager = dapperManager;
         }
 
-        public Task<int> Create(Article article)
-        {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("Title", article.Title, DbType.String);
-            var articleId = Task.FromResult(_dapperManager.Insert<int>("[dbo].[SP_Add_Article]",
-                            dbPara,
-                            commandType: CommandType.StoredProcedure));
-            return articleId;
-        } 
         //ESTE ES EL DEL LOGIN
         public Task<int> Createlogin(login log)
         {
@@ -47,13 +38,6 @@ namespace PtoyectoFinal.Concrete
                             commandType: CommandType.StoredProcedure));
             return articleId;
         }
-        
-        public Task<Article> GetById(int id)
-        {
-            var article = Task.FromResult(_dapperManager.Get<Article>($"select * from [Article] where ID = {id}", null,
-                    commandType: CommandType.Text));
-            return article;
-        }
         //ESTE OBTINE EL ID DEL LOGIN
         public Task<string> getloginID(string UserID, string passID )
         {
@@ -74,39 +58,6 @@ namespace PtoyectoFinal.Concrete
             var article = Task.FromResult(_dapperManager.Get<string>($"select ID_Institucion from [Institucion] where ID_login = '{ID_login}'", null,
                     commandType: CommandType.Text));
             return article;
-        }
-
-        public Task<int> Delete(int id)
-        {
-            var deleteArticle = Task.FromResult(_dapperManager.Execute($"Delete [Article] where ID = {id}", null,
-                    commandType: CommandType.Text));
-            return deleteArticle;
-        }
-
-        public Task<int> Count(string search)
-        {
-            var totArticle = Task.FromResult(_dapperManager.Get<int>($"select COUNT(*) from [Article] WHERE Title like '%{search}%'", null,
-                    commandType: CommandType.Text));
-            return totArticle;
-        }
-
-        public Task<List<Article>> ListAll(int skip, int take, string orderBy, string direction = "DESC", string search = "")
-        {
-            var articles = Task.FromResult(_dapperManager.GetAll<Article>
-                ($"SELECT * FROM [Article] WHERE Title like '%{search}%' ORDER BY {orderBy} {direction} OFFSET {skip} ROWS FETCH NEXT {take} ROWS ONLY; ", null, commandType: CommandType.Text));
-            return articles;
-        }
-
-        public Task<int> Update(Article article)
-        {
-            var dbPara = new DynamicParameters();
-            dbPara.Add("Id", article.ID);
-            dbPara.Add("Title", article.Title, DbType.String);
-
-            var updateArticle = Task.FromResult(_dapperManager.Update<int>("[dbo].[SP_Update_Article]",
-                            dbPara,
-                            commandType: CommandType.StoredProcedure));
-            return updateArticle;
         }
     }
 }

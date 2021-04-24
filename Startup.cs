@@ -57,11 +57,11 @@ namespace PtoyectoFinal
             //Register dapper in scope  
             services.AddScoped<IDapperManager, DapperManager>();
 
+            //Services para el funcionamient ode los dialogos en Radzen Blazor Components
             services.AddScoped<DialogService>();
             services.AddScoped<NotificationService>();
             services.AddScoped<TooltipService>();
             services.AddScoped<ContextMenuService>();
-
 
         }
 

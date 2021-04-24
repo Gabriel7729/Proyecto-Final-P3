@@ -13,133 +13,133 @@ namespace PtoyectoFinal.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 1 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 2 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 3 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 4 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 5 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 6 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 7 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 8 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 9 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 10 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Concrete;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 11 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Contracts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 12 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 13 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 14 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.DataAccess;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 15 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 16 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 17 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 18 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using BlazorInputFile;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\_Imports.razor"
+#line 19 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.IO;
 
 #line default
@@ -154,121 +154,81 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 191 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\Pages\VistaPorMapa.razor"
+#line 45 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\Pages\VistaPorMapa.razor"
        
 
-    async Task ShowInlineDialog() => await DialogService.OpenAsync("Simple Dialog", ds =>
-    
+    //Variable de tipo int que maneja cuanto Zoom tendrá el Mapa
+    int zoom = 6;
 
-#line default
-#line hidden
-#nullable disable
-        (__builder2) => {
-            __builder2.AddMarkupContent(0, @"<div>
-        <p Style=""margin-bottom: 1rem"">Confirm?</p>
-        <div class=""row"">
-            <div class=""col-md-12"">
-                <RadzenButton Text=""Ok"" Click=""() => ds.Close(true)"" Style=""margin-bottom: 10px; width: 150px""></RadzenButton>
-                <RadzenButton Text=""Cancel"" Click=""() => ds.Close(false)"" ButtonStyle=""ButtonStyle.Secondary"" Style=""margin-bottom: 10px; width: 150px""></RadzenButton>
-            </div>
-        </div>
-    </div>");
+    //Variables de tipo string que toman los valores del foreach de la tabla de Vehiculos
+    string marca, modelo, color, año, foto, estilo, id;
+
+    //Variable booleana, para validar sí se ha seleccionado un carro o no del marcador del mapa.
+    bool validar = false;
+
+    //Mensaje que maneja la expcecion de los VehiculosModel2, para que sí da null, se muestre esa variable
+    string MensajeNull;
+
+    //Instancia una lista de la clase de vehiculos
+    List<Vehiculos> VehiculosModel2;
+
+    //Instancia una lista de la clase de vehiculos
+    List<Factura> ReservaModel;
+
+    //Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
+    protected override async Task OnInitializedAsync()
+    {
+        //Id de la institucion, que se obtiene por medio del localstorage, dependiendo de cual usuario o institucion esté regustrado
+        String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+
+        //Se cargan cada uno de los datos de la Tabla "Vehiculos" a la instancia de lista de la clase "Vehiculos" llamada "VehiculosModel2"
+        VehiculosModel2 = await VehiculosManager.ListAll(name);
+    }
+
+    //Metodo que maneja el click del Mapa como evento
+    void OnMapClick(GoogleMapClickEventArgs args)
+    {
+
+    }
+
+    //Metodo que maneja el click del marcador como evento
+    void OnMarkerClick(RadzenGoogleMapMarker marker)
+    {
+        //If, que sirva para validar si la instancia de esa lista se está pasando null o no.
+        //De esa manera se evita, que se pase null a la instancia "VehiculosModel2"
+        if (VehiculosModel2 == null)
+        {
+            //Variable para que se muestre si se pasaron valores nullos a la instancia.
+            MensajeNull = "No se ha seleccionado ningún vehículo...";
         }
-#nullable restore
-#line 202 "C:\Users\LUIS ANTONIO DE AZA\Desktop\Ultimos Ajustes del final\Proyecto-Final-P3\Proyecto-Final-P3\Pages\VistaPorMapa.razor"
-          );
+        else
+        {
+            MensajeNull = "";
 
-//Variable de tipo int que maneja cuanto Zoom tendrá el Mapa
-int zoom = 6;
-
-//Variables de tipo string que toman los valores del foreach de la tabla de Vehiculos
-string marca, modelo, color, año, foto, estilo, id;
-
-//Variable booleana, para validar sí se ha seleccionado un carro o no del marcador del mapa.
-bool validar = false;
-
-//Mensaje que maneja la expcecion de los VehiculosModel2, para que sí da null, se muestre esa variable
-string MensajeNull;
-
-//Instancia una lista de la clase de vehiculos
-List<Vehiculos> VehiculosModel2;
-
-//Instancia una lista de la clase de vehiculos
-List<Factura> ReservaModel;
-
-//Metodo que se ejecuta de inicio y que muestra la lista de los vehiculos, filtrandola por el id de institucion
-protected override async Task OnInitializedAsync()
-{
-  //Id de la institucion, que se obtiene por medio del localstorage, dependiendo de cual usuario o institucion esté regustrado
-  String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-
-  //Se cargan cada uno de los datos de la Tabla "Vehiculos" a la instancia de lista de la clase "Vehiculos" llamada "VehiculosModel2"
-  VehiculosModel2 = await VehiculosManager.ListAll(name);
-
-  DialogService.OnOpen += Open;
-  DialogService.OnClose += Close;
-
-  //ReservaModel = await VehiculosManager.ListarReservasVehiculo(name);
-}
-
-void Open(string title, Type type, Dictionary<string, object> parameters, DialogOptions options)
-{
-}
-
-void Close(dynamic result)
-{
-}
-
-public void Cerrar_Modal()
-{
-  validar = false;
-}
-
-//Metodo que maneja el click del Mapa como evento
-void OnMapClick(GoogleMapClickEventArgs args)
-{
-
-}
-
-//Metodo que maneja el click del marcador como evento
-void OnMarkerClick(RadzenGoogleMapMarker marker)
-{
-  //If, que sirva para validar si la instancia de esa lista se está pasando null o no.
-  //De esa manera se evita, que se pase null a la instancia "VehiculosModel2"
-  if (VehiculosModel2 == null)
-  {
-      //Variable para que se muestre si se pasaron valores nullos a la instancia.
-      MensajeNull = "No se ha seleccionado ningún vehículo...";
-  }
-  else
-  {
-      MensajeNull = "";
-
-      //Foreach para cargar los datos de la tabla de Vehiculos
-      foreach (var vehiculo2 in VehiculosModel2)
-      {
-          //If, para que solamente se traiga el vehiculo del marcador que se está seleccionando
-          if ((vehiculo2.Marca + " " + vehiculo2.Modelo) == marker.Title)
-          {
-              //Se igualan cada una de las variables a las que se está trayendo de la tabla, para poder mostrarlas.
-              validar = true;
-              estilo = "position:fixed;left:33%;padding-top:0%";
-              id = vehiculo2.ID.ToString();
-              marca = vehiculo2.Marca;
-              modelo = vehiculo2.Modelo;
-              color = vehiculo2.Color;
-              año = vehiculo2.Año;
-              foto = vehiculo2.Foto;
-          }
-      }
-  }
-}
+            //Foreach para cargar los datos de la tabla de Vehiculos
+            foreach (var vehiculo2 in VehiculosModel2)
+            {
+                //If, para que solamente se traiga el vehiculo del marcador que se está seleccionando
+                if ((vehiculo2.Marca + " " + vehiculo2.Modelo) == marker.Title)
+                {
+                    //Se igualan cada una de las variables a las que se está trayendo de la tabla, para poder mostrarlas.
+                    validar = true;
+                    estilo = "position:fixed;left:33%;padding-top:0%";
+                    id = vehiculo2.ID.ToString();
+                    marca = vehiculo2.Marca;
+                    modelo = vehiculo2.Modelo;
+                    color = vehiculo2.Color;
+                    año = vehiculo2.Año;
+                    foto = vehiculo2.Foto;
+                }
+            }
+        }
+    }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private DialogService DialogService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IVehiculosManager VehiculosManager { get; set; }
     }
