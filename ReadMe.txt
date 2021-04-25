@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Alquiler_Vehiculos]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Database [Alquiler_Vehiculos]    Script Date: 25/04/2021 4:42:10 ******/
 CREATE DATABASE [Alquiler_Vehiculos]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [Alquiler_Vehiculos] SET QUERY_STORE = OFF
 GO
 USE [Alquiler_Vehiculos]
 GO
-/****** Object:  Table [dbo].[Article]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[Article]    Script Date: 25/04/2021 4:42:10 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,7 +96,7 @@ CREATE TABLE [dbo].[Article](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Clientes]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[Clientes]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,16 +111,16 @@ CREATE TABLE [dbo].[Clientes](
 	[Licencia] [nvarchar](250) NOT NULL,
 	[Nacionalidad] [nvarchar](250) NOT NULL,
 	[Tipo_Sangre] [nvarchar](250) NOT NULL,
-	[Foto_Persona] [nvarchar](250) NOT NULL,
-	[Foto_Licencia] [nvarchar](250) NOT NULL,
+	[Foto_Persona] [text] NOT NULL,
+	[Foto_Licencia] [text] NOT NULL,
 	[Estado] [nvarchar](250) NOT NULL,
  CONSTRAINT [PK_Clientes] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Factura]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[Factura]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +147,7 @@ CREATE TABLE [dbo].[Factura](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Institucion]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[Institucion]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,7 +162,7 @@ CREATE TABLE [dbo].[Institucion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[login]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[login]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +177,7 @@ CREATE TABLE [dbo].[login](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Reserva]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[Reserva]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -195,7 +195,7 @@ CREATE TABLE [dbo].[Reserva](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Vehiculos]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  Table [dbo].[Vehiculos]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -205,7 +205,7 @@ CREATE TABLE [dbo].[Vehiculos](
 	[Marca] [nvarchar](250) NOT NULL,
 	[ID_Institucion] [nvarchar](1) NOT NULL,
 	[Modelo] [nvarchar](250) NOT NULL,
-	[Año] [nvarchar](250) NOT NULL,
+	[Año] [nvarchar](6) NOT NULL,
 	[Color] [nvarchar](250) NOT NULL,
 	[Precio_Dia] [real] NOT NULL,
 	[Tipo] [nvarchar](250) NOT NULL,
@@ -213,7 +213,7 @@ CREATE TABLE [dbo].[Vehiculos](
 	[Pasajeros] [int] NOT NULL,
 	[Matricula] [nvarchar](250) NOT NULL,
 	[NO_Seguro] [nvarchar](250) NOT NULL,
-	[Foto] [nvarchar](250) NOT NULL,
+	[Foto] [text] NOT NULL,
 	[Generado] [real] NOT NULL,
 	[Veces_Reservados] [int] NOT NULL,
 	[Latitud] [real] NOT NULL,
@@ -223,9 +223,9 @@ CREATE TABLE [dbo].[Vehiculos](
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[Add_Factura]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Add_Factura]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -255,7 +255,7 @@ AS
         SELECT  @Id AS ReservaID;    
     END;
 GO
-/****** Object:  StoredProcedure [dbo].[Add_Institucion]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Add_Institucion]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,7 +272,7 @@ AS
         SELECT  @Id AS ArticleID;    
     END;   
 GO
-/****** Object:  StoredProcedure [dbo].[Add_login]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Add_login]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -289,7 +289,7 @@ AS
         SELECT  @Id AS ArticleID;    
     END;   
 GO
-/****** Object:  StoredProcedure [dbo].[Add_Reserva]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Add_Reserva]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -309,7 +309,7 @@ AS
         SELECT  @Id AS ReservaID;    
     END; 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Add_Article]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Add_Article]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -328,7 +328,7 @@ AS
         SELECT  @Id AS ArticleID;    
     END;  
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Add_Clientes]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Add_Clientes]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -342,8 +342,8 @@ CREATE PROCEDURE [dbo].[SP_Add_Clientes]
 	@Licencia NVARCHAR(250),
 	@Nacionalidad NVARCHAR(250),
 	@Tipo_Sangre NVARCHAR(250),
-	@Foto_Persona NVARCHAR(250),
-	@Foto_Licencia NVARCHAR(250),
+	@Foto_Persona TEXT,
+	@Foto_Licencia TEXT,
 	@Estado NVARCHAR(250)
 AS    
     BEGIN    
@@ -381,7 +381,7 @@ AS
 
 /*Procedimiento Almacenado para actualizar los datos de la tabla de Clientes*/
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Add_Vehiculos]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Add_Vehiculos]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -398,7 +398,7 @@ CREATE PROCEDURE [dbo].[SP_Add_Vehiculos]
 	@Pasajeros INT,
 	@Matricula NVARCHAR(250),
 	@NO_Seguro NVARCHAR(250),
-	@Foto NVARCHAR(250),
+	@Foto TEXT,
 	@Generado REAL,
 	@Veces_Reservados int,
 	@Latitud REAL,
@@ -450,7 +450,7 @@ AS
 
 /*Procedimiento Almacenado para actualizar los datos de la tabla de Vehiculos*/
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Article]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Article]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -465,7 +465,7 @@ GO
 	           
 		END;    
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -479,8 +479,8 @@ CREATE PROCEDURE [dbo].[SP_Update_Clientes]
 		@Licencia NVARCHAR(250),
 		@Nacionalidad NVARCHAR(250),
 		@Tipo_Sangre NVARCHAR(250),
-		@Foto_Persona NVARCHAR(250),
-		@Foto_Licencia NVARCHAR(250)
+		@Foto_Persona TEXT,
+		@Foto_Licencia TEXT
 	AS    
 		BEGIN    
 
@@ -490,7 +490,7 @@ CREATE PROCEDURE [dbo].[SP_Update_Clientes]
 		
 		/*Altualizar estado Cliente*/
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes_Estado]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Clientes_Estado]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -505,7 +505,7 @@ CREATE PROCEDURE [dbo].[SP_Update_Clientes_Estado]
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Update_Vehiculos]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Update_Vehiculos]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -522,7 +522,7 @@ CREATE PROCEDURE [dbo].[SP_Update_Vehiculos]
 		@Pasajeros INT,
 		@Matricula NVARCHAR(250),
 		@NO_Seguro NVARCHAR(250),
-		@Foto NVARCHAR(250),
+		@Foto TEXT,
 		@Latitud REAL,
 		@Longitud REAL
 	AS  
@@ -534,7 +534,7 @@ CREATE PROCEDURE [dbo].[SP_Update_Vehiculos]
 
 		/*Update reservado*/
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Pago_Factur]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Pago_Factur]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -549,7 +549,7 @@ GO
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Pago_Factura]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Pago_Factura]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -564,7 +564,7 @@ GO
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Estado]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Estado]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -579,7 +579,7 @@ GO
 	           
 		END;
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Generado]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Generado]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -596,7 +596,7 @@ GO
 
 		/*Update reservado*/
 GO
-/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Reservado]    Script Date: 18/04/2021 18:38:05 ******/
+/****** Object:  StoredProcedure [dbo].[Update_Vehiculo_Reservado]    Script Date: 25/04/2021 4:42:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

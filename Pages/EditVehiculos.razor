@@ -72,7 +72,7 @@
                         <br />
 
                         <label for="Foto" class="control-label"><strong>Inserte la foto del vehiculo:</strong></label>
-                        <RadzenTextBox class="form-control" id="Foto" @bind-value="@vehiculo.Foto" Placeholder="Foto" />
+                        <RadzenFileInput @bind-Value=@vehiculo.Foto Style="width:400px" TValue="string" />
 
                         <br />
 

@@ -189,6 +189,9 @@ using System.IO;
             ValidarInputs = true;
             return;
         }
+
+       
+
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
         vehiculo.ID_Institucion = name;
         vehiculo.Tipo = TipoDelVehiculo;

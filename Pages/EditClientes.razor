@@ -64,13 +64,13 @@
 
                         <br />
 
-                        <label for="Foto Persona" class="control-label"><strong>Escriba el URL de la foto del cliente:</strong></label>
-                        <RadzenTextBox class="form-control" id="Foto Persona" @bind-Value="cliente.Foto_Persona" Placeholder="Foto Persona" />
+                        <label for="Foto" class="control-label"><strong>Inserte la foto del la persona:</strong></label>
+                        <RadzenFileInput @bind-Value=@cliente.Foto_Persona Style="width:400px" TValue="string" />
 
                         <br />
 
-                        <label for="Foto Licencia" class="control-label"><strong>Escriba el URL de la foto de la licencia del cliente:</strong></label>
-                        <RadzenTextBox class="form-control" id="Foto Licencia" @bind-Value="cliente.Foto_Licencia" Placeholder="Foto Licencia" />
+                        <label for="Foto" class="control-label"><strong>Inserte la foto del la licencia:</strong></label>
+                        <RadzenFileInput @bind-Value=@cliente.Foto_Licencia Style="width:400px" TValue="string" />
 
                         <br />
 

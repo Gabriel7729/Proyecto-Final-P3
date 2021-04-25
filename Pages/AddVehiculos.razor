@@ -22,7 +22,7 @@
                         <br />
 
                         <label for="Año" class="control-label" typeof="number"><strong>Escriba el Año del vehiculo:</strong></label>
-                        <RadzenMask class="form-control" id="Año" Mask="****" Pattern="[^0-9]"  @bind-Value="vehiculo.Año" Placeholder="Año" />
+                        <RadzenMask class="form-control" id="Año" Mask="****" Pattern="[^0-9]" @bind-Value="vehiculo.Año" Placeholder="Año" />
 
                         <br />
 
@@ -31,7 +31,7 @@
 
                         <br />
 
-                        <label for="Precio_Dia" class="control-label" typeof="number" ><strong>Escriba el Precio por día del vehiculo:</strong></label>
+                        <label for="Precio_Dia" class="control-label" typeof="number"><strong>Escriba el Precio por día del vehiculo:</strong></label>
                         <RadzenNumeric class="form-control" id="Precio_Dia" TValue="Double" @bind-value=@vehiculo.Precio_Dia ShowUpDown="false" Placeholder="Precio por día" />
 
                         <br /><br />
@@ -72,7 +72,7 @@
                         <br />
 
                         <label for="Foto" class="control-label"><strong>Inserte la foto del vehiculo:</strong></label>
-                        <RadzenTextBox class="form-control" id="Foto" @bind-value="@vehiculo.Foto" Placeholder="Foto" />
+                        <RadzenFileInput @bind-Value=@vehiculo.Foto Style="width:400px" TValue="string" />
 
                         <br />
 
@@ -147,6 +147,9 @@
             ValidarInputs = true;
             return;
         }
+
+       
+
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
         vehiculo.ID_Institucion = name;
         vehiculo.Tipo = TipoDelVehiculo;

@@ -159,6 +159,7 @@ using System.IO;
     //Id que se recibe como parametro
     [Parameter]
     public string ID { get; set; }
+    String foto;
 
     //Instancia de la Clase Vehiculo
     Vehiculos vehiculo = new Vehiculos();
@@ -170,6 +171,7 @@ using System.IO;
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
         vehiculo.ID_Institucion = name;
         vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), vehiculo.ID_Institucion);
+        foto = vehiculo.Foto;
     }
 
 
