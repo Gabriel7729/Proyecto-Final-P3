@@ -26,6 +26,7 @@
                         </ul>
                     </div>
                     <a href="/login" class="text-white" @onclick="@Cerrar"><strong>Cerrar Seccion</strong></a>
+                    <a href="/login" class="text-white" @onclick="@ver" style="padding-left:20px"><strong> Aserca de</strong></a>
 
 
 
@@ -189,6 +190,11 @@ else
     {
         await localStorage.RemoveItemAsync("ID_login");
         navigationManager.NavigateTo("/Main");
+    }
+    async Task ver()
+    {
+        //await localStorage.RemoveItemAsync("ID_login");
+        navigationManager.NavigateTo("/Aserca");
     }
 
     public void admin()

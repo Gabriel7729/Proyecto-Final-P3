@@ -145,56 +145,14 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/ListadoVehiculosDeshabilitados")]
-    public partial class ListadoVehiculosDeshabilitados : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Aserca")]
+    public partial class AsercaDe : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 73 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\ListadoVehiculosDeshabilitados.razor"
-           
-
-        //Instancia una lista de la clase de vehiculos
-        List<Vehiculos> VehiculosModel;
-
-        //Instancia de la clase Vehiculos
-        Vehiculos VehiculosEntity = new Vehiculos();
-
-        //Metodo para borrar un vehiculo con los parametros del ID normal y el ID de institucion
-        protected async Task DeleteVehiculos(int id, string id_institucion)
-        {
-            await VehiculosManager.Delete(id, id_institucion);
-            VehiculosModel = await VehiculosManager.ListarVehiculosDeshabilitados(id_institucion);
-        }
-
-        //Metodos para poder implementar el Datatable
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                String name = await localStorage.GetItemAsync<string>("ID_Institucion");
-                VehiculosModel = await VehiculosManager.ListarVehiculosDeshabilitados(name);
-                StateHasChanged();
-            }
-            await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
-        }
-
-        void IDisposable.Dispose()
-        {
-            JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
-        }
-
-    
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IVehiculosManager VehiculosManager { get; set; }
     }
 }
 #pragma warning restore 1591
