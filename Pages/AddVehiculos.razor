@@ -72,9 +72,10 @@
                         <br />
 
                         <label for="Foto" class="control-label"><strong>Inserte la foto del vehiculo:</strong></label>
-                        <RadzenFileInput @bind-Value=@vehiculo.Foto Style="width:400px" TValue="string" />
-
                         <br />
+                        <RadzenFileInput class="form-control-file" @bind-Value=@vehiculo.Foto Style="width:400px" TValue="string" />
+
+                        <br /><br />
 
                         <label for="Latitud" class="control-label"><strong>Escriba la Latitud del vehiculo:</strong></label>
                         <RadzenNumeric class="form-control" id="Latitud" TValue="Double" @bind-value=@vehiculo.Latitud ShowUpDown="false" Placeholder="Latitud" />

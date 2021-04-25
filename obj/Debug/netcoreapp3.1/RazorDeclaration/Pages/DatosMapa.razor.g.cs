@@ -13,139 +13,139 @@ namespace PtoyectoFinal.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 1 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 2 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 3 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 4 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 5 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 6 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 7 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 8 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 9 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 10 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Concrete;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 11 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Contracts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 12 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 13 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 14 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.DataAccess;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 15 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 16 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 17 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 18 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using BlazorInputFile;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 19 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/DatosMapa/{ID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/DatosMapa")]
     public partial class DatosMapa : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -154,17 +154,45 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 157 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\DatosMapa.razor"
+#line 176 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\Pages\DatosMapa.razor"
        
-    [Parameter]
-    public string ID { get; set; }
 
-    int count;
+    public Guid Guid = Guid.NewGuid();
+    public string ModalDisplay = "none;";
+    public string ModalClass = "";
+    public bool ShowBackdrop = false;
+
+    public void Open()
+    {
+        count = 0;
+        ModalDisplay = "block;";
+        ModalClass = "Show";
+        ShowBackdrop = true;
+        OnInitializedAsync();
+        StateHasChanged();
+        OnInitializedAsync();
+    }
+
+    public void Close()
+    {
+        count = 0;
+        ModalDisplay = "none";
+        ModalClass = "";
+        ShowBackdrop = false;
+        OnInitializedAsync();
+        StateHasChanged();
+        OnInitializedAsync();
+    }
+
+    int count = 0;
 
     string MensajeNull;
 
-    //Instancia una lista de la clase de vehiculos
+    //Instancia una lista de la clase de Factura
     List<Factura> ReservaModel;
+
+    //Instancia una lista de la clase de vehiculos
+    List<Vehiculos> VehiculosModel;
 
     //Instancia de la Clase Vehiculo
     Vehiculos vehiculo = new Vehiculos();
@@ -174,10 +202,11 @@ using System.IO;
     {
         //Se obtiene el ID por medio del LocalStorage
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        String name2 = await localStorage.GetItemAsync<string>("ID_VehiculoMapa");
 
-        vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), name);
-        ReservaModel = await VehiculosManager.ListarReservasVehiculo(name, ID);
+        VehiculosModel = await VehiculosManager.ListarVehiculosMapaModal(name, name2);
 
+        ReservaModel = await VehiculosManager.ListarReservasVehiculo(name, name2);
     }
 
 

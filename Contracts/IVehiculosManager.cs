@@ -14,7 +14,8 @@ namespace PtoyectoFinal.Contracts
         Task<int> Reservado(int id, int reservado);
         Task<Vehiculos> GetById(int Id, string Id_institucion);
         Task<List<Vehiculos>> ListAll(string id_institucion);
-       Task<List<Factura>> ListarReservasVehiculo(string id_institucion, string id_vehiculo);
+        Task<List<Vehiculos>> ListarVehiculosMapaModal(string id_institucion, string id_vehiculo);
+        Task<List<Factura>> ListarReservasVehiculo(string id_institucion, string id_vehiculo);
         Task<List<Vehiculos>> ListarVehiculosDeshabilitados(string id_institucion);
     }
 }

@@ -13,140 +13,140 @@ namespace PtoyectoFinal.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 1 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 2 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 3 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 4 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 5 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 6 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 7 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 8 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 9 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 10 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Concrete;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 11 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Contracts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 12 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 13 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 14 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using PtoyectoFinal.DataAccess;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 15 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 16 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 17 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 18 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using BlazorInputFile;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\_Imports.razor"
+#line 19 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\_Imports.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\AddReservas.razor"
+#line 6 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\Pages\AddReservas.razor"
 using Microsoft.OData.Edm;
 
 #line default
@@ -161,7 +161,7 @@ using Microsoft.OData.Edm;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 133 "C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\Pages\AddReservas.razor"
+#line 238 "C:\Users\Lusan\Downloads\Proyecto-Final-P3\Pages\AddReservas.razor"
       
 
     Reservas reserva = new Reservas();
@@ -171,8 +171,8 @@ using Microsoft.OData.Edm;
     Date FIN;
     bool errorFecha = false;
     bool Confirmada = false;
-  
-
+    bool NoPermitirMasMes = false;
+    bool NoPermitirMasAño = false;
 
 
     //Datos del Vehiculo
@@ -280,6 +280,19 @@ using Microsoft.OData.Edm;
         int MontoPagar = (FIN.Day + 1 - INC.Day) * Convert.ToInt32(Precio);
         MontoP = MontoPagar;
 
+        int MesValidacion = (FIN.Month - INC.Month);
+        if (MesValidacion > 0)
+        {
+            NoPermitirMasMes = true;
+            return;
+        }
+
+        int AñoValidacion = (FIN.Year - INC.Year);
+        if (AñoValidacion > 0)
+        {
+            NoPermitirMasAño = true;
+            return;
+        }
 
         //await ReservaManager.Agregar(reserva);
 
@@ -299,17 +312,23 @@ using Microsoft.OData.Edm;
         factura.Matricula = Matricula;
         factura.pago = 1;
 
-        int ValidadoFehca = await ReservaManager.ValidadFecha(INC.ToString(), FIN.ToString(), ID_Institucion,ID_V);
+        int ValidadoFehca = await ReservaManager.ValidadFecha(INC.ToString(), FIN.ToString(), ID_Institucion, ID_V);
         if (ValidadoFehca != 0)
         {
             errorFecha = true;
             return;
         }
+        else
+        {
+            NoPermitirMasMes = false;
+            errorFecha = false;
+            NoPermitirMasAño = false;
+        }
         //Obtines lo que tiene el vehiculo generado y suma lo actual
         int IDV = await localStorage.GetItemAsync<int>("VID");
         int GENERADO = await localStorage.GetItemAsync<int>("VGENERADO");
         int TotalGenerado = (GENERADO + MontoP);
-        await VehiculosManager.Generado(IDV,TotalGenerado);
+        await VehiculosManager.Generado(IDV, TotalGenerado);
 
         //Obtiene las veces generado y le suma una vez mas
         int Reservado = await localStorage.GetItemAsync<int>("VVRESERVADO");

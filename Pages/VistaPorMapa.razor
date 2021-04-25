@@ -11,7 +11,8 @@
     {
         <center>
             <div>
-                <a class="btn btn-success" href="/DatosMapa/@id"><i class="fas fa-car"></i> Ver datos del vehículo @marca @modelo</a>
+                <PtoyectoFinal.Pages.DatosMapa @ref="DatosMapa"></PtoyectoFinal.Pages.DatosMapa>
+                <button class="btn btn-success" @onclick="() => DatosMapa.Open()"><i class="fas fa-car"></i> Datos Vehículo @marca @modelo</button>
             </div>
         </center>
         <br />
@@ -44,6 +45,8 @@
 
 @code {
 
+    private PtoyectoFinal.Pages.DatosMapa DatosMapa { get; set; }
+
     //Variable de tipo int que maneja cuanto Zoom tendrá el Mapa
     int zoom = 6;
 
@@ -70,6 +73,11 @@
 
         //Se cargan cada uno de los datos de la Tabla "Vehiculos" a la instancia de lista de la clase "Vehiculos" llamada "VehiculosModel2"
         VehiculosModel2 = await VehiculosManager.ListAll(name);
+    }
+
+    async Task ObtenerIDVehiculo(string id2)
+    {
+        await localStorage.SetItemAsync<string>("ID_VehiculoMapa", id2);
     }
 
     //Metodo que maneja el click del Mapa como evento
@@ -107,6 +115,7 @@
                     color = vehiculo2.Color;
                     año = vehiculo2.Año;
                     foto = vehiculo2.Foto;
+                    ObtenerIDVehiculo(id);
                 }
             }
         }

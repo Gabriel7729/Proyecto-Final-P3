@@ -6,129 +6,234 @@
 @using Microsoft.OData.Edm;
 
 
-<div class="container shadow" style="background-color:white;">
-    
+<RadzenCard>
+    <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
+                <br />
                 <h1><strong>Administrador de Reservas</strong></h1>
-                
                 <hr />
+
                 @if (ExistSelect)
                 {
-                    <button class="btn btn-primary" @onclick="@SelectVehiculo">Selecionar Vehiculo</button>
+                    <button class="btn btn-info" @onclick="@SelectVehiculo"><i class="fas fa-car"></i> Selecionar Vehiculo</button>
                 }
                 @if (ExistSelectC)
                 {
-                    <button class="btn btn-primary" @onclick="@SelectCliente">Selecionar Cliente</button>
+                    <button class="btn btn-info" @onclick="@SelectCliente"><i class="far fa-user-circle"></i> Selecionar Cliente</button>
                 }
                 <br />
-                <center
-            <div class="row shadow" style="background-color:white">
+                <center>
+                    <div class="row">
 
 
-                <div class="col-md-4 rounded" style="padding-left:15px;height:24rem;padding-top:20px">
-                    @if (ExistSelect == false)
-                    {
-                        <div class="border shadow rounded text-left" style="width: 18rem;">
+                        <div class="col-md-4 rounded" style="padding-left:15px;height:24rem;padding-top:20px;height:25rem">
+                            @if (ExistSelect == false)
+                            {
+                                <div class="border shadow rounded text-left" style="width: 18rem;">
 
-                            <div class="card-body ">
-                                <h5 class="card-title">@Marca @Modelo - @Year</h5>
+                                    <div class="card-body ">
+                                        <h5 class="card-title">@Marca @Modelo - @Year</h5>
+                                        <br />
+                                        <span><strong>Color:</strong> @Color</span> <br />
+                                        <span><strong>Tipo:</strong>@Tipo</span> <br />
+                                        <span><strong>Carga: </strong>@Carga</span> <br />
+                                        <span><strong>NO. pasajeros: </strong> @Pasagero</span> <br />
+                                        <span><strong>Matricula: </strong>  @Matricula</span> <br />
+                                        <span><strong>NO. seguro: </strong> @Nseguro</span> <br />
+                                        <span><strong>Precio: </strong>RD$ @Precio</span> <br /><br /><br /><br />
+
+                                        <button class="btn btn-info btn-block" @onclick="@SelectVehiculo">Cambiar Vehiculo</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="col-md-4" style="padding-left:15px;height:24rem;padding-top:20px">
+                            <div class="border shadow rounded" style="padding-top:20px; height:24rem">
                                 <br />
-                                <span><strong>Color:</strong> @Color</span> <br />
-                                <span><strong>Tipo:</strong>@Tipo</span> <br />
-                                <span><strong>Carga: </strong>@Carga</span> <br />
-                                <span><strong>NO. pasajeros: </strong> @Pasagero</span> <br />
-                                 <span><strong>Matricula: </strong>  @Matricula</span> <br />
-                                  <span><strong>NO. seguro: </strong> @Nseguro</span> <br /><br />
-                                <div class="text-center alert alert-warning">RD$: @Precio</div> <br />
-                                <button class="btn btn-info btn-block" @onclick="@SelectVehiculo">Cambiar Vehiculo</button>
+                                <div class="container">
+                                    <form>
+                                        <label>Fecha de inicio</label>
+                                        <input class="form-control" type="date" @bind-value="INC" />
+
+                                        <label>Fecha de Fin</label>
+                                        <input class="form-control" type="date" @bind-value="FIN" />
+                                    </form>
+                                    @if (errorFecha)
+                                    {
+                                        <br />
+                                        <div class="alert alert-warning text-center pt-2">La fecha seleccionada para este auto no esta disponible</div>
+                                    }
+                                    @if (Confirmada)
+                                    {
+                                        <br />
+                                        <div class="alert alert-success text-center pt-2">Reserva Registrada con exito</div>
+                                    }
+                                    @if (NoPermitirMasMes)
+                                    {
+                                        <br />
+                                        <div class="alert alert-warning text-center pt-2">No se puede reserva un vehículo por más de un mes.</div>
+                                    }
+                                    @if (NoPermitirMasAño)
+                                    {
+                                        <br />
+                                        <div class="alert alert-warning text-center pt-2">No se puede reserva un vehículo por un año.</div>
+                                    }
+                                    <br />
+                                    <button class="btn btn-primary btn-block" @onclick="@Guardar">Confirmar Alquiler</button>
+                                </div>
+
                             </div>
                         </div>
-                    }
-                    </div>
-                <div class="col-md-4" style="padding-left:15px;height:24rem;padding-top:20px">
-                    <div class="border shadow rounded" style="padding-top:20px; height:24rem">
-                        <br />
-                        <div class="container">
-                            <form>
-                                <label>Fecha de inicio</label>
-                                <input class="form-control" type="date" @bind-value="INC" />
 
-                                <label>Fecha de Fin</label>
-                                <input class="form-control" type="date" @bind-value="FIN" />
-                            </form>
-                            @if (errorFecha)
+                        <div class="col-md-4 rounded" style="padding-top:20px;padding-bottom:20px;width:18rem;">
+                            @if (ExistSelectC == false)
                             {
-                                <div class="alert alert-warning text-center pt-2">La fecha seleccionada para este auto no esta disponible</div>
+                                <div class="border shadow rounded text-left" style="width: 18rem;height:24.5rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title float-lg-none"><strong>@Nombre @Apellido</strong></h5>
+                                        <br />
+                                        <span><strong>Cedula: </strong>@cedula</span> <br />
+                                        <span><strong>Licencia: </strong> @Licencia</span><br />
+                                        <span><strong>Tipo de sangre: </strong> @Sangre</span> <br />
+                                        <span><strong>Nacionalidad: </strong> @Nacionalidad</span> <br />
+                                        <span><strong>Email: </strong>@Correo</span> <br /><br /><br /><br />
+
+                                        <button class="btn btn-info btn-block" @onclick="@SelectCliente">Cambiar Cliente</button>
+                                    </div>
+                                </div>
                             }
-                            @if (Confirmada)
-                            {
-                                <div class="alert alert-success text-center pt-2">Reserva Registrada con exito</div>
-                            }
-                            <button class="btn btn-primary btn-block" @onclick="@Guardar">Confirmar Alquiler</button>
                         </div>
 
+
                     </div>
-                </div>
-
-
-
-
-            <div class="col-md-4 rounded" style="padding-top:20px;padding-bottom:20px;width:18rem">
-                @if (ExistSelectC == false)
-                {
-                    <div class="border shadow rounded text-left" style="width: 18rem;height:24rem">
-                        <div class="card-body">
-                            <h5 class="card-title float-lg-none"><strong>@Nombre @Apellido</strong></h5>
-                            <br />
-                            <span><strong>Cedula: </strong>@cedula</span> <br />
-                            <span><strong>Licencia: </strong> @Licencia</span>
-                            <br />
-                            <span><strong>Tipo de sangre: </strong> @Sangre</span> <br />
-                            <span><strong>Nacionalidad: </strong> @Nacionalidad</span> <br />
-
-                            <span class="float-left"><strong>Email: </strong>@Correo</span> <br />
-                            <button class="btn btn-info btn-block" @onclick="@SelectCliente">Cambiar Vehiculo</button>
-                        </div>
-                    </div>
-                }
-                </div>
-
-
+                </center>
             </div>
-            </center>
-            </div>
-            
+
         </div>
-
         <br />
         @if (Confirmada)
-
         {
-            <div class="container">
+            <br /><br />
+            <RadzenCard>
+                <div class="container">
 
-                <br />
-                <div class="text-center">
-                    <h4 class="alert alert-info">Detalles de Facturacion</h4>
-                </div>
-                <div style="background-color:white;padding-top:10px;padding-left:10px;padding-bottom:10px;padding-right:20px" class="rounded shadow">
-                    <strong>Factura a Nombre de : @Nombre @Apellido</strong>
-                    <p>
-                        @Nombre @Apellido de nacionalidad @Nacionalidad Alquilara un vehiculo Marca @Marca y modelo @Modelo Desde el dia <strong style="color:red">@INC</strong> hasta <strong style="color:red">@FIN</strong> <br />
-
-                        por un costo de @MontoP, Que tiene una capacidad de carga de @Carga KG y espacio para @Pasagero pasajeros.
-                    </p>
                     <br />
-                    <strong>Datos del cliente:</strong>
-                    <p>Correo:@Correo</p>
-                    <p>Tipo de sangre:@Tipo</p>
-                    <p>Cedula:@cedula</p>
-                    <p>Licencia:@cedula</p>
-                </div>
-            </div>
-        }
-    </div>
 
+                    <div class="text-center">
+                        <h4 class="alert alert-info">Detalles de Facturacion</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 style="color:black;">Rapid <span style="color:orangered;">Car</span></h1>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <h1>FACTURA</h1>
+                            <h1><small>Factura #001</small></h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>De:</strong> Rapid <strong>Car</strong> Company
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Dirección: </strong>Solana Beach, California</p>
+                                    <p class="card-text"><strong>Correo: </strong>equiposuperE@gmail.com</p>
+                                    <p class="card-text"><strong>Teléfono: </strong>809-876-9855</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>Para:</strong> @Nombre @Apellido
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Cedula: </strong>@cedula</p>
+                                    <p class="card-text"><strong>Correo: </strong>@Correo</p>
+                                    <p class="card-text"><strong>Nacionalidad: </strong>@Nacionalidad</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <h3><strong>Detalles del vehiculo de la Factura</strong></h3>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>
+                                        <h4>Vehiculo</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Tipo</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Color</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Fecha de Inicio</h4>
+                                    </th>
+                                    <th>
+                                        <h4>Fecha Fin</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Marca @Modelo</td>
+                                    <td>@Tipo</td>
+                                    <td>@Color</td>
+                                    <td>@INC</td>
+                                    <td>@FIN</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br />
+
+                    <div class="row text-right">
+                        <div class="col-md-10">
+                            <strong>
+                                Sub Total:
+                                <br />
+                                Total:
+                            </strong>
+                        </div>
+                        <div class="col-md-2">
+                            <strong>
+                                @MontoP.ToString("C", new CultureInfo("es-DO"))
+                                <br />
+                                @MontoP.ToString("C", new CultureInfo("es-DO"))
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </RadzenCard>
+        }
+
+    </div>
+</RadzenCard>
 
 @code{
 
@@ -139,8 +244,8 @@
     Date FIN;
     bool errorFecha = false;
     bool Confirmada = false;
-  
-
+    bool NoPermitirMasMes = false;
+    bool NoPermitirMasAño = false;
 
 
     //Datos del Vehiculo
@@ -248,6 +353,19 @@
         int MontoPagar = (FIN.Day + 1 - INC.Day) * Convert.ToInt32(Precio);
         MontoP = MontoPagar;
 
+        int MesValidacion = (FIN.Month - INC.Month);
+        if (MesValidacion > 0)
+        {
+            NoPermitirMasMes = true;
+            return;
+        }
+
+        int AñoValidacion = (FIN.Year - INC.Year);
+        if (AñoValidacion > 0)
+        {
+            NoPermitirMasAño = true;
+            return;
+        }
 
         //await ReservaManager.Agregar(reserva);
 
@@ -267,17 +385,23 @@
         factura.Matricula = Matricula;
         factura.pago = 1;
 
-        int ValidadoFehca = await ReservaManager.ValidadFecha(INC.ToString(), FIN.ToString(), ID_Institucion,ID_V);
+        int ValidadoFehca = await ReservaManager.ValidadFecha(INC.ToString(), FIN.ToString(), ID_Institucion, ID_V);
         if (ValidadoFehca != 0)
         {
             errorFecha = true;
             return;
         }
+        else
+        {
+            NoPermitirMasMes = false;
+            errorFecha = false;
+            NoPermitirMasAño = false;
+        }
         //Obtines lo que tiene el vehiculo generado y suma lo actual
         int IDV = await localStorage.GetItemAsync<int>("VID");
         int GENERADO = await localStorage.GetItemAsync<int>("VGENERADO");
         int TotalGenerado = (GENERADO + MontoP);
-        await VehiculosManager.Generado(IDV,TotalGenerado);
+        await VehiculosManager.Generado(IDV, TotalGenerado);
 
         //Obtiene las veces generado y le suma una vez mas
         int Reservado = await localStorage.GetItemAsync<int>("VVRESERVADO");

@@ -138,7 +138,6 @@
     protected override async Task OnInitializedAsync()
     {
         //Se obtiene el ID por medio del LocalStorage
-        TipoDelVehiculo = vehiculo.Tipo;
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
         vehiculo.ID_Institucion = name;
         vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), vehiculo.ID_Institucion);
@@ -147,26 +146,36 @@
     //Metodo para actualizar los vehiculos
     protected async Task UpdateVehiculos()
     {
-        
+
 
         //If, para validar los campos de los inputs
         if (vehiculo.Marca == null || vehiculo.Marca == "" ||
-            vehiculo.Modelo == null || vehiculo.Marca == "" || 
-            vehiculo.Año == null ||vehiculo.Año == "" ||
+            vehiculo.Modelo == null || vehiculo.Marca == "" ||
+            vehiculo.Año == null || vehiculo.Año == "" ||
             vehiculo.Color == null || vehiculo.Color == "" ||
             vehiculo.Precio_Dia == 0 ||
-            vehiculo.Tipo == "-- Sin seleccionar --" || 
-            vehiculo.Capacidad_Carga == 0 || 
+            vehiculo.Tipo == "-- Sin seleccionar --" ||
+            vehiculo.Capacidad_Carga == 0 ||
             vehiculo.Matricula == null || vehiculo.Matricula == "" ||
-            vehiculo.No_Seguro == null ||  vehiculo.No_Seguro == "" ||
+            vehiculo.No_Seguro == null || vehiculo.No_Seguro == "" ||
             vehiculo.Foto == null || vehiculo.Foto == "" ||
-            vehiculo.Latitud == 0 || 
+            vehiculo.Latitud == 0 ||
             vehiculo.Longitud == 0)
         {
             MensajeError = "Todos los campos son necesarios...";
             ValidarInputs = true;
             return;
         }
+
+        if (TipoDelVehiculo == "-- Sin seleccionar --")
+        {
+            TipoDelVehiculo = vehiculo.Tipo;
+        }
+        else
+        {
+            vehiculo.Tipo = TipoDelVehiculo;
+        }
+
         await VehiculosManager.Update(vehiculo);
         navigationManager.NavigateTo("/CRUDVehiculos");
     }

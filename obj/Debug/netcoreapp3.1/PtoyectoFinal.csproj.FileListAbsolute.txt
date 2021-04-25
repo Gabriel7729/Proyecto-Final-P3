@@ -1469,3 +1469,5 @@ C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\obj\Debug\netcorea
 C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\PtoyectoFinal.genruntimeconfig.cache
 C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\PorFecha.razor.g.cs
 C:\Users\LUIS ANTONIO DE AZA\Desktop\commit\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\PorFecha.razor.g.cs
+C:\Users\Lusan\Downloads\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\PorFecha.razor.g.cs
+C:\Users\Lusan\Downloads\Proyecto-Final-P3\obj\Debug\netcoreapp3.1\Razor\Pages\PorFecha.razor.g.cs

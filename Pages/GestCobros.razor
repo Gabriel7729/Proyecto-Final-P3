@@ -60,7 +60,7 @@
             }
             <td>
                 @cliente.Tipo
-                @cliente.Marca <br />
+                @cliente.Marca<br />
                 @cliente.Matricula <br />
 
             </td>
@@ -93,7 +93,8 @@
         <div class="col-md-4 shadow border rounded" style="background-color:aquamarine; padding-top:10px">
             <h5 class="text-center">@Nombre @Apellido debe un total de @valor</h5>
             <label>Monto a pagar</label>
-            <input @bind-value="@ValoPagado" class="form-check form-control" />
+            <input type="number" @bind-value="@ValoPagado" class="form-check form-control" />
+
             <br />
             @if (ValoPagado <= valor)
             {

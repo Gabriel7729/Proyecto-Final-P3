@@ -56,6 +56,13 @@ namespace PtoyectoFinal.Concrete
             return vehiculos;
         }
 
+        public Task<List<Vehiculos>> ListarVehiculosMapaModal(string id_institucion, string id_vehiculo)
+        {
+            var vehiculos = Task.FromResult(_dapperManager.GetAll<Vehiculos>
+                ($"SELECT * FROM [Vehiculos] WHERE ID_Institucion = '{id_institucion}' AND ID = '{id_vehiculo}' AND Estado = 'Habilitado'", null, commandType: CommandType.Text));
+            return vehiculos;
+        }
+
         public Task<List<Factura>> ListarReservasVehiculo(string id_institucion, string id_vehiculo)
         {
             var reservavehiculo = Task.FromResult(_dapperManager.GetAll<Factura>

@@ -122,8 +122,6 @@
     //Metodo para actualizar los clientes
     protected async Task UpdateClientes()
     {
-        cliente.Tipo_Sangre = TipoSangre;
-        cliente.Licencia = TipoLicencia;
 
         //if para validar si cada uno de los inputs o de los campos estan llenos y no se estan pasando nulls
         if (cliente.Cedula == null || cliente.Cedula == "" ||
@@ -137,11 +135,23 @@
             cliente.Foto_Licencia == null || cliente.Foto_Licencia == ""
             )
         {
-           
+
 
             ValidarInputs = true;
             return;
         }
+
+        if (TipoSangre == "-- Sin seleccionar --" || TipoLicencia == "-- Sin seleccionar --")
+        {
+            TipoSangre = cliente.Tipo_Sangre;
+            TipoLicencia = cliente.Licencia;
+        }
+        else
+        {
+            cliente.Tipo_Sangre = TipoSangre;
+            cliente.Licencia = TipoLicencia;
+        }
+
         await ClientesManager.Update(cliente);
         navigationManager.NavigateTo("/CRUDClientes");
     }

@@ -1,4 +1,4 @@
-﻿@page "/DatosMapa/{ID}"
+﻿@page "/DatosMapa"
 @inject IVehiculosManager VehiculosManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject Radzen.DialogService dialogService
@@ -102,68 +102,115 @@
         }
 </style>
 
-<RadzenCard>
-    <div class="row">
-        <a class="btn btn-primary" href='/VistaPorMapa'><i class="fas fa-backward"></i>  Volver atrás</a>
-    </div>
-    <br />
-    <div class="container">
-        <h3 class="text-center">Datos del @vehiculo.Marca @vehiculo.Modelo</h3>
-        <div class="container" style="width:30rem;">
-            <div class="row" id="ads">
-                <center>
-                    <div class="card rounded">
-                        <div class="card-image">
-                            <span class="card-notify-badge">@vehiculo.Marca @vehiculo.Modelo</span>
-                            <span class="card-notify-year">@vehiculo.Año</span>
-                            <img class="img-fluid" style="width:60rem; height:18.5rem;" src="@vehiculo.Foto" alt="Alternate Text" />
-                        </div>
-                        <br />
-                        <div class="card-image-overlay m-auto">
-                            <span class="card-detail-badge">@vehiculo.Color</span>
-                        </div>
-                        <br />
-                    </div>
-                    <br />
-                    <h3 class="text-center"><strong>Próximas tres citas</strong></h3>
-                    @if (ReservaModel == null)
-                    {
-                        //Variable para que se muestre si se pasaron valores nullos a la instancia.
-                        MensajeNull = "Error";
-                    }
-                    else
-                    {
-                        foreach (var factura in ReservaModel)
-                        {
-                            if (factura.Fecha_Inc == "" && factura.Fecha_Fin == "")
-                            {
-                                <p><strong>No tiene citas...</strong></p>
-                            }
-                            else
-                            {
-                                count += 1;
-                                <p><strong>Cita @count: </strong>@factura.Fecha_Inc - @factura.Fecha_Fin</p>
-                            }
+<div class="modal @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @if (VehiculosModel == null)
+            {
 
-                        }
-                    }
-                </center>
-            </div>
+            }
+            else
+            {
+                foreach (var vehiculo in VehiculosModel)
+                {
+                    <div class="modal-body">
+                        <div class="container" style="width:30rem;">
+                            <div class="row" id="ads">
+                                <center>
+                                    <div class="card rounded">
+                                        <div class="card-image">
+                                            <span class="card-notify-badge">@vehiculo.Marca @vehiculo.Modelo</span>
+                                            <span class="card-notify-year">@vehiculo.Año</span>
+                                            <img class="img-fluid" style="width:55rem; height:15rem;" src="@vehiculo.Foto" alt="Alternate Text" />
+                                        </div>
+                                        <br />
+                                        <div class="card-image-overlay m-auto">
+                                            <span class="card-detail-badge">@vehiculo.Color</span>
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <br />
+                                    <h3 class="text-center"><strong>Próximas tres citas</strong></h3>
+                                    @if (ReservaModel == null)
+                                    {
+                                        //Variable para que se muestre si se pasaron valores nullos a la instancia.
+                                        MensajeNull = "Error";
+                                    }
+                                    else
+                                    {
+                                        foreach (var factura in ReservaModel)
+                                        {
+                                            if (factura.Fecha_Inc == "" && factura.Fecha_Fin == "")
+                                            {
+                                                <p><strong>No tiene citas...</strong></p>
+                                            }
+                                            else
+                                            {
+
+                                                count += 1;
+                                                <p><strong>Cita @count: </strong>@factura.Fecha_Inc - @factura.Fecha_Fin</p>
+                                            }
+
+                                        }
+                                    }
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" @onclick="() => Close()">Cerrar</button>
+                    </div>
+                }
+            }
+
         </div>
     </div>
-</RadzenCard>
+</div>
 
+
+@if (ShowBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
 
 @code {
-    [Parameter]
-    public string ID { get; set; }
 
-    int count;
+    public Guid Guid = Guid.NewGuid();
+    public string ModalDisplay = "none;";
+    public string ModalClass = "";
+    public bool ShowBackdrop = false;
+
+    public void Open()
+    {
+        count = 0;
+        ModalDisplay = "block;";
+        ModalClass = "Show";
+        ShowBackdrop = true;
+        OnInitializedAsync();
+        StateHasChanged();
+        OnInitializedAsync();
+    }
+
+    public void Close()
+    {
+        count = 0;
+        ModalDisplay = "none";
+        ModalClass = "";
+        ShowBackdrop = false;
+        OnInitializedAsync();
+        StateHasChanged();
+        OnInitializedAsync();
+    }
+
+    int count = 0;
 
     string MensajeNull;
 
-    //Instancia una lista de la clase de vehiculos
+    //Instancia una lista de la clase de Factura
     List<Factura> ReservaModel;
+
+    //Instancia una lista de la clase de vehiculos
+    List<Vehiculos> VehiculosModel;
 
     //Instancia de la Clase Vehiculo
     Vehiculos vehiculo = new Vehiculos();
@@ -173,10 +220,11 @@
     {
         //Se obtiene el ID por medio del LocalStorage
         String name = await localStorage.GetItemAsync<string>("ID_Institucion");
+        String name2 = await localStorage.GetItemAsync<string>("ID_VehiculoMapa");
 
-        vehiculo = await VehiculosManager.GetById(Convert.ToInt32(ID), name);
-        ReservaModel = await VehiculosManager.ListarReservasVehiculo(name, ID);
+        VehiculosModel = await VehiculosManager.ListarVehiculosMapaModal(name, name2);
 
+        ReservaModel = await VehiculosManager.ListarReservasVehiculo(name, name2);
     }
 
 }
